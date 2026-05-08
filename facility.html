@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学専門 桜灯塾の教室環境をご紹介。天王寺駅から徒歩5分の好立地。自習室は年中無休で開放。個別指導ブース・面談室など集中できる環境を整えています。">
+    <meta name="keywords" content="教室案内,自習室,指導風景,天王寺,大阪公立大学,塾,個別指導">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://www.oubijuku.com/facility.html">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="教室案内・指導風景｜桜灯塾">
+    <meta property="og:description" content="大阪公立大学専門 桜灯塾の教室環境をご紹介。天王寺駅から徒歩5分の好立地。自習室は年中無休で開放。個別指導ブース・面談室など集中できる環境を整えています。">
+    <meta property="og:url" content="https://www.oubijuku.com/facility.html">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://www.oubijuku.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="教室案内・指導風景｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学専門 桜灯塾の教室環境をご紹介。天王寺駅から徒歩5分の好立地。自習室は年中無休で開放。個別指導ブース・面談室など集中できる環境を整えています。">
+    <meta name="twitter:image" content="https://www.oubijuku.com/og-image.jpg">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "教室案内・指導風景｜桜灯塾",
+      "description": "大阪公立大学専門 桜灯塾の教室環境をご紹介。天王寺駅から徒歩5分の好立地。自習室は年中無休で開放。個別指導ブース・面談室など集中できる環境を整えています。",
+      "url": "https://www.oubijuku.com/facility.html",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門 桜灯塾",
+        "url": "https://www.oubijuku.com"
+      }
+    }
+    </script>
+    <title>教室案内・指導風景｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9; 
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            scroll-behavior: smooth;
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin: 1.5rem auto 0;
+        }
+
+        .cta-button {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 10px rgba(229, 0, 127, 0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(229, 0, 127, 0.3);
+            filter: brightness(1.05);
+        }
+
+        .gallery-card {
+            overflow: hidden;
+            border-radius: 2px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-card img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 2.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    </style>
+</head>
+<body>
+
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <a href="index.html" class="flex items-center flex-shrink-0">
+                    <div class="flex flex-col leading-tight">
+                        <div class="text-omu-pink text-xl font-bold tracking-widest">桜灯塾</div>
+                        <div class="text-[10px] font-bold tracking-tight text-omu-dark">大阪公立大学専門</div>
+                    </div>
+                </a>
+                <div class="hidden lg:flex space-x-12 items-center text-[0.9rem] font-bold tracking-widest">
+                    <a href="index.html" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門 桜灯塾とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="policy.html" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="facility.html" class="dropdown-item  text-omu-pink font-bold">教室案内・指導風景</a>
+                            <a href="teacher.html" class="dropdown-item">講師紹介</a>
+                            <a href="voice.html" class="dropdown-item">合格体験記</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="fee.html" class="dropdown-item">料金の考え方</a>
+                            <a href="flow.html" class="dropdown-item">入会までの流れ</a>
+                            <a href="faq.html" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="contact.html" class="bg-omu-pink text-white px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-24">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="index.html" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門 桜灯塾とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="policy.html">指導方針・カリキュラム</a>
+                    <a href="facility.html" class="text-omu-pink font-bold">教室案内・指導風景</a>
+                    <a href="teacher.html">講師紹介</a>
+                    <a href="voice.html">合格体験記</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="fee.html">料金の考え方</a>
+                    <a href="flow.html">入会までの流れ</a>
+                    <a href="faq.html">よくある質問</a>
+                </div>
+            </div>
+            <a href="contact.html" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="contact.html" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ヘッダー -->
+    <header class="bg-omu-light py-24 border-b border-gray-100 text-center">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 tracking-widest text-center">教室案内</h1>
+            <p class="text-gray-600 text-sm text-center text-center">集中力を極限まで高める、<br class="sm:hidden">洗練された学習環境をご案内します。</p>
+        </div>
+    </header>
+
+    <!-- フォトギャラリー -->
+    <main class="py-12 md:py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                
+                <!-- 指導風景 -->
+                <div class="space-y-6 text-left">
+                    <div class="gallery-card shadow-lg">
+                        <img src="img/facility-1.jpg" alt="指導風景">
+                    </div>
+                    <div class="text-left">
+                        <h2 class="text-xl font-bold mb-3 flex items-center text-left">
+                            <span class="w-6 h-[1px] bg-omu-pink mr-3"></span>
+                            指導風景
+                        </h2>
+                        <p class="text-sm text-gray-600 leading-loose text-left">
+                            現役医学部生講師による熱意あふれる指導の様子です。単に答えを教えるのではなく、思考のプロセスを共有し、自学自習の質を高め、大阪公立大学の合格者がもつ常識から外れていないか確認するよう対話を大切にしています。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 個別指導ブース -->
+                <div class="space-y-6 text-left">
+                    <div class="gallery-card shadow-lg">
+                        <img src="img/facility-2.jpg" alt="個別指導ブース">
+                    </div>
+                    <div class="text-left text-left">
+                        <h2 class="text-xl font-bold mb-3 flex items-center text-left text-left">
+                            <span class="w-6 h-[1px] bg-omu-pink mr-3"></span>
+                            個別指導スペース
+                        </h2>
+                        <p class="text-sm text-gray-600 leading-loose text-left text-left">
+                            講師と一対一で向き合い、思考を深めるための半個室ブースです。周囲の視線を気にせず、疑問点をその場で解決できる理想的な環境です。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 自習室 -->
+                <div class="space-y-6 text-left text-left">
+                    <div class="gallery-card shadow-lg">
+                        <img src="img/facility-3.jpg" alt="自習室">
+                    </div>
+                    <div class="text-left text-left text-left">
+                        <h2 class="text-xl font-bold mb-3 flex items-center text-left text-left text-left">
+                            <span class="w-6 h-[1px] bg-omu-pink mr-3"></span>
+                            年中無休の自習室
+                        </h2>
+                        <p class="text-sm text-gray-600 leading-loose text-left text-left text-left">
+                            「勉強し続けられる場所」として、年中無休で開放しています。静寂に包まれた空間は、受験生の集中力を最大限に引き出します。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 面談・相談スペース -->
+                <div class="space-y-6 text-left text-left text-left">
+                    <div class="gallery-card shadow-lg">
+                        <img src="img/facility-4.jpg" alt="面談スペース">
+                    </div>
+                    <div class="text-left text-left text-left text-left">
+                        <h2 class="text-xl font-bold mb-3 flex items-center text-left text-left text-left text-left">
+                            <span class="w-6 h-[1px] bg-omu-pink mr-3"></span>
+                            面談・カウンセリング室
+                        </h2>
+                        <p class="text-sm text-gray-600 leading-loose text-left text-left text-left text-left">
+                            塾長や学生講師と合格ロードマップを策定したり、進路の悩みを相談したりするための専用スペースです。ここから多くの合格戦略が生まれます。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- エントランス -->
+                <div class="space-y-6 text-left text-left text-left text-left">
+                    <div class="gallery-card shadow-lg text-left">
+                        <img src="img/facility-5.jpg" alt="エントランス">
+                    </div>
+                    <div class="text-left text-left text-left text-left text-left">
+                        <h2 class="text-xl font-bold mb-3 flex items-center text-left text-left text-left text-left text-left">
+                            <span class="w-6 h-[1px] bg-omu-pink mr-3"></span>
+                            受付・エントランス
+                        </h2>
+                        <p class="text-sm text-gray-600 leading-loose text-left text-left text-left text-left text-left">
+                            天王寺駅から徒歩5分。ビルの2階へ上がると、清潔感のある受付が皆様をお迎えします。講師と生徒が活発にコミュニケーションを取る明るいエリアです。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-24 p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <p class="text-lg font-bold mb-6 text-center text-center text-center">実際の雰囲気を確認しませんか？</p>
+                <p class="text-sm text-gray-600 mb-10 text-center text-center text-center">
+                    教室見学は随時受け付けております。<br class="sm:hidden">学習環境を直接ご覧いただくことで、<br class="sm:hidden">合格へのイメージをより具体的に。
+                </p>
+                <a href="contact.html" class="inline-block bg-omu-pink text-white font-bold py-5 px-8 md:px-16 rounded-sm shadow-lg cta-button text-sm tracking-[0.3em] w-full sm:w-auto">
+                    教室見学・<br class="sm:hidden">無料体験を予約する
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-omu-pink text-white pt-12 md:pt-24 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-20">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門 桜灯塾とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="policy.html" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="facility.html" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="teacher.html" class="footer-link">講師紹介</a></li>
+                        <li><a href="voice.html" class="footer-link">合格体験記</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="fee.html" class="footer-link">料金の考え方</a></li>
+                        <li><a href="flow.html" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="faq.html" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="contact.html" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="access.html" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">お電話</span>
+                <span class="text-xs font-bold text-white">06-6779-9507</span>
+            </a>
+            <a href="contact.html"
+               class="flex flex-col items-center justify-center gap-1 bg-white text-omu-pink py-3 text-center border-l border-gray-100 active:opacity-70">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-omu-pink">お問い合わせ</span>
+                <span class="text-xs font-bold text-omu-pink">フォームはこちら</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
