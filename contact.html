@@ -226,6 +226,22 @@
     <main class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-4 text-left">
             <div class="bg-white p-8 md:p-12 border border-gray-100 shadow-xl rounded-sm text-left text-left">
+                <!-- 送信完了画面 -->
+                <div id="form-success" class="hidden py-20 text-center">
+                    <div class="mb-8">
+                        <svg class="w-20 h-20 mx-auto mb-6" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="38" stroke="#E5007F" stroke-width="3"/>
+                            <polyline points="22,40 34,52 58,28" stroke="#E5007F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h2 class="text-2xl md:text-3xl font-bold text-omu-dark mb-4">お問い合わせありがとうございます</h2>
+                        <p class="text-gray-600 leading-loose mb-2">内容を確認の上、<strong>3営業日以内</strong>にご連絡いたします。</p>
+                        <p class="text-gray-600 leading-loose mb-8">お急ぎの場合は、下記よりお電話ください。</p>
+                        <a href="tel:0667799507" class="inline-block text-2xl font-bold text-omu-pink mb-2">06-6779-9507</a>
+                        <p class="text-xs text-gray-400">（担当：内田）</p>
+                    </div>
+                    <a href="index.html" class="inline-block mt-8 bg-omu-pink text-white font-bold py-4 px-12 rounded-sm text-sm tracking-widest">トップページへ戻る</a>
+                </div>
+
                 <form id="contact-form" class="space-y-8 text-left text-left">
                     
                     <!-- お名前 -->
@@ -369,10 +385,7 @@
                         <button type="submit" id="submit-btn" class="bg-omu-pink text-white font-bold py-6 px-8 rounded-sm shadow-lg cta-button text-sm w-full sm:w-auto text-center whitespace-nowrap">
                             内容を確認して送信する
                         </button>
-                        <div id="form-success" class="hidden mt-6 p-6 bg-green-50 border border-green-200 rounded-sm text-center">
-                            <p class="text-green-700 font-bold mb-2">✓ 送信が完了しました</p>
-                            <p class="text-sm text-green-600">内容を確認の上、担当者よりご連絡いたします。</p>
-                        </div>
+
                         <div id="form-error" class="hidden mt-6 p-6 bg-red-50 border border-red-200 rounded-sm text-center">
                             <p class="text-red-700 font-bold mb-2">送信に失敗しました</p>
                             <p class="text-sm text-red-600">お手数ですが、お電話にてお問い合わせください。</p>
@@ -569,6 +582,7 @@
     // Google Apps Script へのフォーム送信
     // ================================================
     const GAS_URL = 'YOUR_GAS_WEB_APP_URL_HERE'; // ← デプロイ後にURLを差し替えてください
+    const GAS_READY = GAS_URL !== 'YOUR_GAS_WEB_APP_URL_HERE';
 
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -614,6 +628,13 @@
             message: document.getElementById('message').value.trim()
         };
 
+        if (!GAS_READY) {
+            alert('現在フォームの設定を準備中です。\nお急ぎの場合はお電話（06-6779-9507）にてお問い合わせください。');
+            btn.disabled = false;
+            btn.textContent = '内容を確認して送信する';
+            return;
+        }
+
         try {
             await fetch(GAS_URL, {
                 method: 'POST',
@@ -624,7 +645,9 @@
 
             // 送信完了表示
             document.getElementById('contact-form').style.display = 'none';
-            document.getElementById('form-success').classList.remove('hidden');
+            const successEl = document.getElementById('form-success');
+            successEl.classList.remove('hidden');
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
         } catch (err) {
             btn.disabled = false;
