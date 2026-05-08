@@ -143,6 +143,12 @@
         #mobile-nav.open { transform: translateX(0); }
         .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
         .mobile-accordion-content.active { max-height: 500px; }
+
+        /* 入力エラー時のハイライト */
+        .input-error {
+            border-color: #dc2626 !important;
+            background-color: #fef2f2 !important;
+        }
     </style>
 </head>
 <body>
@@ -242,18 +248,18 @@
                     <a href="index.html" class="inline-block mt-8 bg-omu-pink text-white font-bold py-4 px-12 rounded-sm text-sm tracking-widest">トップページへ戻る</a>
                 </div>
 
-                <form id="contact-form" class="space-y-8 text-left text-left">
+                <form id="contact-form" class="space-y-8 text-left text-left" novalidate>
                     
                     <!-- お名前 -->
                     <div class="text-left text-left text-left">
                         <label class="block text-sm font-bold mb-3 form-label text-left text-omu-dark text-left">生徒様のお名前</label>
-                        <input type="text" id="name" placeholder="例：山田 太郎" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <input type="text" id="name" placeholder="例：山田 太郎" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                     </div>
 
                     <!-- 学年 -->
                     <div class="text-left text-left text-left">
                         <label class="block text-sm font-bold mb-3 form-label text-left text-omu-dark text-left">現在の学年</label>
-                        <select id="grade" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <select id="grade" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                             <option value="">選択してください</option>
                             <option value="high-3">高校3年生</option>
                             <option value="high-2">高校2年生</option>
@@ -266,7 +272,7 @@
                     <!-- 志望学部 -->
                     <div class="text-left text-left text-left text-left">
                         <label class="block text-sm font-bold mb-3 form-label text-left text-omu-dark text-left text-left">志望学部（または検討中の学部）</label>
-                        <select id="department" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <select id="department" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                             <option value="">選択してください</option>
                             <option value="modern-sys">現代システム科学域</option>
                             <option value="lit">文学部</option>
@@ -287,19 +293,19 @@
                     <!-- 電話番号 -->
                     <div class="text-left text-left text-left text-left text-left">
                         <label class="block text-sm font-bold mb-3 form-label text-left text-omu-dark text-left text-left">電話番号</label>
-                        <input type="tel" id="phone" placeholder="例：0667799507" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <input type="tel" id="phone" placeholder="例：0667799507" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                     </div>
 
                     <!-- メール -->
                     <div class="text-left text-left text-left text-left text-left text-left">
                         <label class="block text-sm font-bold mb-3 form-label text-left text-omu-dark text-left text-left text-left">メールアドレス</label>
-                        <input type="email" id="email" placeholder="例：uchida@oubijuku.com" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <input type="email" id="email" placeholder="例：uchida@oubijuku.com" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                     </div>
 
                     <!-- 大阪公立大学専門 桜灯塾を知ったきっかけ -->
                     <div>
                         <label class="block text-sm font-bold mb-3 form-label text-omu-dark">大阪公立大学専門 桜灯塾を知ったきっかけ</label>
-                        <select id="source" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
+                        <select id="source" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm">
                             <option value="">選択してください</option>
                             <option value="google">Google・Yahoo等の検索</option>
                             <option value="instagram">Instagram</option>
@@ -341,8 +347,8 @@
                         <div class="space-y-3">
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-center">
                                 <span class="text-xs font-bold text-omu-pink w-16 flex-shrink-0">第1希望</span>
-                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date1" min="" required>
-                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time1" style="padding-left:1rem; padding-right:2.5rem;" required>
+                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date1" min="">
+                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time1" style="padding-left:1rem; padding-right:2.5rem;">
                                     <option value="">時間帯を選択</option>
                                     <option>10:00〜11:00</option><option>11:00〜12:00</option><option>13:00〜14:00</option>
                                     <option>14:00〜15:00</option><option>15:00〜16:00</option>
@@ -350,8 +356,8 @@
                             </div>
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-center">
                                 <span class="text-xs font-bold text-omu-pink w-16 flex-shrink-0">第2希望</span>
-                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date2" min="" required>
-                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time2" style="padding-left:1rem; padding-right:2.5rem;" required>
+                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date2" min="">
+                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time2" style="padding-left:1rem; padding-right:2.5rem;">
                                     <option value="">時間帯を選択</option>
                                     <option>10:00〜11:00</option><option>11:00〜12:00</option><option>13:00〜14:00</option>
                                     <option>14:00〜15:00</option><option>15:00〜16:00</option>
@@ -359,8 +365,8 @@
                             </div>
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-center">
                                 <span class="text-xs font-bold text-omu-pink w-16 flex-shrink-0">第3希望</span>
-                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date3" min="" required>
-                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time3" style="padding-left:1rem; padding-right:2.5rem;" required>
+                                <input type="date" class="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="date3" min="">
+                                <select class="flex-1 py-3 bg-gray-50 border border-gray-200 rounded-sm outline-none focus:border-omu-pink transition text-sm" id="time3" style="padding-left:1rem; padding-right:2.5rem;">
                                     <option value="">時間帯を選択</option>
                                     <option>10:00〜11:00</option><option>11:00〜12:00</option><option>13:00〜14:00</option>
                                     <option>14:00〜15:00</option><option>15:00〜16:00</option>
@@ -376,7 +382,7 @@
                     <!-- 同意と送信 -->
                     <div class="py-6 border-t border-gray-100 text-center text-center text-center">
                         <div class="mb-6 flex items-start gap-3">
-                            <input type="checkbox" id="privacy" class="mt-1 w-4 h-4 accent-omu-pink flex-shrink-0" required>
+                            <input type="checkbox" id="privacy" class="mt-1 w-4 h-4 accent-omu-pink flex-shrink-0">
                             <label for="privacy" class="text-xs text-gray-600 leading-relaxed">
                                 <a href="#" id="privacy-link" class="text-omu-pink underline hover:opacity-70">個人情報の取り扱い</a>について確認し、同意します。ご入力いただいた情報は、お問い合わせへの回答および教育サービスに関するご案内のみに使用いたします。
                             </label>
@@ -584,45 +590,90 @@
     const GAS_URL = 'https://script.google.com/macros/s/AKfycbxD3-Xrx-FoyJS_SvIH1IEBdEIGGYTQkdsEXTZh1Iq1Z9HG_1vZGrV25whNsHQBgx0t/exec'; // ← デプロイ後にURLを差し替えてください
     const GAS_READY = GAS_URL !== 'YOUR_GAS_WEB_APP_URL_HERE';
 
+    // 入力時にエラーハイライトを解除するヘルパー
+    function clearErrorOnInput(ids) {
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener('input',  () => el.classList.remove('input-error'));
+            el.addEventListener('change', () => el.classList.remove('input-error'));
+        });
+    }
+    clearErrorOnInput([
+        'name','grade','department','phone','email','source',
+        'date1','time1','date2','time2','date3','time3','privacy'
+    ]);
+    // ラジオボタンのエラー解除
+    document.querySelectorAll('input[name="type"]').forEach(r => {
+        r.addEventListener('change', () => {
+            document.querySelectorAll('input[name="type"]').forEach(x => x.classList.remove('input-error'));
+        });
+    });
+
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // バリデーション：必須項目チェック
-        const name = document.getElementById('name').value.trim();
-        const grade = document.getElementById('grade').value;
-        const department = document.getElementById('department').value;
-        const phone = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const source = document.getElementById('source').value;
-        const type = document.querySelector('input[name="type"]:checked')?.value || '';
-        const privacy = document.getElementById('privacy').checked;
+        // 値の取得
+        const nameEl       = document.getElementById('name');
+        const gradeEl      = document.getElementById('grade');
+        const departmentEl = document.getElementById('department');
+        const phoneEl      = document.getElementById('phone');
+        const emailEl      = document.getElementById('email');
+        const sourceEl     = document.getElementById('source');
+        const date1El      = document.getElementById('date1');
+        const time1El      = document.getElementById('time1');
+        const date2El      = document.getElementById('date2');
+        const time2El      = document.getElementById('time2');
+        const date3El      = document.getElementById('date3');
+        const time3El      = document.getElementById('time3');
+        const privacyEl    = document.getElementById('privacy');
 
+        const name        = nameEl.value.trim();
+        const grade       = gradeEl.value;
+        const department  = departmentEl.value;
+        const phone       = phoneEl.value.trim();
+        const email       = emailEl.value.trim();
+        const source      = sourceEl.value;
+        const typeChecked = document.querySelector('input[name="type"]:checked');
+        const type        = typeChecked ? typeChecked.value : '';
+        const privacy     = privacyEl.checked;
+
+        // バリデーション：必須項目を全部チェックして、エラーを集める
         const errors = [];
-        if (!name)       errors.push('・お名前');
-        if (!grade)      errors.push('・現在の学年');
-        if (!department) errors.push('・志望学部');
-        if (!phone)      errors.push('・電話番号');
-        if (!email)      errors.push('・メールアドレス');
-        if (!source)     errors.push('・桜灯塾を知ったきっかけ');
-        if (!type)       errors.push('・お問い合わせ種類');
-        const date1val = document.getElementById('date1').value;
-        const time1val = document.getElementById('time1').value;
-        const date2val = document.getElementById('date2').value;
-        const time2val = document.getElementById('time2').value;
-        const date3val = document.getElementById('date3').value;
-        const time3val = document.getElementById('time3').value;
-        if (!date1val)   errors.push('・ご面談希望日時（第1希望・日付）');
-        if (!time1val)   errors.push('・ご面談希望日時（第1希望・時間帯）');
-        if (!date2val)   errors.push('・ご面談希望日時（第2希望・日付）');
-        if (!time2val)   errors.push('・ご面談希望日時（第2希望・時間帯）');
-        if (!date3val)   errors.push('・ご面談希望日時（第3希望・日付）');
-        if (!time3val)   errors.push('・ご面談希望日時（第3希望・時間帯）');
-        if (errors.length > 0) {
-            alert('以下の必須項目を入力してください。\n\n' + errors.join('\n'));
-            return;
+        const errorEls = []; // エラー対象のDOM（ハイライト用）
+
+        if (!name)        { errors.push('・お名前');                                  errorEls.push(nameEl); }
+        if (!grade)       { errors.push('・現在の学年');                              errorEls.push(gradeEl); }
+        if (!department)  { errors.push('・志望学部');                                errorEls.push(departmentEl); }
+        if (!phone)       { errors.push('・電話番号');                                errorEls.push(phoneEl); }
+        if (!email)       { errors.push('・メールアドレス');                          errorEls.push(emailEl); }
+        if (!source)      { errors.push('・桜灯塾を知ったきっかけ');                  errorEls.push(sourceEl); }
+        if (!type)        {
+            errors.push('・お問い合わせ種類');
+            document.querySelectorAll('input[name="type"]').forEach(r => r.classList.add('input-error'));
         }
-        if (!privacy) {
-            alert('個人情報の取り扱いへの同意にチェックを入れてください。');
+
+        // ご面談希望日時（必須）
+        if (!date1El.value) { errors.push('・ご面談希望日時（第1希望・日付）');     errorEls.push(date1El); }
+        if (!time1El.value) { errors.push('・ご面談希望日時（第1希望・時間帯）');   errorEls.push(time1El); }
+        if (!date2El.value) { errors.push('・ご面談希望日時（第2希望・日付）');     errorEls.push(date2El); }
+        if (!time2El.value) { errors.push('・ご面談希望日時（第2希望・時間帯）');   errorEls.push(time2El); }
+        if (!date3El.value) { errors.push('・ご面談希望日時（第3希望・日付）');     errorEls.push(date3El); }
+        if (!time3El.value) { errors.push('・ご面談希望日時（第3希望・時間帯）');   errorEls.push(time3El); }
+
+        // 個人情報同意
+        if (!privacy) { errors.push('・個人情報の取り扱いへの同意');                  errorEls.push(privacyEl); }
+
+        if (errors.length > 0) {
+            // エラー対象をハイライト
+            errorEls.forEach(el => el && el.classList.add('input-error'));
+            // 最初のエラー要素までスクロール＆フォーカス
+            const firstError = errorEls.find(el => el);
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => { try { firstError.focus(); } catch(_) {} }, 300);
+            }
+            alert('以下の必須項目を入力してください。\n\n' + errors.join('\n'));
             return;
         }
 
@@ -639,12 +690,12 @@
             email,
             source,
             type,
-            date1: document.getElementById('date1').value,
-            time1: document.getElementById('time1').value,
-            date2: document.getElementById('date2').value,
-            time2: document.getElementById('time2').value,
-            date3: document.getElementById('date3').value,
-            time3: document.getElementById('time3').value,
+            date1: date1El.value,
+            time1: time1El.value,
+            date2: date2El.value,
+            time2: time2El.value,
+            date3: date3El.value,
+            time3: time3El.value,
             message: document.getElementById('message').value.trim()
         };
 
