@@ -1,0 +1,22 @@
+{
+  "name": "大阪公立大学専門 桜灯塾",
+  "short_name": "桜灯塾",
+  "description": "大阪公立大学合格に特化した個別指導塾。現役医学部生講師30名以上が在籍し、推薦・一般入試の両方に対応。",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#E5007F",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "ja"
+}
