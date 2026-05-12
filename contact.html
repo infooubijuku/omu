@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
 
     <!-- ファビコン -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -108,6 +109,37 @@
         
         input[type="radio"], select {
             accent-color: var(--omu-primary);
+        }
+
+        /* input[type="date"] のSafari (iOS) 向け正規化
+           - iOS Safariは独自スタイルで高さが揃わない・appearanceが効きにくいため明示 */
+        input[type="date"] {
+            -webkit-appearance: none;
+            appearance: none;
+            min-height: 46px;            /* 他の入力欄と高さを揃える */
+            line-height: 1.4;
+            font-family: inherit;
+            font-size: 0.875rem;          /* text-sm相当 */
+            color: var(--omu-dark);
+            background-color: #F9FAFB;    /* bg-gray-50相当 */
+            display: block;
+        }
+        /* iOS Safariで未入力時に色が薄くなりすぎないように */
+        input[type="date"]:invalid,
+        input[type="date"]:not([value]) {
+            color: #9CA3AF;
+        }
+        input[type="date"]:focus,
+        input[type="date"]:valid {
+            color: var(--omu-dark);
+        }
+        /* カレンダーアイコン領域のタップ範囲を広げる */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
         }
 
         /* セレクトボックスの矢印装飾 */
@@ -334,6 +366,7 @@
                     <div>
                         <label class="block text-sm font-bold mb-3 form-label text-omu-dark">ご面談可能日時（第1〜第3希望）</label>
                         <p class="text-xs text-gray-400 mb-4">平日10:00〜16:00の中から、ご都合のよい時間帯をお選びください。</p>
+                        <p id="date-error" class="hidden text-xs text-red-600 font-bold mb-3" role="alert" aria-live="polite"></p>
                         <div class="space-y-3">
                             <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-center">
                                 <span class="text-xs font-bold text-omu-pink w-16 flex-shrink-0">第1希望</span>
@@ -381,6 +414,9 @@
                         <button type="submit" id="submit-btn" class="bg-omu-pink text-white font-bold py-6 px-8 rounded-sm shadow-lg cta-button text-sm w-full sm:w-auto text-center whitespace-nowrap">
                             内容を確認して送信する
                         </button>
+                        <div id="form-validation-error" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-sm" role="alert" aria-live="polite">
+                            <p class="text-sm text-red-700 font-bold"><span aria-hidden="true">⚠ </span><span id="form-validation-error-text"></span></p>
+                        </div>
                         <div id="form-success" class="hidden mt-6 p-6 bg-green-50 border border-green-200 rounded-sm text-center">
                             <p class="text-green-700 font-bold mb-2">✓ 送信が完了しました</p>
                             <p class="text-sm text-green-600">内容を確認の上、担当者よりご連絡いたします。</p>
@@ -481,26 +517,54 @@
                 d.setDate(d.getDate() + 1);
             }
             const minStr = d.toISOString().split('T')[0];
+            const errorEl = document.getElementById('date-error');
+
+            // エラーメッセージ表示/非表示のヘルパー
+            function showError(msg) {
+                if (!errorEl) return;
+                errorEl.textContent = '⚠ ' + msg;
+                errorEl.classList.remove('hidden');
+            }
+            function clearError() {
+                if (!errorEl) return;
+                errorEl.textContent = '';
+                errorEl.classList.add('hidden');
+            }
+
+            // 全ての日付入力欄の状態を再評価してエラーを表示/非表示
+            function validateAll() {
+                const ids = ['date1','date2','date3'];
+                const min = new Date(minStr + 'T00:00:00');
+                let firstError = '';
+                for (const id of ids) {
+                    const input = document.getElementById(id);
+                    if (!input || !input.value) continue;
+                    const selected = new Date(input.value + 'T00:00:00');
+                    if (selected < min) {
+                        firstError = '最短でご予約可能な日は明後日以降の平日となります。';
+                        break;
+                    }
+                    if (selected.getDay() === 0 || selected.getDay() === 6) {
+                        firstError = '土日はご面談をお受けしておりません。平日をお選びください。';
+                        break;
+                    }
+                }
+                if (firstError) {
+                    showError(firstError);
+                } else {
+                    clearError();
+                }
+            }
 
             ['date1','date2','date3'].forEach(id => {
                 const input = document.getElementById(id);
                 if (!input) return;
                 // min属性をセット（カレンダーUIで過去・本日・明日がグレーアウトされる）
                 input.setAttribute('min', minStr);
-                input.addEventListener('change', function() {
-                    if (!this.value) return;
-                    const selected = new Date(this.value + 'T00:00:00');
-                    const min = new Date(minStr + 'T00:00:00');
-                    if (selected < min) {
-                        this.value = '';
-                        alert('最短でご予約可能な日は明後日以降となります。');
-                        return;
-                    }
-                    if (selected.getDay() === 0 || selected.getDay() === 6) {
-                        this.value = '';
-                        alert('土日はご面談をお受けしておりません。平日をお選びください。');
-                    }
-                });
+                // change時に再検証（値の確定をiOS/Androidとも捕捉）
+                input.addEventListener('change', validateAll);
+                // blur時にも再検証（iOSピッカーを閉じた時の保険）
+                input.addEventListener('blur', validateAll);
             });
         })();
     </script>
@@ -554,6 +618,14 @@
 
     <style>
         #privacy-modal.is-open { display: flex; }
+        /* iOS Safariでも効くスクロールロック */
+        body.modal-open {
+            position: fixed;
+            left: 0;
+            right: 0;
+            width: 100%;
+            overflow: hidden;
+        }
     </style>
 
     <script>
@@ -564,14 +636,28 @@
         const closeBtnBot  = document.getElementById('modal-close-btn');
         const privacyLink  = document.getElementById('privacy-link');
 
-        function openModal()  { modal.classList.add('is-open');    document.body.style.overflow = 'hidden'; }
-        function closeModal() { modal.classList.remove('is-open'); document.body.style.overflow = ''; }
+        // 開いた時のスクロール位置を保持（閉じた時に復元）
+        let savedScrollY = 0;
+
+        function openModal()  {
+            savedScrollY = window.scrollY || window.pageYOffset || 0;
+            modal.classList.add('is-open');
+            document.body.style.top = `-${savedScrollY}px`;
+            document.body.classList.add('modal-open');
+        }
+        function closeModal() {
+            modal.classList.remove('is-open');
+            document.body.classList.remove('modal-open');
+            document.body.style.top = '';
+            // 元のスクロール位置に戻す
+            window.scrollTo(0, savedScrollY);
+        }
 
         if (privacyLink) privacyLink.addEventListener('click', function(e) { e.preventDefault(); openModal(); });
         if (closeBtn)    closeBtn.addEventListener('click', closeModal);
         if (closeBtnBot) closeBtnBot.addEventListener('click', closeModal);
         if (overlay)     overlay.addEventListener('click', closeModal);
-        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
     </script>
 
 
@@ -585,6 +671,20 @@
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // インラインバリデーションエラー表示のヘルパー
+        const validationError    = document.getElementById('form-validation-error');
+        const validationErrorTxt = document.getElementById('form-validation-error-text');
+        function showValidationError(msg) {
+            validationErrorTxt.textContent = msg;
+            validationError.classList.remove('hidden');
+            // エラー位置までスクロール（iOS Safariでも確実に動く）
+            validationError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function clearValidationError() {
+            validationErrorTxt.textContent = '';
+            validationError.classList.add('hidden');
+        }
+
         // バリデーション：必須項目チェック
         const name = document.getElementById('name').value.trim();
         const grade = document.getElementById('grade').value;
@@ -596,13 +696,14 @@
         const privacy = document.getElementById('privacy').checked;
 
         if (!name || !grade || !department || !phone || !email || !source || !type) {
-            alert('必須項目をすべてご入力・選択ください。');
+            showValidationError('必須項目をすべてご入力・選択ください。');
             return;
         }
         if (!privacy) {
-            alert('個人情報の取り扱いへの同意が必要です。');
+            showValidationError('個人情報の取り扱いへの同意が必要です。');
             return;
         }
+        clearValidationError();
 
         // 送信ボタンを無効化
         const btn = document.getElementById('submit-btn');
