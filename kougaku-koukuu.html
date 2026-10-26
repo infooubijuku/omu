@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学 工学部 航空宇宙工学科の入試を、大学の2027年度要項で整理。2つの入口（前期・中期）の配点・日程と、2026年度の合格最低点を掲載。大阪公立大学専門 桜灯塾（天王寺）。">
+    <meta name="keywords" content="航空宇宙工学科,工学部,大阪公立大学,個別指導,天王寺,桜灯塾,大学受験">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/kougaku-koukuu">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="工学部 航空宇宙工学科の入試情報｜桜灯塾">
+    <meta property="og:description" content="大阪公立大学 工学部 航空宇宙工学科の入試を、大学の2027年度要項で整理。配点・2つの入口・2026年度の合格最低点を掲載しています。">
+    <meta property="og:url" content="https://oubijuku-omu.com/kougaku-koukuu">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="工学部 航空宇宙工学科の入試情報｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学 工学部 航空宇宙工学科の入試を、大学の2027年度要項で整理。配点・2つの入口・2026年度の合格最低点を掲載しています。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "工学部 航空宇宙工学科の入試情報｜桜灯塾",
+      "description": "大阪公立大学 工学部 航空宇宙工学科の入試情報を、配点・日程・合格最低点から整理しました。大阪公立大学専門 桜灯塾（天王寺）の学部別ページです。",
+      "url": "https://oubijuku-omu.com/kougaku-koukuu",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>工学部 航空宇宙工学科の入試情報｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none">桜灯塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden sm:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex space-x-12 items-center text-[0.9rem] font-bold tracking-widest">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                            <a href="/voice" class="dropdown-item">合格体験記</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                    <a href="/voice">合格体験記</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-20 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">工学部 航空宇宙工学科の入試情報</h1>
+        <p class="text-gray-600 text-sm text-center">配点・2つの入口・合格最低点を、大学の要項で整理しました</p>
+    </header>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">航空宇宙工学科の入口は2つ</h2>
+    <p class="max-w-3xl mx-auto mb-12 text-gray-600 font-medium leading-loose">大阪公立大学 工学部は学科単位で募集し、12学科があります。航空宇宙工学科の定員は38名で、入口は一般選抜の前期日程と公立大学中期日程の2つだけです。後期日程はなく、学校推薦型選抜・総合型選抜もありません（工学部では学科によって選抜の形が異なり、学校推薦型選抜を行う学科や、総合型選抜を行う海洋システム工学科・都市学科もあります）。前期・中期とも、出願時に第3志望まで学科を選べます。中期の第2・第3志望は、航空宇宙工学科と同じ第1類（航空宇宙工学科・海洋システム工学科・機械工学科・建築学科・都市学科）の学科からのみ選べます。このほか、私費外国人留学生特別選抜（若干名）があります。</p>
+    <div class="grid md:grid-cols-2 gap-6 text-left">
+      <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm">
+        <div class="text-omu-pink font-bold text-sm tracking-[0.2em] mb-2">一般選抜</div>
+        <h3 class="text-xl font-bold mb-4">前期日程 <span class="text-omu-pink">8名</span></h3>
+        <ul class="text-sm text-gray-600 space-y-2 font-medium leading-relaxed">
+          <li>出願：1月25日〜2月3日</li>
+          <li>試験：2月25日</li>
+          <li>合格発表：3月9日</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm">
+        <div class="text-omu-pink font-bold text-sm tracking-[0.2em] mb-2">一般選抜</div>
+        <h3 class="text-xl font-bold mb-4">中期日程 <span class="text-omu-pink">30名</span></h3>
+        <ul class="text-sm text-gray-600 space-y-2 font-medium leading-relaxed">
+          <li>出願：1月25日〜2月3日</li>
+          <li>試験：3月8日</li>
+          <li>合格発表：3月23日</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-gray-50 text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">前期日程の配点</h2>
+    <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-loose">前期日程は、共通テスト620点と個別学力検査（二次試験）600点、合わせて1,220点で決まります。科目ごとに並べると、こうなります。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto">
+      <table class="w-full text-sm md:text-base border-collapse min-w-[560px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">科目</th>
+            <th class="font-bold py-3 px-4 text-right">共通テスト</th>
+            <th class="font-bold py-3 px-4 text-right">二次試験</th>
+            <th class="font-bold py-3 px-4 text-right">合計</th>
+            <th class="font-bold py-3 px-4 text-right">割合</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">数学</td><td class="py-3 px-4 text-right">130</td><td class="py-3 px-4 text-right">250</td><td class="py-3 px-4 text-right">380</td><td class="py-3 px-4 text-right">31.1%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">理科</td><td class="py-3 px-4 text-right">130</td><td class="py-3 px-4 text-right">200</td><td class="py-3 px-4 text-right">330</td><td class="py-3 px-4 text-right">27.0%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">英語</td><td class="py-3 px-4 text-right">140</td><td class="py-3 px-4 text-right">150</td><td class="py-3 px-4 text-right">290</td><td class="py-3 px-4 text-right">23.8%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">国語</td><td class="py-3 px-4 text-right">140</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">140</td><td class="py-3 px-4 text-right">11.5%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">地歴・公民</td><td class="py-3 px-4 text-right">60</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">60</td><td class="py-3 px-4 text-right">4.9%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">情報</td><td class="py-3 px-4 text-right">20</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">20</td><td class="py-3 px-4 text-right">1.6%</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">合計</td><td class="py-3 px-4 text-right">620</td><td class="py-3 px-4 text-right">600</td><td class="py-3 px-4 text-right">1,220</td><td class="py-3 px-4 text-right">100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-gray-500 mt-4 leading-relaxed">※共通テストは6教科8科目で、理科は物理・化学・生物から2科目を選びます。二次の数学は数学IIIを含みます。二次の理科は、物理（物理基礎・物理）と化学（化学基礎・化学）の2科目です。試験時間は理科150分・数学120分・英語100分で、会場は中百舌鳥キャンパスです。割合は小数第2位を四捨五入しています。</p>
+    <p class="mt-8 font-medium leading-loose text-gray-600">数学だけで380点、全体の31.1%を占めます。これは、共通テストだけの3科目（国語140点・地歴・公民60点・情報20点）を全部足した220点より重い数字です。数学と理科の2科目で710点、58.2%。二次試験は全体の49.2%で、二次で課されるのは数学・理科・英語の3科目だけです。勉強時間の配分も、この割合に近づいているかどうかが物差しになります。</p>
+    <h3 class="text-xl font-bold mt-12 mb-6">中期日程は、二次試験が全体の65.9%</h3>
+    <p class="font-medium leading-loose text-gray-600">中期日程は、共通テスト310点と個別学力検査600点、合わせて910点です。募集人員は30名と前期の8名より多く、航空宇宙工学科の募集の中心はこちらの中期日程です。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto mt-8">
+      <table class="w-full text-sm md:text-base border-collapse min-w-[560px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">科目</th>
+            <th class="font-bold py-3 px-4 text-right">共通テスト</th>
+            <th class="font-bold py-3 px-4 text-right">二次試験</th>
+            <th class="font-bold py-3 px-4 text-right">合計</th>
+            <th class="font-bold py-3 px-4 text-right">割合</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">数学</td><td class="py-3 px-4 text-right">75</td><td class="py-3 px-4 text-right">240</td><td class="py-3 px-4 text-right">315</td><td class="py-3 px-4 text-right">34.6%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">理科</td><td class="py-3 px-4 text-right">75</td><td class="py-3 px-4 text-right">240</td><td class="py-3 px-4 text-right">315</td><td class="py-3 px-4 text-right">34.6%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">英語</td><td class="py-3 px-4 text-right">60</td><td class="py-3 px-4 text-right">120</td><td class="py-3 px-4 text-right">180</td><td class="py-3 px-4 text-right">19.8%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">国語</td><td class="py-3 px-4 text-right">60</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">60</td><td class="py-3 px-4 text-right">6.6%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">地歴・公民</td><td class="py-3 px-4 text-right">30</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">30</td><td class="py-3 px-4 text-right">3.3%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">情報</td><td class="py-3 px-4 text-right">10</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">10</td><td class="py-3 px-4 text-right">1.1%</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">合計</td><td class="py-3 px-4 text-right">310</td><td class="py-3 px-4 text-right">600</td><td class="py-3 px-4 text-right">910</td><td class="py-3 px-4 text-right">100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-gray-500 mt-4 leading-relaxed">※中期の試験時間は理科120分・数学120分・英語60分です。割合は小数第2位を四捨五入しています。</p>
+    <p class="mt-8 font-medium leading-loose text-gray-600">中期では数学と理科が315点ずつで並び、2科目で69.2%を占めます。共通テストの比重は前期の50.8%から34.1%に下がり、二次試験の出来がそのまま合否に響く形です。前期と中期では配点の重さが違うため、どちらの日程を主軸に置くかで、勉強時間の配分も変わります。</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">第1段階選抜と、合格最低点</h2>
+    <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-loose">工学部の第1段階選抜は、学科ごとではなく工学部全体で実施します。前期日程は志願者数が募集人員の6倍を超えた場合、中期日程は12倍を超えた場合に、共通テストの成績で実施することがあります（前期の結果発表は2月10日）。2026年度は、前期では実施されませんでしたが、中期では実施され、工学部全体で507名が第1段階選抜で不合格になりました。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto">
+      <div class="font-bold text-sm mb-4">2026年度 前期日程 入試結果（合格者）</div>
+      <table class="w-full text-sm md:text-base border-collapse min-w-[520px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">区分</th>
+            <th class="font-bold py-3 px-4 text-right">最高点</th>
+            <th class="font-bold py-3 px-4 text-right">最低点</th>
+            <th class="font-bold py-3 px-4 text-right">平均点</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">共通テスト（620点）</td><td class="py-3 px-4 text-right">531.40</td><td class="py-3 px-4 text-right">444.10</td><td class="py-3 px-4 text-right">480.07</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">個別学力検査（600点）</td><td class="py-3 px-4 text-right">433.75</td><td class="py-3 px-4 text-right">364.75</td><td class="py-3 px-4 text-right">406.09</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">総点（1,220点）</td><td class="py-3 px-4 text-right">965.15</td><td class="py-3 px-4 text-right">852.10</td><td class="py-3 px-4 text-right">886.16</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-8 font-medium leading-loose text-gray-600">2026年度の前期は、航空宇宙工学科を第1志望とした志願者が46名、合格者が8名で、志願倍率は5.8倍でした。合格最低点は総点の69.8%で、工学部12学科の前期の中で最も高い水準です（合格者の成績には、第2・第3志望の学科で合格した人の成績も含まれます）。満点勝負の試験ではありません。たとえば共通テストで合格者平均とほぼ同じ480点（77.4%）を取れた場合、最低点までに必要な二次試験の得点は約373点、600点中の62.2%です。共通テストの出来によって、二次に求められる水準は変わります。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto mt-10">
+      <div class="font-bold text-sm mb-4">2026年度 中期日程 入試結果（合格者）</div>
+      <table class="w-full text-sm md:text-base border-collapse min-w-[520px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">区分</th>
+            <th class="font-bold py-3 px-4 text-right">最高点</th>
+            <th class="font-bold py-3 px-4 text-right">最低点</th>
+            <th class="font-bold py-3 px-4 text-right">平均点</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">共通テスト（310点）</td><td class="py-3 px-4 text-right">276.75</td><td class="py-3 px-4 text-right">243.70</td><td class="py-3 px-4 text-right">262.58</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">個別学力検査（600点）</td><td class="py-3 px-4 text-right">473.00</td><td class="py-3 px-4 text-right">364.00</td><td class="py-3 px-4 text-right">403.33</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">総点（910点）</td><td class="py-3 px-4 text-right">745.16</td><td class="py-3 px-4 text-right">631.56</td><td class="py-3 px-4 text-right">665.91</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-8 font-medium leading-loose text-gray-600">中期の2026年度は、志願者684名・志願倍率22.8倍で、合格者は60名でした（第2・第3志望の学科での合格者を含みます）。合格最低点は総点の69.4%で、前期とほぼ同じ水準です。合格者の共通テストの平均は84.7%と高く、たとえば共通テストで平均並みの263点を取れた場合、最低点までに必要な二次試験の得点は約369点、600点中の61.5%です。募集は前期の8名に対して中期は30名と多い一方で、志願者も集まる日程です。</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-gray-50 text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">学校推薦型選抜と総合型選抜</h2>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm text-left">
+      <p class="text-gray-600 font-medium leading-loose mb-6">航空宇宙工学科には、学校推薦型選抜も総合型選抜もありません。工学部では学科によって選抜の形が異なり、学校推薦型選抜を行う学科（機械工学科・電子物理工学科など）や、総合型選抜を行う学科（海洋システム工学科・都市学科）もありますが、航空宇宙工学科の入口は一般選抜の前期日程（8名）と中期日程（30名）だけです。</p>
+      <p class="text-gray-600 font-medium leading-loose">そのため、評定平均や学校の推薦枠を土台にする設計は使えず、合否は共通テストと二次試験の得点で決まります。逆に言えば、準備の軸ははっきりしています。共通テストと、数学・理科・英語の二次試験に勉強時間を寄せていくことが、そのまま航空宇宙工学科の設計になります。</p>
+      <div class="bg-omu-light border-l-4 border-omu-pink p-6 mt-8">
+        <p class="font-medium leading-loose text-gray-600">志望学科を選ぶときは、選抜の形まで含めて確認してください。同じ工学部でも、学科が変われば入口の形は変わります。「推薦があるつもり」で計画を立てると、出願の段階で組み直しになります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">桜灯塾の工学部航空宇宙工学科対策</h2>
+    <div class="space-y-6 text-gray-600 font-medium leading-loose max-w-3xl mx-auto">
+      <p>航空宇宙工学科は、前期では数学と理科の2科目で配点の58.2%を占め、中期ではその割合が69.2%まで上がる入試です。桜灯塾の面談では、この配点の割合と、生徒の先週の勉強時間の割合を並べて確認します。ズレている科目が、次に直すところです。配点の重さに勉強時間を近づけていくことが、航空宇宙工学科の設計の出発点になります。</p>
+      <p>そのときにお渡ししているのが、学科ごとの冊子「大阪公立大学受験の教科書」です。航空宇宙工学科版には、入口・配点・合格最低点からの逆算に加えて、中期日程の配点や第2・第3志望の考え方まで、要項の数字をもとにまとめています（面談に来てくださった方にお渡ししています）。</p>
+      <p>計画を立てる担当を1人に決め、プロ講師と学生講師で一緒に見ていく体制で、一人ひとりの配点戦略を組み立てます。前期は募集8名に工学部で最も高い合格最低点、中期は募集30名に多くの志願者という、性格の違う2つの日程をどう組み合わせるかも、模試の結果と共通テストの自己採点をもとに、面談で一緒に判断します。</p>
+    </div>
+    <p class="text-xs text-gray-400 mt-12 max-w-3xl mx-auto leading-relaxed">※本ページの入試情報は、大阪公立大学「2027年度入学者選抜要項」および「2027年度学生募集要項」に基づいています。最新の情報は、必ず大学の公式サイトでご確認ください。</p>
+  </div>
+</section>
+
+<section class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-12 md:pt-24 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-20">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/voice" class="footer-link">合格体験記</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">お電話</span>
+                <span class="text-xs font-bold text-white">06-6779-9507</span>
+            </a>
+            <a href="/contact"
+               class="flex flex-col items-center justify-center gap-1 bg-white text-omu-pink py-3 text-center border-l border-gray-100 active:opacity-70">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-omu-pink">お問い合わせ</span>
+                <span class="text-xs font-bold text-omu-pink">フォームはこちら</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+</body>
+</html>
