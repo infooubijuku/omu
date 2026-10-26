@@ -141,6 +141,12 @@
         @media (min-width: 768px) {
             table { max-width: 640px; margin-left: auto; margin-right: auto; }
         }
+        /* 最終列（割合など）の手前に区切り線を入れ、スマホでは少し間を空ける */
+        th:last-child, td:last-child { border-left: 1px solid #e5e7eb; }
+        thead th:last-child { border-left-color: rgba(255,255,255,0.4); }
+        @media (max-width: 767px) {
+            th:last-child, td:last-child { padding-left: 0.85rem !important; }
+        }
     </style>
 </head>
 <body>
