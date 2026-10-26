@@ -131,6 +131,12 @@
         #mobile-nav.open { transform: translateX(0); }
         .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
         .mobile-accordion-content.active { max-height: 500px; }
+    
+        /* スマホでは表を詰めて横スクロールを最小化 */
+        @media (max-width: 767px) {
+            table { min-width: 350px !important; font-size: 13px !important; }
+            th, td { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+        }
     </style>
 </head>
 <body>
