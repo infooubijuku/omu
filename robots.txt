@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oubijuku-omu.com/sitemap.xml
