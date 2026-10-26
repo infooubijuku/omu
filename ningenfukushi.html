@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学 生活科学部 人間福祉学科の入試を、大学の2027年度要項で整理。2つの入口（学校推薦型・前期日程）の配点・日程と、2026年度の合格最低点を掲載。大阪公立大学専門 桜灯塾（天王寺）。">
+    <meta name="keywords" content="人間福祉学科,生活科学部,大阪公立大学,個別指導,天王寺,桜灯塾,大学受験">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/ningenfukushi">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="生活科学部 人間福祉学科の入試情報｜桜灯塾">
+    <meta property="og:description" content="大阪公立大学 生活科学部 人間福祉学科の入試を、大学の2027年度要項で整理。配点・2つの入口・2026年度の合格最低点を掲載しています。">
+    <meta property="og:url" content="https://oubijuku-omu.com/ningenfukushi">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="生活科学部 人間福祉学科の入試情報｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学 生活科学部 人間福祉学科の入試を、大学の2027年度要項で整理。配点・2つの入口・2026年度の合格最低点を掲載しています。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "生活科学部 人間福祉学科の入試情報｜桜灯塾",
+      "description": "大阪公立大学 生活科学部 人間福祉学科の入試情報を、配点・日程・合格最低点から整理しました。大阪公立大学専門 桜灯塾（天王寺）の学部別ページです。",
+      "url": "https://oubijuku-omu.com/ningenfukushi",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>生活科学部 人間福祉学科の入試情報｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none">桜灯塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden sm:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex space-x-12 items-center text-[0.9rem] font-bold tracking-widest">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                            <a href="/voice" class="dropdown-item">合格体験記</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                    <a href="/voice">合格体験記</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-20 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">生活科学部 人間福祉学科の入試情報</h1>
+        <p class="text-gray-600 text-sm text-center">配点・2つの入口・合格最低点を、大学の要項で整理しました</p>
+    </header>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">人間福祉学科の入口は2つ</h2>
+    <p class="max-w-3xl mx-auto mb-12 text-gray-600 font-medium leading-loose">大阪公立大学 生活科学部 人間福祉学科の入口は、学校推薦型選抜と一般選抜（前期日程）の2つです。一般選抜に後期日程はなく、総合型選抜もありません。推薦は共通テストを使い、合格したら必ず入学する「専願」です。不合格の場合は、前期日程にも出願できます。ほかに、国際バカロレア特別選抜（若干名）があります。</p>
+    <div class="grid md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+      <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm">
+        <div class="text-omu-pink font-bold text-sm tracking-[0.2em] mb-2">学校推薦型選抜</div>
+        <h3 class="text-xl font-bold mb-4">推薦 <span class="text-omu-pink">15名</span></h3>
+        <ul class="text-sm text-gray-600 space-y-2 font-medium leading-relaxed">
+          <li>内訳：大阪府内枠 2名・全国枠 13名</li>
+          <li>出願：11月2日〜11月5日</li>
+          <li>第1次選考発表：2月5日・第2次選考（口述試験）：2月7日</li>
+          <li>合格発表：2月9日</li>
+          <li>卒業後1年以内まで出願可・専願</li>
+        </ul>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-sm p-8 shadow-sm">
+        <div class="text-omu-pink font-bold text-sm tracking-[0.2em] mb-2">一般選抜</div>
+        <h3 class="text-xl font-bold mb-4">前期日程 <span class="text-omu-pink">30名</span></h3>
+        <ul class="text-sm text-gray-600 space-y-2 font-medium leading-relaxed">
+          <li>出願：1月25日〜2月3日</li>
+          <li>試験：2月25日</li>
+          <li>合格発表：3月9日</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-gray-50 text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">前期日程の配点</h2>
+    <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-loose">前期日程は、共通テスト525点と個別学力検査（二次試験）300点、合わせて825点で決まります。二次試験は英語と、国語・数学のうち出願時に選んだ1教科です。科目ごとに並べると、こうなります。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto">
+      <table class="w-full text-sm md:text-base border-collapse min-w-[560px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">科目</th>
+            <th class="font-bold py-3 px-4 text-right">共通テスト</th>
+            <th class="font-bold py-3 px-4 text-right">二次試験</th>
+            <th class="font-bold py-3 px-4 text-right">合計</th>
+            <th class="font-bold py-3 px-4 text-right">割合</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">英語</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">150</td><td class="py-3 px-4 text-right">250</td><td class="py-3 px-4 text-right">30.3%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">国語／数学（二次で1教科選択）</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">150</td><td class="py-3 px-4 text-right">150</td><td class="py-3 px-4 text-right">18.2%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">国語</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">12.1%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">数学</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">12.1%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">理科</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">12.1%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">地歴・公民</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">100</td><td class="py-3 px-4 text-right">12.1%</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">情報</td><td class="py-3 px-4 text-right">25</td><td class="py-3 px-4 text-right">—</td><td class="py-3 px-4 text-right">25</td><td class="py-3 px-4 text-right">3.0%</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">合計</td><td class="py-3 px-4 text-right">525</td><td class="py-3 px-4 text-right">300</td><td class="py-3 px-4 text-right">825</td><td class="py-3 px-4 text-right">100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-gray-500 mt-4 leading-relaxed">※二次の国語・数学は、出願時にいずれか1教科を選んで登録します。二次の数学は数学IIIを含みません（数学I・II・A・B・C）。試験時間は国語90分・英語100分・数学90分です。割合は小数第2位を四捨五入しています。</p>
+    <p class="mt-8 font-medium leading-loose text-gray-600">いちばん重いのは英語で、共通テストと二次を合わせて250点（30.3%）。二次で選ぶ国語か数学（150点）と合わせると、英語と選択科目で400点、全体の48.5%になります。一方で共通テストは525点、全体の63.6%です。共通テストの1点が、そのまま合否の1点になる重さの入試です。国語・数学・理科・地歴公民は共通テストのみでも各100点（12.1%）あり、二次で選ばなかった教科も、共通テストでは手を抜けません。情報は25点（3.0%）です。この割合が、そのまま勉強時間の使い方の物差しになります。</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">第1段階選抜と、合格最低点</h2>
+    <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-loose">前期日程では、志願者数が募集人員の6倍を超えた場合に、共通テストの成績で第1段階選抜を実施することがあります（結果発表は2月10日）。2026年度は、志願者126名で募集人員30名の6倍（180名）には届かず、実施の条件には当てはまりませんでした。</p>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto">
+      <div class="font-bold text-sm mb-4">2026年度 前期日程 入試結果（合格者）</div>
+      <table class="w-full text-sm md:text-base border-collapse min-w-[520px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">区分</th>
+            <th class="font-bold py-3 px-4 text-right">最高点</th>
+            <th class="font-bold py-3 px-4 text-right">最低点</th>
+            <th class="font-bold py-3 px-4 text-right">平均点</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">共通テスト（525点）</td><td class="py-3 px-4 text-right">455.75</td><td class="py-3 px-4 text-right">361.25</td><td class="py-3 px-4 text-right">394.59</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">個別学力検査（300点）</td><td class="py-3 px-4 text-right">235.50</td><td class="py-3 px-4 text-right">157.50</td><td class="py-3 px-4 text-right">202.32</td></tr>
+          <tr class="font-bold"><td class="py-3 px-4">総点（825点）</td><td class="py-3 px-4 text-right">651.25</td><td class="py-3 px-4 text-right">575.25</td><td class="py-3 px-4 text-right">596.91</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-8 font-medium leading-loose text-gray-600">2026年度の前期は、志願者126名・受験者112名・合格者34名で、合格最低点は総点の69.7%でした。満点勝負の試験ではありません。たとえば共通テストで合格者平均とほぼ同じ395点（75.2%）を取れた場合、最低点までの残りは二次で約181点、300点中の60.3%です。反対に、共通テストが75%（394点）だと、二次では182点（60.7%）が必要になります。共通テストの出来によって、二次に求められる水準は変わります。だからこそ、共通テストと二次の両方を、配点の割合に沿って設計することが大切です。</p>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-gray-50 text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">学校推薦型選抜（大阪府内枠・全国枠）</h2>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm text-left">
+      <h3 class="text-xl font-bold mb-6">出願要件</h3>
+      <p class="text-gray-600 font-medium leading-loose mb-6">出願できるのは、次のすべてに当てはまる人です（2027年度入試）。</p>
+      <ul class="space-y-4 text-gray-600 font-medium leading-loose">
+        <li><span class="text-omu-pink font-bold">1.</span> 高等学校等を2026年3月に卒業した者、または2027年3月に卒業見込みの者（卒業後1年以内まで出願できます）</li>
+        <li><span class="text-omu-pink font-bold">2.</span> 学力だけでなく、人物・能力・資質等において特に優れ、出身学校長が責任をもって推薦できる</li>
+        <li><span class="text-omu-pink font-bold">3.</span> 2027年度大学入学共通テストの所定の教科・科目を受験する</li>
+        <li><span class="text-omu-pink font-bold">4.</span> 合格したら必ず入学する（専願）</li>
+      </ul>
+      <p class="text-gray-600 font-medium leading-loose mt-6">評定平均の数値要件は設けられていません。ただし、調査書は第1次選考の材料になります。1つの高校から推薦できる人数に、制限はありません。</p>
+      <h3 class="text-xl font-bold mt-12 mb-6">大阪府内枠と全国枠</h3>
+      <p class="text-gray-600 font-medium leading-loose">募集15名は、大阪府内枠2名と全国枠13名に分かれます。府内枠は、大阪府内の高等学校等を卒業した人・卒業見込みの人、または本人か保護者が一定期間前から引き続き大阪府内に住所を有する人が対象です。府内枠で不合格となった場合は、全国枠の対象者とあわせて再度選抜されます。</p>
+      <h3 class="text-xl font-bold mt-12 mb-6">配点は、共通テスト425点＋書類100点</h3>
+      <p class="text-gray-600 font-medium leading-loose">第1次選考は、大学入学共通テストの成績と、出願書類（調査書・出身学校長の推薦書・志望理由書）を総合して判定します。第2次選考は口述試験で、「合」「否」で判定されます（口述試験に配点はありません）。</p>
+      <div class="overflow-x-auto mt-6">
+        <table class="w-full text-sm md:text-base border-collapse min-w-[420px]">
+          <thead>
+            <tr class="bg-omu-pink text-white">
+              <th class="font-bold py-3 px-4 text-left">項目</th>
+              <th class="font-bold py-3 px-4 text-right">配点</th>
+            </tr>
+          </thead>
+          <tbody class="font-medium">
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 国語</td><td class="py-3 px-4 text-right">100</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 地歴・公民</td><td class="py-3 px-4 text-right">50</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 数学</td><td class="py-3 px-4 text-right">100</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 理科</td><td class="py-3 px-4 text-right">50</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 英語</td><td class="py-3 px-4 text-right">100</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">共通テスト 情報</td><td class="py-3 px-4 text-right">25</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">共通テスト 小計</td><td class="py-3 px-4 text-right font-bold">425</td></tr>
+            <tr class="border-b border-gray-100"><td class="py-3 px-4">出願書類</td><td class="py-3 px-4 text-right">100</td></tr>
+            <tr class="font-bold"><td class="py-3 px-4">合計</td><td class="py-3 px-4 text-right">525</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-gray-600 font-medium leading-loose mt-6">共通テストが総点の81.0%を占めます。推薦の対策は、ほぼ前期の共通テスト対策と同じです。出願書類の準備は、そこに上乗せする分になります。2026年度は、府内枠が志願者13名・合格者2名、全国枠が志願者24名・合格者12名でした（合計で志願者37名・合格者14名）。</p>
+      <div class="bg-omu-light border-l-4 border-omu-pink p-6 mt-8">
+        <p class="font-medium leading-loose text-gray-600">推薦を考えている人へ。出願は11月2日〜11月5日と早く、志望理由書の準備が出願直前にならないよう、秋の早い時期から材料を揃えておくことが大切です。第1次選考の発表は2月5日、第2次選考の口述試験は2月7日です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">桜灯塾の人間福祉学科対策</h2>
+    <div class="space-y-6 text-gray-600 font-medium leading-loose max-w-3xl mx-auto">
+      <p>人間福祉学科は、英語と、二次で選ぶ国語か数学で、配点の48.5%を占める入試です。桜灯塾の面談では、この配点の割合と、生徒の先週の勉強時間の割合を並べて確認します。ズレている科目が、次に直すところです。配点の重さに勉強時間を近づけていくことが、人間福祉学科の設計の出発点になります。</p>
+      <p>そのときにお渡ししているのが、学科ごとの冊子「大阪公立大学受験の教科書」です。人間福祉学科版には、入口・配点・合格最低点からの逆算、推薦（府内枠・全国枠）の進め方まで、要項の数字をもとにまとめています（面談に来てくださった方にお渡ししています）。</p>
+      <p>計画を立てる担当を1人に決め、プロ講師と学生講師で一緒に見ていく体制で、一人ひとりの配点戦略を組み立てます。推薦を出すかどうか、府内枠・全国枠の判断、そして二次の国語・数学のどちらを選ぶかも、模試の結果をもとに面談で一緒に判断します。</p>
+    </div>
+    <p class="text-xs text-gray-400 mt-12 max-w-3xl mx-auto leading-relaxed">※本ページの入試情報は、大阪公立大学「2027年度入学者選抜要項」および「2027年度学生募集要項」に基づいています。最新の情報は、必ず大学の公式サイトでご確認ください。</p>
+  </div>
+</section>
+
+<section class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-12 md:pt-24 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-20">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/voice" class="footer-link">合格体験記</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">お電話</span>
+                <span class="text-xs font-bold text-white">06-6779-9507</span>
+            </a>
+            <a href="/contact"
+               class="flex flex-col items-center justify-center gap-1 bg-white text-omu-pink py-3 text-center border-l border-gray-100 active:opacity-70">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-omu-pink">お問い合わせ</span>
+                <span class="text-xs font-bold text-omu-pink">フォームはこちら</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+</body>
+</html>
