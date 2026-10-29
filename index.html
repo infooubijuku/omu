@@ -513,51 +513,54 @@
         <div class="max-w-5xl mx-auto px-4 text-center">
             <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">学部別入試情報</h2>
             <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-loose">学部・学科ごとに、配点・日程・合格最低点を大学の要項で整理したページを用意しています。配点の割合が見えると、「何から手をつけるか」がはっきりします。</p>
-            <div class="max-w-3xl mx-auto mb-10 bg-white border-2 border-omu-pink rounded-sm p-6 md:p-8 text-center shadow-sm">
-                <p class="font-bold text-lg mb-2 text-omu-dark">学部がまだ決まっていない人へ</p>
-                <p class="text-sm text-gray-600 mb-5">14の質問にタップで答えるだけで、あなたに合いそうな学部が出てきます。</p>
-                <a href="/shindan" class="inline-block bg-omu-pink text-white font-bold text-sm px-8 py-3 rounded-full shadow">学部・学科診断をやってみる（約2分）→</a>
-            </div>
+            <a href="/shindan" class="block relative overflow-hidden rounded-3xl p-8 text-center max-w-3xl mx-auto mb-10" style="background:linear-gradient(135deg,#FDF2F6 0%,#FCE4EF 100%);box-shadow:0 8px 24px rgba(229,0,127,0.12)">
+                <span class="absolute rounded-full" style="width:110px;height:110px;background:rgba(255,255,255,0.55);top:-46px;right:-30px"></span>
+                <span class="absolute rounded-full" style="width:64px;height:64px;background:rgba(255,255,255,0.45);bottom:-24px;left:-16px"></span>
+                <span class="relative inline-block bg-white text-omu-pink font-bold text-xs tracking-widest px-4 py-2 rounded-full shadow">学部がまだ決まっていない人へ</span>
+                <span class="relative block mt-4 text-2xl font-bold text-omu-dark">学部・学科診断</span>
+                <span class="relative block mt-2 text-sm text-gray-500 font-medium">14の質問にタップで答えるだけ。あなたに合いそうな学部が出てきます。</span>
+                <span class="relative inline-block mt-5 bg-omu-pink text-white font-bold px-8 py-3 rounded-full shadow-lg">診断をやってみる（約2分）→</span>
+            </a>
             <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <a href="/bungaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">文学部</a>
-                <a href="/hougaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">法学部</a>
-                <a href="/keizaigaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">経済学部</a>
-                <a href="/shogaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">商学部</a>
-                <a href="/igakuka" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">医学部医学科</a>
-                <a href="/kangogaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">看護学部</a>
-                <a href="/igaku-reha-rigaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">医学部 リハビリテーション学科 理学療法学専攻</a>
-                <a href="/igaku-reha-sagyou" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">医学部 リハビリテーション学科 作業療法学専攻</a>
-                <a href="/rigaku-suugaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 数学科</a>
-                <a href="/rigaku-butsuri" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 物理学科</a>
-                <a href="/rigaku-kagaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 化学科</a>
-                <a href="/rigaku-seibutsu" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 生物学科</a>
-                <a href="/rigaku-seibutsukagaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 生物化学科</a>
-                <a href="/rigaku-chikyu" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">理学部 地球学科</a>
-                <a href="/kougaku-kikai" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 機械工学科</a>
-                <a href="/kougaku-koukuu" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 航空宇宙工学科</a>
-                <a href="/kougaku-kaiyou" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 海洋システム工学科</a>
-                <a href="/kougaku-jouhou" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 情報工学科</a>
-                <a href="/kougaku-denkidenshi" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 電気電子システム工学科</a>
-                <a href="/kougaku-denshibutsuri" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 電子物理工学科</a>
-                <a href="/kougaku-ouyoukagaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 応用化学科</a>
-                <a href="/kougaku-kagakukougaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 化学工学科</a>
-                <a href="/kougaku-kagakubio" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 化学バイオ工学科</a>
-                <a href="/kougaku-material" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 マテリアル工学科</a>
-                <a href="/kougaku-kenchiku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 建築学科</a>
-                <a href="/kougaku-toshi" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">工学部 都市学科</a>
-                <a href="/nougaku-ouyouseibutsu" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">農学部 応用生物科学科</a>
-                <a href="/nougaku-seimeikinou" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">農学部 生命機能化学科</a>
-                <a href="/nougaku-ryokuchi" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">農学部 緑地環境科学科</a>
-                <a href="/juigaku" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">獣医学部</a>
-                <a href="/shokueiyou" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">生活科学部 食栄養学科</a>
-                <a href="/kyojukankyo" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">生活科学部 居住環境学科</a>
-                <a href="/ningenfukushi" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">生活科学部 人間福祉学科</a>
-                <a href="/gendai-chishiki" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">現代システム科学域 知識情報システム学類</a>
-                <a href="/gendai-kankyo" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">現代システム科学域 環境社会システム学類</a>
-                <a href="/gendai-kyoikufukushi" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">現代システム科学域 教育福祉学類</a>
-                <a href="/gendai-shinri" class="bg-white border border-gray-200 px-6 py-3 font-bold text-sm rounded-sm shadow-sm">現代システム科学域 心理学類</a>
+                <a href="/bungaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">文学部</a>
+                <a href="/hougaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">法学部</a>
+                <a href="/keizaigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">経済学部</a>
+                <a href="/shogaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">商学部</a>
+                <a href="/igakuka" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部医学科</a>
+                <a href="/kangogaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">看護学部</a>
+                <a href="/igaku-reha-rigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部 リハビリテーション学科 理学療法学専攻</a>
+                <a href="/igaku-reha-sagyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部 リハビリテーション学科 作業療法学専攻</a>
+                <a href="/rigaku-suugaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 数学科</a>
+                <a href="/rigaku-butsuri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 物理学科</a>
+                <a href="/rigaku-kagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 化学科</a>
+                <a href="/rigaku-seibutsu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 生物学科</a>
+                <a href="/rigaku-seibutsukagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 生物化学科</a>
+                <a href="/rigaku-chikyu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 地球学科</a>
+                <a href="/kougaku-kikai" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 機械工学科</a>
+                <a href="/kougaku-koukuu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 航空宇宙工学科</a>
+                <a href="/kougaku-kaiyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 海洋システム工学科</a>
+                <a href="/kougaku-jouhou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 情報工学科</a>
+                <a href="/kougaku-denkidenshi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 電気電子システム工学科</a>
+                <a href="/kougaku-denshibutsuri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 電子物理工学科</a>
+                <a href="/kougaku-ouyoukagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 応用化学科</a>
+                <a href="/kougaku-kagakukougaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 化学工学科</a>
+                <a href="/kougaku-kagakubio" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 化学バイオ工学科</a>
+                <a href="/kougaku-material" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 マテリアル工学科</a>
+                <a href="/kougaku-kenchiku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 建築学科</a>
+                <a href="/kougaku-toshi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 都市学科</a>
+                <a href="/nougaku-ouyouseibutsu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 応用生物科学科</a>
+                <a href="/nougaku-seimeikinou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 生命機能化学科</a>
+                <a href="/nougaku-ryokuchi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 緑地環境科学科</a>
+                <a href="/juigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">獣医学部</a>
+                <a href="/shokueiyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 食栄養学科</a>
+                <a href="/kyojukankyo" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 居住環境学科</a>
+                <a href="/ningenfukushi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 人間福祉学科</a>
+                <a href="/gendai-chishiki" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 知識情報システム学類</a>
+                <a href="/gendai-kankyo" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 環境社会システム学類</a>
+                <a href="/gendai-kyoikufukushi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 教育福祉学類</a>
+                <a href="/gendai-shinri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 心理学類</a>
             </div>
-            <a href="/gakubu" class="inline-block bg-omu-pink text-white font-bold py-4 px-10 rounded-sm text-sm tracking-widest">学部別入試情報の一覧を見る</a>
+            <a href="/gakubu" class="inline-block bg-omu-pink text-white font-bold py-4 px-10 rounded-full shadow-lg text-sm tracking-widest">学部別入試情報の一覧を見る</a>
         </div>
     </section>
 
