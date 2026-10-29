@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HTWQQSL9Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HTWQQSL9Y');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="桜灯塾（通塾・天王寺教室）と桜灯塾ONLINEの料金を、1ページにまとめた料金表です。通い放題コース、集団個別、マンツーマン、モデルケースまで、すべて税込で掲載しています。">
+    <meta name="keywords" content="医学部医学科,大阪公立大学,個別指導,天王寺,桜灯塾,大学受験">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/fee-list">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="料金表｜大阪公立大学専門 桜灯塾（通塾・ONLINE）">
+    <meta property="og:description" content="桜灯塾（通塾・天王寺教室）と桜灯塾ONLINEの料金を、1ページにまとめた料金表です。すべて税込で掲載しています。">
+    <meta property="og:url" content="https://oubijuku-omu.com/fee-list">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="医学部医学科の入試情報｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学 医学部医学科の入試を、大学の2027年度要項で整理。配点・3つの入口・2026年度の合格最低点を掲載しています。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "料金表｜桜灯塾",
+      "description": "桜灯塾（通塾）と桜灯塾ONLINEの料金をまとめた料金表です。",
+      "url": "https://oubijuku-omu.com/fee-list",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>料金表｜大阪公立大学専門 桜灯塾（通塾・ONLINE）</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    
+        /* スマホでは表を詰めて横スクロールを最小化 */
+        @media (max-width: 767px) {
+            table { min-width: 350px !important; font-size: 13px !important; }
+            th, td { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+        }
+        /* 広い画面では表を広げすぎない（列間の間延び防止） */
+        @media (min-width: 768px) {
+            table { max-width: 640px; margin-left: auto; margin-right: auto; }
+        }
+        /* 最終列（割合など）の手前に区切り線を入れ、スマホでは少し間を空ける */
+        th:last-child, td:last-child { border-left: 1px solid #e5e7eb; }
+        thead th:last-child { border-left-color: rgba(255,255,255,0.4); }
+        @media (max-width: 767px) {
+            th:last-child, td:last-child { padding-left: 0.85rem !important; }
+        }
+            .pct30 { color: #E5007F; font-weight: 700; }
+        .pct20 { color: #B7791F; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none"><ruby>桜灯<rt style="font-size:0.38em;color:#a8a29e;font-weight:500;letter-spacing:0.05em;">おうび</rt></ruby>塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden xl:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex flex-nowrap space-x-5 xl:space-x-8 items-center text-[0.85rem] xl:text-[0.9rem] font-bold tracking-wider whitespace-nowrap">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/online" class="hover:text-omu-pink transition">ONLINE</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-5 xl:px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/online" class="text-lg font-bold py-4 border-b border-gray-100">ONLINE</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-20 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">学部・学科診断</h1>
+        <p class="text-gray-600 text-sm text-center">通塾と桜灯塾ONLINEの料金を、1ページにまとめました。すべて税込です</p>
+    </header>
+<main>
+
+<section class="py-16 md:py-24 bg-white text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">桜灯塾（通塾・天王寺教室）の料金</h2>
+    <div class="bg-omu-pink text-white p-6 md:p-10 rounded-sm shadow-lg mb-10 text-center">
+      <p class="text-xs tracking-[0.3em] uppercase text-white/70 mb-2">Main Course</p>
+      <h3 class="text-xl md:text-2xl font-bold mb-3">通い放題コース</h3>
+      <p class="mb-3"><span class="text-4xl md:text-5xl font-bold">59,500</span><span class="text-xl font-bold">円</span><span class="text-white/80 ml-2">〜 / 月（税込）</span></p>
+      <p class="inline-block border border-white/60 text-white text-xs font-bold px-3 py-1 tracking-widest">現役生限定</p>
+      <p class="inline-block border border-white/60 text-white text-xs font-bold px-3 py-1 ml-2 tracking-widest">通塾限定</p>
+      <p class="text-white/80 text-sm leading-loose mt-4">自習室・授業ともに定額で通い放題。利用時間は平日17:00–21:00／土曜10:00–18:00（集団個別の追加授業もこの時間内で行います）。</p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2"><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">集団個別</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>中1〜高2 <span class="font-bold text-omu-pink">3,000円</span>／中3・高3 <span class="font-bold text-omu-pink">3,500円</span></div><p class="text-xs text-gray-500 leading-relaxed">講師1名対生徒3名まで。週1回2時間から。通い放題コースとの併用で、授業料が20％割引になります。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン（学生講師）</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">8,800円</span>／高1・高2 <span class="font-bold text-omu-pink">7,700円</span></div><p class="text-xs text-gray-500 leading-relaxed">学生講師による1対1の個別指導です。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm md:col-span-2"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン定期コース（学生講師）</h3><div class="text-sm leading-loose mb-3">週1回（1回2時間）月額<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">70,400円</span>／高1・高2 <span class="font-bold text-omu-pink">61,600円</span><br>週2回（1回2時間）月額<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">140,800円</span>／高1・高2 <span class="font-bold text-omu-pink">123,200円</span></div><p class="text-xs text-gray-500 leading-relaxed">「費用がかかっても、自分のためだけに見てほしい」という要望に応える定期コースです。月4回（週1回）／月8回（週2回）で計算しています。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン（プロ講師）</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>高1・高2 <span class="font-bold text-omu-pink">11,000円</span>／高3 <span class="font-bold text-omu-pink">13,200円</span></div><p class="text-xs text-gray-500 leading-relaxed">プロ講師による1対1の個別指導です。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">自習室のみ</h3><div class="text-sm leading-loose mb-3">現役生 月額 <span class="font-bold text-omu-pink">16,500円</span><br>浪人生は施設費 月額 <span class="font-bold text-omu-pink">55,000円</span> が必要です</div><p class="text-xs text-gray-500 leading-relaxed">自分専用の固定席を確保。年中無休・8時〜23時、スマホ預かりロッカー完備です。</p></div></div>
+    <h3 class="text-xl md:text-2xl font-bold mt-14 mb-8 text-omu-dark">料金のモデルケース</h3>
+    <div class="grid gap-6 md:grid-cols-2"><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">モデルケース：高3（通い放題＋集団個別）</h3><div class="text-sm leading-loose mb-3">通い放題コース 69,500円＋集団個別 週1回（2.5時間×4回）28,000円<br>月額 <span class="font-bold text-omu-pink">107,500円</span></div><p class="text-xs text-gray-500 leading-relaxed">別途、入会金・教材費（実費）が必要です。集団個別は通い放題併用の20％割引を適用しています。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">モデルケース：高2（通い放題＋集団個別）</h3><div class="text-sm leading-loose mb-3">通い放題コース 59,500円＋集団個別 週1回（2時間×4回）19,200円<br>月額 <span class="font-bold text-omu-pink">78,700円</span></div><p class="text-xs text-gray-500 leading-relaxed">別途、入会金・教材費（実費）が必要です。集団個別は通い放題併用の20％割引を適用しています。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">モデルケース：通常コースのみ（3科目指導）</h3><div class="text-sm leading-loose mb-3">集団個別 週2回・1回2.5時間<br>中3・高3 月額 <span class="font-bold text-omu-pink">72,750円</span>／中1〜高2 月額 <span class="font-bold text-omu-pink">62,750円</span></div><p class="text-xs text-gray-500 leading-relaxed">授業料に施設費 2,750円を含みます。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">モデルケース：通常コースのみ（2科目まで）</h3><div class="text-sm leading-loose mb-3">集団個別 週2回・1回2時間<br>中3・高3 月額 <span class="font-bold text-omu-pink">58,750円</span>／中1〜高2 月額 <span class="font-bold text-omu-pink">50,750円</span></div><p class="text-xs text-gray-500 leading-relaxed">授業料に施設費 2,750円を含みます。</p></div></div>
+    <ul class="text-sm text-gray-600 leading-loose mt-10 space-y-1">
+      <li>※入会金は中学生 22,000円／高校生 27,500円（税込）です。</li>
+      <li>※施設費は月額2,200円〜3,300円です（通い放題コースは不要です）。教材費は実費です。</li>
+      <li>※体験授業は1回120分です。無料1回のあと有料3回（集団個別 16,500円／マンツーマン 33,000円・税込）です。</li>
+      <li>※浪人生が桜灯塾のみで浪人する場合は、施設費 月額55,000円が必要です。</li>
+    </ul>
+    <p class="text-sm mt-6">コースの詳しい内容は <a href="/fee" class="text-omu-pink font-bold">料金・コース案内</a> へ。</p>
+  </div>
+</section>
+<section class="py-16 md:py-24 bg-omu-light text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">桜灯塾ONLINEの料金</h2>
+    <div class="bg-white p-6 md:p-10 rounded-sm border border-gray-100 shadow-sm overflow-x-auto">
+      <table class="w-full text-sm md:text-base border-collapse min-w-[560px]">
+        <thead>
+          <tr class="bg-omu-pink text-white">
+            <th class="font-bold py-3 px-4 text-left">対象・コース</th>
+            <th class="font-bold py-3 px-4 text-left">内容</th>
+            <th class="font-bold py-3 px-4 text-right">料金（税込）</th>
+          </tr>
+        </thead>
+        <tbody class="font-medium">
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">高3・既卒生（講師1人対生徒2人）</td><td class="py-3 px-4">週2回（1回120分）</td><td class="py-3 px-4 text-right font-bold">118,000円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">高3・既卒生（講師1人対生徒2人）</td><td class="py-3 px-4">週3回（1回120分）</td><td class="py-3 px-4 text-right font-bold">158,000円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">高3・既卒生（講師1人対生徒2人）</td><td class="py-3 px-4">週4回（1回120分）</td><td class="py-3 px-4 text-right font-bold">198,000円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">高3・既卒生（講師1人対生徒2人）</td><td class="py-3 px-4">週5回（1回120分）</td><td class="py-3 px-4 text-right font-bold">238,000円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">高1・高2（講師1人対生徒3人）</td><td class="py-3 px-4">週2回（1回120分）</td><td class="py-3 px-4 text-right font-bold">85,800円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">マンツーマン（学生講師）高3・既卒生</td><td class="py-3 px-4">週1回（1回120分）</td><td class="py-3 px-4 text-right font-bold">70,400円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">マンツーマン（学生講師）高3・既卒生</td><td class="py-3 px-4">週2回（1回120分）</td><td class="py-3 px-4 text-right font-bold">140,800円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">マンツーマン（学生講師）高1・高2</td><td class="py-3 px-4">週1回（1回120分）</td><td class="py-3 px-4 text-right font-bold">61,600円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">マンツーマン（学生講師）高1・高2</td><td class="py-3 px-4">週2回（1回120分）</td><td class="py-3 px-4 text-right font-bold">123,200円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">入会金</td><td class="py-3 px-4">—</td><td class="py-3 px-4 text-right font-bold">27,500円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">追加授業（マンツーマン120分）</td><td class="py-3 px-4">1回</td><td class="py-3 px-4 text-right font-bold">16,500円</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">体験授業</td><td class="py-3 px-4">初回（120分）</td><td class="py-3 px-4 text-right font-bold">無料</td></tr>
+          <tr class="border-b border-gray-100"><td class="py-3 px-4 font-bold">体験授業</td><td class="py-3 px-4">有料体験3回（1回120分）</td><td class="py-3 px-4 text-right font-bold">16,500円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-gray-500 mt-4 leading-relaxed">すべて税込です。教材費は実費のみ。オンライン自習室と、LINE質問制度（高3・既卒生）は月謝に含まれます。マンツーマン（学生講師）の月額は、1時間あたり高3・既卒生 8,800円／高1・高2 7,700円を、1回2時間・月4回（週1回）／月8回（週2回）で計算しています。「費用がかかっても、自分のためだけに見てほしい」という要望に応えるコースです。</p>
+    <p class="text-sm mt-6">授業の進め方や自習室については <a href="/online" class="text-omu-pink font-bold">桜灯塾ONLINEのページ</a> へ。</p>
+  </div>
+</section>
+
+<section class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-12 md:pt-24 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-20">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                        <li><a href="/articles" class="footer-link">記事一覧</a></li>
+                        <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/online" class="footer-link">桜灯塾ONLINE</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-[10px] font-bold tracking-[0.35em] text-white/70 uppercase mb-1">Oubijuku</div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">お電話</span>
+                <span class="text-xs font-bold text-white">06-6779-9507</span>
+            </a>
+            <a href="/contact"
+               class="flex flex-col items-center justify-center gap-1 bg-white text-omu-pink py-3 text-center border-l border-gray-100 active:opacity-70">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-omu-pink">お問い合わせ</span>
+                <span class="text-xs font-bold text-omu-pink">フォームはこちら</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+
+
+</body>
+</html>
