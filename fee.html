@@ -279,8 +279,33 @@
                 <a href="/fee-list" class="inline-block mt-3 border border-omu-pink text-omu-pink font-bold text-sm px-6 py-2 rounded-full">料金表（通塾・ONLINE）を見る →</a>
             </div>
 
-            <!-- メインプラン -->
             <section class="mb-16">
+                <h2 class="text-xl md:text-2xl font-bold mb-4 text-omu-dark text-center">通い方は3つあります</h2>
+                <p class="text-sm text-gray-600 text-center mb-8">まず通い方を選んでください。料金はすべて税込です。</p>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="bg-white border-2 border-omu-pink p-6 shadow-sm">
+                        <h3 class="font-bold text-lg mb-1 text-omu-dark">通い放題コース <span class="text-xs text-omu-pink border border-omu-pink px-2 py-0.5 ml-1">通塾</span></h3>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">自習室・授業ともに定額。平日17:00–21:00／土曜10:00–18:00、教室に来る時間が取れる人に。</p>
+                        <p class="text-sm mb-3"><span class="font-bold text-omu-pink">59,500円〜</span>／月（現役生限定）</p>
+                        <a href="#tsuho" class="text-sm text-omu-pink font-bold">詳しく見る ↓</a>
+                    </div>
+                    <div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 shadow-sm">
+                        <h3 class="font-bold text-lg mb-1 text-omu-dark">通常コース <span class="text-xs text-omu-pink border border-omu-pink px-2 py-0.5 ml-1">通塾</span></h3>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">週の回数を決めて通う形。部活や他の習い事と両立したい人に。</p>
+                        <p class="text-sm mb-3">集団個別 週2回・2科目まで <span class="font-bold text-omu-pink">50,750円〜</span>／月</p>
+                        <a href="#courses" class="text-sm text-omu-pink font-bold">詳しく見る ↓</a>
+                    </div>
+                    <div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 shadow-sm">
+                        <h3 class="font-bold text-lg mb-1 text-omu-dark">桜灯塾ONLINE <span class="text-xs text-omu-pink border border-omu-pink px-2 py-0.5 ml-1">オンライン</span></h3>
+                        <p class="text-xs text-gray-500 leading-relaxed mb-3">天王寺の教室から配信。全国から受講でき、オンライン自習室も使えます。</p>
+                        <p class="text-sm mb-3">週2回 <span class="font-bold text-omu-pink">85,800円〜</span>／月（高1・高2）</p>
+                        <a href="/online" class="text-sm text-omu-pink font-bold">ONLINEのページへ →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- メインプラン -->
+            <section class="mb-16" id="tsuho">
                 <div class="bg-omu-pink text-white rounded-sm overflow-hidden shadow-2xl">
                     <div class="p-8 md:p-14 text-center">
                         <p class="text-xs md:text-sm tracking-[0.3em] uppercase text-white/70 mb-4">Main Course</p>
@@ -340,7 +365,8 @@
 
             <!-- その他のコース・料金 -->
             <section class="mb-16">
-                <h2 class="text-xl md:text-2xl font-bold mb-8 text-omu-dark">その他のコース・料金</h2>
+                <h2 id="courses" class="text-xl md:text-2xl font-bold mb-4 text-omu-dark">その他のコース・料金</h2>
+                <p class="text-sm text-gray-600 mb-8">マンツーマンは、基本のコースに足す追加オプションです。単発でも、定期コースでも追加できます。</p>
                 <div class="grid gap-6 md:grid-cols-2"><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">集団個別</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>中1〜高2 <span class="font-bold text-omu-pink">3,000円</span>／中3・高3 <span class="font-bold text-omu-pink">3,500円</span></div><p class="text-xs text-gray-500 leading-relaxed">講師1名対生徒3名まで。週1回2時間から。通い放題コースとの併用で、授業料が20％割引になります。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン（学生講師）</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">8,800円</span>／高1・高2 <span class="font-bold text-omu-pink">7,700円</span></div><p class="text-xs text-gray-500 leading-relaxed">学生講師による1対1の個別指導です。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm md:col-span-2"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン定期コース（学生講師）</h3><div class="text-sm leading-loose mb-3">週1回（1回2時間）月額<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">70,400円</span>／高1・高2 <span class="font-bold text-omu-pink">61,600円</span><br>週2回（1回2時間）月額<br>中学生・高3・浪人生 <span class="font-bold text-omu-pink">140,800円</span>／高1・高2 <span class="font-bold text-omu-pink">123,200円</span></div><p class="text-xs text-gray-500 leading-relaxed">「費用がかかっても、自分のためだけに見てほしい」という要望に応える定期コースです。月4回（週1回）／月8回（週2回）で計算しています。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">マンツーマン（プロ講師）</h3><div class="text-sm leading-loose mb-3">1時間あたり<br>高1・高2 <span class="font-bold text-omu-pink">11,000円</span>／高3 <span class="font-bold text-omu-pink">13,200円</span></div><p class="text-xs text-gray-500 leading-relaxed">プロ講師による1対1の個別指導です。</p></div><div class="bg-white border border-gray-200 border-t-2 border-t-omu-pink p-6 md:p-8 shadow-sm"><h3 class="font-bold text-lg mb-3 text-omu-dark">自習室のみ</h3><div class="text-sm leading-loose mb-3">現役生 月額 <span class="font-bold text-omu-pink">16,500円</span><br>浪人生は施設費 月額 <span class="font-bold text-omu-pink">55,000円</span> が必要です</div><p class="text-xs text-gray-500 leading-relaxed">自分専用の固定席を確保。年中無休・8時〜23時、スマホ預かりロッカー完備です。</p></div></div>
                 <ul class="text-xs text-gray-500 leading-relaxed mt-6 space-y-1">
                     <li>※入会金は中学生 22,000円／高校生 27,500円（税込）です。</li>
@@ -454,6 +480,7 @@
                         <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
                         <li><a href="/articles" class="footer-link">記事一覧</a></li>
                         <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                        <li><a href="/fee-list" class="footer-link">料金表</a></li>
                     </ul>
                 </div>
                 <div>
