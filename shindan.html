@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HTWQQSL9Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HTWQQSL9Y');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学の学部・学科診断。14の質問に答えると、興味から合いそうな学部・学域が分かります。所要時間は約2分。結果から各学部の配点・日程ページへ進めます。">
+    <meta name="keywords" content="医学部医学科,大阪公立大学,個別指導,天王寺,桜灯塾,大学受験">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/shindan">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="学部・学科診断｜大阪公立大学専門 桜灯塾">
+    <meta property="og:description" content="14の質問で、あなたに合う大阪公立大学の学部・学域が分かります。">
+    <meta property="og:url" content="https://oubijuku-omu.com/shindan">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="医学部医学科の入試情報｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学 医学部医学科の入試を、大学の2027年度要項で整理。配点・3つの入口・2026年度の合格最低点を掲載しています。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "医学部医学科の入試情報｜桜灯塾",
+      "description": "大阪公立大学 医学部医学科の入試情報を、配点・日程・合格最低点から整理しました。大阪公立大学専門 桜灯塾（天王寺）の学部別ページです。",
+      "url": "https://oubijuku-omu.com/shindan",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>学部・学科診断｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    
+        /* スマホでは表を詰めて横スクロールを最小化 */
+        @media (max-width: 767px) {
+            table { min-width: 350px !important; font-size: 13px !important; }
+            th, td { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+        }
+        /* 広い画面では表を広げすぎない（列間の間延び防止） */
+        @media (min-width: 768px) {
+            table { max-width: 640px; margin-left: auto; margin-right: auto; }
+        }
+        /* 最終列（割合など）の手前に区切り線を入れ、スマホでは少し間を空ける */
+        th:last-child, td:last-child { border-left: 1px solid #e5e7eb; }
+        thead th:last-child { border-left-color: rgba(255,255,255,0.4); }
+        @media (max-width: 767px) {
+            th:last-child, td:last-child { padding-left: 0.85rem !important; }
+        }
+            .pct30 { color: #E5007F; font-weight: 700; }
+        .pct20 { color: #B7791F; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none"><ruby>桜灯<rt style="font-size:0.38em;color:#a8a29e;font-weight:500;letter-spacing:0.05em;">おうび</rt></ruby>塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden xl:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex flex-nowrap space-x-5 xl:space-x-8 items-center text-[0.85rem] xl:text-[0.9rem] font-bold tracking-wider whitespace-nowrap">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/online" class="hover:text-omu-pink transition">ONLINE</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-5 xl:px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/online" class="text-lg font-bold py-4 border-b border-gray-100">ONLINE</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-20 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">学部・学科診断</h1>
+        <p class="text-gray-600 text-sm text-center">14の質問に答えると、あなたに合う学部・学域が分かります</p>
+    </header>
+<main>
+<section class="py-14 md:py-20 bg-white text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <div id="shindan-app" class="max-w-3xl mx-auto"></div>
+  </div>
+</section>
+
+<section class="py-14 md:py-20 bg-omu-light text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-xl md:text-2xl font-bold mb-8 section-title">この診断について</h2>
+    <div class="max-w-3xl space-y-4 text-gray-600 font-medium leading-loose">
+      <p>この診断は、大阪公立大学の全学部・学科の情報をもとに、大阪公立大学専門 桜灯塾が作りました。結果は「興味」からの目安で、向き不向きを決めるものではありません。</p>
+      <p>学部が決まったら、次は配点と日程の確認です。学部ごとに受験の形が大きく違うので、気になった学部の入試情報を確かめてください。</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="/gakubu" class="inline-block bg-omu-pink text-white font-bold py-3 px-8 rounded-sm shadow cta-button text-sm tracking-widest">学部別入試情報を見る</a>
+      <a href="/articles" class="inline-block border border-omu-pink text-omu-pink font-bold py-3 px-8 rounded-sm text-sm tracking-widest">記事一覧を見る</a>
+    </div>
+  </div>
+</section>
+</main>
+<section class="py-16 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-12 md:pt-24 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 mb-12 md:mb-20">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                        <li><a href="/articles" class="footer-link">記事一覧</a></li>
+                        <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/online" class="footer-link">桜灯塾ONLINE</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-[10px] font-bold tracking-[0.35em] text-white/70 uppercase mb-1">Oubijuku</div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01l-2.2 2.19z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">お電話</span>
+                <span class="text-xs font-bold text-white">06-6779-9507</span>
+            </a>
+            <a href="/contact"
+               class="flex flex-col items-center justify-center gap-1 bg-white text-omu-pink py-3 text-center border-l border-gray-100 active:opacity-70">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-omu-pink">お問い合わせ</span>
+                <span class="text-xs font-bold text-omu-pink">フォームはこちら</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+<script>
+(function(){
+var GROUPS = {
+  gendai:{name:"現代システム科学域",desc:"情報・環境・教育福祉・心理。分野を横断して、社会の課題に挑む学域です。",kw:"社会の課題／分野を横断する学び",pt:"選抜方式は学類ごとに大きく異なります",sub:"学類：知識情報システム／環境社会システム／教育福祉／心理学類",url:"/gakubu"},
+  bungaku:{name:"文学部",desc:"文学・歴史・文化・言語。人間の営みを深く読み解く学部です。",kw:"言葉と物語／歴史と文化",pt:"国語と英語の力が問われます",sub:"",url:"/bungaku"},
+  hougaku:{name:"法学部",desc:"法律と政治の仕組みを学び、社会のルールを考える学部です。",kw:"ルールと仕組み／社会の動き",pt:"文章を読み解く力と英語が軸になります",sub:"",url:"/hougaku"},
+  keizai:{name:"経済学部",desc:"データと理論で、経済の動きを読み解く学部です。",kw:"データと数字／経済の動き",pt:"文系でも数学を使います。データを読む力が必要です",sub:"",url:"/keizaigaku"},
+  shogaku:{name:"商学部",desc:"経営・マーケティング・会計。ビジネスの現場にいちばん近い学部です。",kw:"ビジネス／お金の流れ",pt:"英語・国語・数学のバランス型です",sub:"",url:"/shogaku"},
+  rigaku:{name:"理学部",desc:"数学・物理・化学・生物・地球。自然の仕組みをとことん追究する学部です。",kw:"自然の仕組み／実験と観察",pt:"数学と理科の配点が大きい学部です",sub:"学科：数学／物理学／化学／生物学／生物化学／地球学",url:"/gakubu"},
+  kougaku:{name:"工学部",desc:"ものづくりと技術で社会を動かす、12学科の大きな学部です。",kw:"ものづくり／技術",pt:"数学・理科・英語が柱で、特に数学の比重が大きい学部です",sub:"学科：機械工学／航空宇宙工学／海洋システム工学／情報工学／電気電子システム工学／電子物理工学／応用化学／化学工学／化学バイオ工学／マテリアル工学／建築学／都市学科",url:"/gakubu"},
+  nougaku:{name:"農学部",desc:"食料・生命・環境・緑地。生きものと食の未来を考える学部です。",kw:"生きものと食／自然",pt:"理科（生物・化学）と数学が中心です",sub:"学科：応用生物科学／生命機能科学／緑地環境科学",url:"/gakubu"},
+  juigaku:{name:"獣医学部（獣医学類）",desc:"動物の命と健康を守る、6年制の獣医師養成課程です。",kw:"動物／命を守る",pt:"理科の配点が大きく、難易度も高い学部です",sub:"",url:"/juigaku"},
+  igakuka:{name:"医学部 医学科",desc:"医師を目指す6年制。命と向き合う、最前線の学びです。",kw:"医療／人を治す",pt:"共通テストと数学・理科の配点が非常に大きい学部です",sub:"",url:"/igakuka"},
+  reha:{name:"医学部 リハビリテーション学科",desc:"理学療法・作業療法。人の「動く・暮らす」を支える専門職を育てます。",kw:"人を支える／体の動き・回復",pt:"小論文・面接のある推薦方式もあります",sub:"専攻：理学療法学／作業療法学",url:"/igaku-reha-rigaku"},
+  kangogaku:{name:"医学部 看護学科",desc:"人の回復と暮らしに寄り添う、看護の専門職を育てます。",kw:"人に寄り添う／医療",pt:"共通テスト型の選抜が中心です",sub:"",url:"/kangogaku"},
+  seikagaku:{name:"生活科学部",desc:"食栄養・居住環境・人間福祉。毎日の暮らしを科学する学部です。",kw:"暮らし／食・住まい・福祉",pt:"学科・専攻ごとに選抜方式が異なります",sub:"学科・専攻：食栄養学科／居住環境学専攻／人間福祉学専攻",url:"/gakubu"}
+};
+var QS = [
+ {q:"休みの日、友だちと遊ぶことの他に、つい時間を使ってしまうのは？",c:[
+  {t:"動物や自然の動画・番組をずっと見てしまう",s:{nougaku:2,juigaku:2,rigaku:1}},
+  {t:"小説やマンガ、物語の世界に没頭する",s:{bungaku:2,hougaku:1}},
+  {t:"時事ネタや社会の仕組みを解説する動画を、つい見入ってしまう",s:{keizai:2,hougaku:1,gendai:1}},
+  {t:"ゲームやアプリの仕組みが気になっていじってしまう",s:{kougaku:2,gendai:1,rigaku:1}}]},
+ {q:"学校の科目で、いちばん好きなのは？",c:[
+  {t:"数学",s:{kougaku:2,rigaku:2,keizai:1}},
+  {t:"理科（実験が好き）",s:{rigaku:2,nougaku:1,igakuka:1}},
+  {t:"国語・英語",s:{bungaku:2,hougaku:1,gendai:1}},
+  {t:"社会",s:{hougaku:2,keizai:1,gendai:1}}]},
+ {q:"将来、どんな仕事に惹かれる？",c:[
+  {t:"人を治す・命を救う",s:{igakuka:2,kangogaku:1,reha:1}},
+  {t:"会社をつくる・ビジネスで勝負する",s:{shogaku:2,keizai:2}},
+  {t:"研究者として未知を解き明かす",s:{rigaku:2,kougaku:1,nougaku:1}},
+  {t:"人の暮らしを支える専門職",s:{reha:2,kangogaku:2,seikagaku:1}}]},
+ {q:"気になるニュースのテーマは？",c:[
+  {t:"医療・健康の進歩",s:{igakuka:2,reha:1,seikagaku:1}},
+  {t:"環境問題・食料問題",s:{nougaku:2,gendai:2,seikagaku:1}},
+  {t:"AI・テクノロジー",s:{kougaku:2,gendai:2,rigaku:1}},
+  {t:"政治・法律・国際情勢",s:{hougaku:2,keizai:1,gendai:1}}]},
+ {q:"文化祭でやるなら？",c:[
+  {t:"実験ショー・科学展示",s:{rigaku:2,kougaku:1}},
+  {t:"模擬店で売上を競う",s:{shogaku:2,keizai:1}},
+  {t:"劇や展示の企画・デザイン",s:{bungaku:1,seikagaku:1,kougaku:1}},
+  {t:"救護・案内など人を支える係",s:{kangogaku:2,reha:1,gendai:1}}]},
+ {q:"本屋で手が伸びるのは？",c:[
+  {t:"宇宙・恐竜・科学の本",s:{rigaku:2,nougaku:1}},
+  {t:"小説・歴史の本",s:{bungaku:2,hougaku:1}},
+  {t:"ビジネス・お金の本",s:{keizai:2,shogaku:2}},
+  {t:"動物・植物の図鑑",s:{juigaku:2,nougaku:2}}]},
+ {q:"グループ活動で自然とやる役割は？",c:[
+  {t:"計算・データをまとめる",s:{keizai:1,rigaku:1,kougaku:1,gendai:1}},
+  {t:"アイデアを出す・企画する",s:{shogaku:1,gendai:1,bungaku:1}},
+  {t:"人の話を聞いて調整する",s:{kangogaku:1,reha:1,seikagaku:1,gendai:1}},
+  {t:"手を動かして作る・直す",s:{kougaku:2,nougaku:1,juigaku:1}}]},
+ {q:"解決したい社会の課題は？",c:[
+  {t:"高齢化と福祉",s:{seikagaku:2,kangogaku:1,gendai:1}},
+  {t:"病気と医療の格差",s:{igakuka:2,kangogaku:1,reha:1}},
+  {t:"地球環境と食料",s:{nougaku:2,gendai:1,rigaku:1}},
+  {t:"街の安全・防災・住まい",s:{kougaku:1,seikagaku:1,gendai:1}}]},
+ {q:"好きな学び方は？",c:[
+  {t:"実験・観察で確かめる",s:{rigaku:2,nougaku:1,igakuka:1}},
+  {t:"本と資料を読み込む",s:{bungaku:2,hougaku:2}},
+  {t:"議論して考えを深める",s:{gendai:2,hougaku:1,keizai:1}},
+  {t:"現場に出て人と関わる",s:{reha:2,kangogaku:1,gendai:1,seikagaku:1}}]},
+ {q:"人の「心」の仕組みに興味がある？",c:[
+  {t:"とてもある。なぜ人はそう行動するのか知りたい",s:{gendai:2,seikagaku:1}},
+  {t:"人の成長・教育の方に興味がある",s:{gendai:2,seikagaku:1}},
+  {t:"心より体の仕組みの方が興味がある",s:{igakuka:2,reha:1,rigaku:1}},
+  {t:"心より仕組み・モノづくり",s:{kougaku:2,rigaku:1}}]},
+ {q:"動物と関わる仕事、どう？",c:[
+  {t:"ぜひやりたい",s:{juigaku:3,nougaku:1}},
+  {t:"動物は好き。でも仕事は人相手がいい",s:{kangogaku:1,reha:1}},
+  {t:"植物・食べものの方が好き",s:{nougaku:2,seikagaku:2}},
+  {t:"あまり惹かれない",s:{}}]},
+ {q:"お金や経済の動き、面白いと思う？",c:[
+  {t:"とても面白い",s:{keizai:3,shogaku:2}},
+  {t:"会社経営・マーケティングなら面白そう",s:{shogaku:3,keizai:1}},
+  {t:"ルールや制度としてなら興味がある",s:{hougaku:2,gendai:1}},
+  {t:"あまり興味がない",s:{rigaku:1,nougaku:1}}]},
+ {q:"将来、働きたい環境は？",c:[
+  {t:"最先端の研究室・病院",s:{igakuka:1,rigaku:1,kougaku:1}},
+  {t:"都会のオフィス",s:{shogaku:1,keizai:1,hougaku:1}},
+  {t:"自然の近く・フィールド",s:{nougaku:2,juigaku:1,rigaku:1}},
+  {t:"地域の人と近い場所",s:{kangogaku:1,reha:1,seikagaku:1,gendai:1}}]},
+ {q:"大学で一番伸ばしたいのは？",c:[
+  {t:"論理的に考える力",s:{rigaku:1,hougaku:1,kougaku:1,gendai:1}},
+  {t:"人を支える専門性",s:{reha:2,kangogaku:2,igakuka:1}},
+  {t:"新しいものを生み出す力",s:{kougaku:2,shogaku:1,gendai:1}},
+  {t:"社会の仕組みを変える力",s:{gendai:2,hougaku:1,keizai:1}}]}
+];
+var OCTEXT = '気になった学部があれば、大阪公立大学のオープンキャンパスに行ってみるのもおすすめです。キャンパスの空気や授業の雰囲気に触れると、学部選びの解像度が一気に上がります。日程や申込は、大学の公式サイトで確認できます。';
+var OCTEXT2 = 'こういうときこそ、オープンキャンパスで実際のキャンパスや授業を体感すると、興味の芽が見つかることがあります。大阪公立大学でもオープンキャンパスが開かれています（日程は大学の公式サイトで確認できます）。';
+var BASIS = 'この診断は、大阪公立大学の全学部・学科の情報をもとに、大阪公立大学専門 桜灯塾が作りました。結果は興味からの目安です。';
+var st = {started:false, step:0, scores:{}, hist:[], done:false};
+var app = document.getElementById('shindan-app');
+function track(name, params){ if(window.gtag){ gtag('event', name, params || {}); } }
+function esc(s){ return s; }
+function render(){
+  if(!st.started && !st.done){
+    app.innerHTML =
+      '<p class="text-omu-pink font-bold text-xs tracking-[0.2em] mb-3">大阪公立大学専門 桜灯塾</p>' +
+      '<h2 class="text-2xl md:text-3xl font-bold leading-relaxed mb-4">大阪公立大学<br>学部・学科診断</h2>' +
+      '<p class="text-gray-600 font-medium leading-loose mb-3">14の質問に答えると、あなたに合いそうな学部・学域が分かります。所要時間は約2分です。</p>' +
+      '<p class="text-sm text-gray-500 font-medium leading-loose mb-8">回答は送信・記録されません。その場で結果が出ます。<br>保護者の方は、お子さんと一緒にどうぞ。</p>' +
+      '<button id="shindan-start" class="bg-omu-pink text-white font-bold py-4 px-10 rounded-sm shadow cta-button text-sm tracking-widest">診断をはじめる</button>' +
+      '<p class="text-xs text-gray-400 font-medium mt-6 leading-relaxed">' + BASIS + '</p>';
+    document.getElementById('shindan-start').addEventListener('click', function(){ st.started = true; track('shindan_start'); render(); });
+    return;
+  }
+  var ctas =
+    '<div class="flex flex-wrap gap-3 items-center">' +
+    '<a href="https://lin.ee/oKkXtFw" data-shindan-line class="bg-[#06C755] text-white text-sm font-bold py-3 px-6 rounded-full">公式LINEで相談する</a>' +
+    '<a href="/contact" class="border border-omu-pink text-omu-pink text-sm font-bold py-3 px-6 rounded-full">無料相談を申し込む</a>' +
+    '<button id="shindan-restart" class="text-sm text-gray-400 underline">もう一度やる</button></div>';
+  if(st.done){
+    var arr = Object.keys(GROUPS).map(function(k){ return {k:k, v:st.scores[k]||0}; });
+    arr.sort(function(a,b){ return b.v - a.v; });
+    if(arr[0].v === 0){
+      track('shindan_complete', {result_top:'（傾向なし）'});
+      app.innerHTML =
+        '<p class="text-omu-pink font-bold text-xs tracking-[0.2em] mb-3">診断結果</p>' +
+        '<h2 class="text-xl md:text-2xl font-bold leading-relaxed mb-4">今回は、はっきりした傾向が出ませんでした</h2>' +
+        '<p class="text-gray-600 font-medium leading-loose mb-4">興味がまだ定まっていない時期は、それが普通です。学部の一覧を眺めて「なんか気になる」から始めるのも立派な探し方です。迷ったら、無料相談やLINEで一緒に整理しましょう。</p>' +
+        '<p class="text-gray-600 font-medium leading-loose mb-6">' + OCTEXT2 + '</p>' +
+        '<p class="mb-8"><a href="/gakubu" class="text-omu-pink font-bold">学部・学科の一覧を見る →</a></p>' + ctas;
+    } else {
+      var t1 = arr[0], t2 = arr[1];
+      var g1 = GROUPS[t1.k], g2 = GROUPS[t2.k];
+      track('shindan_complete', {result_top: g1.name, result_second: g2.name});
+      var shareText = encodeURIComponent('大阪公立大学の学部・学科診断、私の第1候補は「' + g1.name + '」でした');
+      var shareUrl = encodeURIComponent('https://oubijuku-omu.com/shindan');
+      function card(t, rank){
+        var g = GROUPS[t.k];
+        var h = '<div class="bg-white ' + (rank === 1 ? 'border-2 border-omu-pink' : 'border border-gray-200') + ' rounded-sm p-6 shadow-sm mb-5">' +
+          '<p class="text-omu-pink font-bold text-xs mb-2">第' + rank + '候補</p>' +
+          '<h3 class="text-xl font-bold mb-3">' + g.name + '</h3>' +
+          '<p class="text-sm mb-3"><span class="text-omu-pink font-bold">興味の傾向：</span>' + g.kw + '</p>' +
+          '<p class="text-sm text-gray-600 font-medium leading-loose">' + g.desc + '</p>';
+        if(g.sub){ h += '<p class="text-xs text-gray-500 font-medium mt-3 leading-relaxed">' + g.sub + '</p>'; }
+        h += '<p class="text-sm mt-4"><span class="font-bold">受験のポイント：</span>' + g.pt + '</p>' +
+          '<a href="' + g.url + '" data-shindan-faculty="' + g.name + '" class="inline-block mt-4 text-omu-pink font-bold text-sm">この学部の入試情報を見る →</a></div>';
+        return h;
+      }
+      app.innerHTML =
+        '<p class="text-omu-pink font-bold text-xs tracking-[0.2em] mb-3">診断結果</p>' +
+        '<h2 class="text-xl md:text-2xl font-bold mb-6">あなたに合いそうなのは…</h2>' +
+        card(t1, 1) + card(t2, 2) +
+        '<p class="text-xs text-gray-500 font-medium leading-loose mb-4">※配点や難しさは学部で大きく違うので、気になった学部のページで入試情報を確かめてみてください。迷ったら、無料相談やLINEで聞いてください。</p>' +
+        '<div class="border border-gray-200 rounded-sm p-5 bg-white text-sm leading-loose mb-5">' + OCTEXT + '</div>' +
+        '<div class="flex gap-2 items-center mb-6"><span class="text-xs text-gray-500 font-medium">結果をシェアする</span>' +
+        '<a href="https://social-plugins.line.me/lineit/share?url=' + shareUrl + '&text=' + shareText + '" class="border border-[#06C755] text-[#06C755] text-xs font-bold py-2 px-4 rounded-full">LINE</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" class="border border-gray-300 text-xs font-bold py-2 px-4 rounded-full">X</a></div>' +
+        ctas +
+        '<p class="text-xs text-gray-400 font-medium mt-6 leading-relaxed">' + BASIS + '</p>';
+    }
+    var r = document.getElementById('shindan-restart');
+    if(r){ r.addEventListener('click', function(){ st = {started:true, step:0, scores:{}, hist:[], done:false}; render(); }); }
+    return;
+  }
+  var q = QS[st.step];
+  var pct = Math.round(st.step / QS.length * 100);
+  var h = '<p class="text-omu-pink font-bold text-xs tracking-[0.2em] mb-3">大阪公立大学 学部・学科診断</p>' +
+    '<p class="text-sm text-gray-500 font-medium mb-2">質問 ' + (st.step + 1) + ' / ' + QS.length + '</p>' +
+    '<div class="h-1.5 bg-[#FDF2F6] rounded-full mb-8"><div class="h-1.5 bg-omu-pink rounded-full" style="width:' + pct + '%"></div></div>' +
+    '<h2 class="text-lg md:text-xl font-bold leading-relaxed mb-6">' + q.q + '</h2>';
+  q.c.forEach(function(c, i){
+    h += '<button data-answer="' + i + '" class="block w-full text-left bg-white border border-gray-200 rounded-sm p-4 shadow-sm mb-3 font-medium">' + c.t + '</button>';
+  });
+  h += '<button data-answer="-1" class="block w-full text-center border border-dashed border-gray-300 rounded-sm p-3 mb-3 text-sm text-gray-500 font-medium">どれも当てはまらない</button>';
+  if(st.step > 0){ h += '<button id="shindan-back" class="text-xs text-gray-400 mt-1">← 前の質問に戻る</button>'; }
+  app.innerHTML = h;
+  app.querySelectorAll('[data-answer]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var i = parseInt(btn.getAttribute('data-answer'), 10);
+      if(i >= 0){
+        var c = QS[st.step].c[i];
+        Object.keys(c.s).forEach(function(k){ st.scores[k] = (st.scores[k] || 0) + c.s[k]; });
+      }
+      st.hist.push(i);
+      st.step++;
+      if(st.step >= QS.length){ st.done = true; }
+      render();
+    });
+  });
+  var b = document.getElementById('shindan-back');
+  if(b){ b.addEventListener('click', function(){
+    var last = st.hist.pop();
+    if(last >= 0){
+      var c = QS[st.step - 1].c[last];
+      Object.keys(c.s).forEach(function(k){ st.scores[k] = (st.scores[k] || 0) - c.s[k]; });
+    }
+    st.step--;
+    render();
+  }); }
+}
+app.addEventListener('click', function(e){
+  var f = e.target.closest('[data-shindan-faculty]');
+  if(f){ track('shindan_faculty_click', {faculty: f.getAttribute('data-shindan-faculty')}); }
+  var l = e.target.closest('[data-shindan-line]');
+  if(l){ track('shindan_line_click'); track('line_click', {source: 'shindan'}); }
+});
+render();
+})();
+</script>
+
+</body>
+</html>
