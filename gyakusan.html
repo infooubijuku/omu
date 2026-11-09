@@ -718,6 +718,20 @@ syncSchool();
 
 syncSlider();
 render();
+
+// 学部別ページなどから ?t=<key> で来た場合は、その系統を選択済みにする（ボタンをクリックしたのと同じ経路）
+(function(){
+  var t = null;
+  try {
+    t = new URLSearchParams(window.location.search).get('t');
+  } catch(e) {
+    var m = /[?&]t=([^&]*)/.exec(window.location.search || '');
+    if(m){ try { t = decodeURIComponent(m[1]); } catch(e2) { t = m[1]; } }
+  }
+  if(!t || !TRACKS[t]) return;
+  var btn = document.querySelector('button[data-track="' + t + '"]');
+  if(btn) btn.click();
+})();
 })();
 </script>
 
