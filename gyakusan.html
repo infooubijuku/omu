@@ -245,11 +245,21 @@
             <button type="button" class="gy-choice" data-grade="3">高3</button>
           </div>
           <p class="font-bold mb-3"><span class="sd-badge">2</span>　目指す系統</p>
-          <div class="gy-choices" id="gy-tracks">
-            <button type="button" class="gy-choice" data-track="rikei">理系</button>
-            <button type="button" class="gy-choice" data-track="sho">文系：商・経済</button>
-            <button type="button" class="gy-choice" data-track="ho">文系：法・文</button>
-            <button type="button" class="gy-choice" data-track="gen">文系：現代システム</button>
+          <p class="gy-group-label">理系</p>
+          <div class="gy-choices" id="gy-tracks-ri">
+            <button type="button" class="gy-choice" data-track="igaku">医学部医学科</button>
+            <button type="button" class="gy-choice" data-track="juui">獣医学科</button>
+            <button type="button" class="gy-choice on" data-track="kogaku">工学部</button>
+            <button type="button" class="gy-choice" data-track="rigaku">理学部</button>
+            <button type="button" class="gy-choice" data-track="nogaku">農学部</button>
+            <button type="button" class="gy-choice" data-track="gensysri">現代システム（理系型）</button>
+            <button type="button" class="gy-choice" data-track="kango">看護学部</button>
+          </div>
+          <p class="gy-group-label">文系</p>
+          <div class="gy-choices" id="gy-tracks-bun">
+            <button type="button" class="gy-choice" data-track="sho">商・経済</button>
+            <button type="button" class="gy-choice" data-track="ho">法・文学部</button>
+            <button type="button" class="gy-choice" data-track="gensysbun">現代システム（文系型）</button>
           </div>
           <p class="font-bold mb-3"><span class="sd-badge">3</span>　始める時期</p>
           <input type="range" id="gy-start" min="0" max="3" step="1" value="0" aria-label="始める時期">
@@ -276,7 +286,7 @@
         </div>
         <div id="gy-result">
           <div class="sd-card">
-            <p class="text-gray-600 font-medium leading-loose">上の「1. 今の学年」と「2. 目指す系統」を選ぶと、結果がここに出ます。始める時期のスライダーを動かすと、1日あたりの勉強量がどう変わるかが見えます。</p>
+            <p class="text-gray-600 font-medium leading-loose">上の「1. 今の学年」を選ぶと、結果がここに出ます（系統は工学部が選ばれています。変えると結果も変わります）。始める時期のスライダーを動かすと、1日あたりの勉強量がどう変わるかが見えます。</p>
           </div>
         </div>
       </div>
@@ -288,7 +298,7 @@
   <div class="max-w-6xl mx-auto px-4">
     <h2 class="text-xl md:text-2xl font-bold mb-8 section-title">このメーターについて</h2>
     <div class="max-w-3xl space-y-4 text-gray-600 font-medium leading-loose">
-      <p>このメーターは、大阪公立大学専門 桜灯塾が、合格に必要な勉強時間の目安をもとに作りました。理系は約2,550時間（英語650・数学750・物理400・化学450・共通テスト専用300）、文系は学部によって約2,000〜3,500時間です。</p>
+      <p>このメーターは、大阪公立大学専門 桜灯塾が、合格に必要な勉強時間の目安をもとに作りました。必要な勉強時間の目安は学部ごとに幅があり、約1,800〜7,000時間です。</p>
       <p>時間はあくまで目安です。人によって前後しますし、学校の授業で既に学んだ分や、今の学力によっても変わります。大切なのは、残りの日数から逆算して「今日から何をするか」を決めることです。</p>
       <p>受験生（高3）向けには、共通テストの得点率から二次試験の目安を出す「合格までの距離メーター」もあります。</p>
     </div>
@@ -479,6 +489,7 @@
 .sd-fade{animation:sdFade .35s ease;}
 @keyframes sdFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 .gy-choices{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.gy-group-label{font-size:12px;font-weight:700;color:#E5007F;letter-spacing:.15em;margin:0 0 8px;}
 .gy-choice{flex:1 1 auto;padding:12px 10px;border:1px solid #F3D9E3;background:#FFF7FA;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px;color:#2D2D2D;transition:background .15s,border-color .15s;font-family:inherit;}
 .gy-choice:hover{border-color:#E5007F;}
 .gy-choice.on{background:#E5007F;color:#fff;border-color:#E5007F;}
@@ -491,27 +502,29 @@
 @media(min-width:768px){.gy-big{font-size:2.3rem;}}
 .gy-caution{background:#FFF7FA;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:14px;}
 .gy-exit{display:block;text-align:center;font-weight:700;padding:14px 16px;border-radius:999px;margin-top:10px;font-size:14px;}
-.gy-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;}
-.gy-table th,.gy-table td{border-bottom:1px solid #f3f4f6;padding:8px 6px;text-align:left;}
-.gy-table td:last-child,.gy-table th:last-child{text-align:right;border-left:none;}
 </style>
 <script>
 (function(){
 function track(name, params){ if(window.gtag){ gtag('event', name, params || {}); } }
 
 var TRACKS = {
-  rikei: { label: '理系', min: 2550, max: 2550,
-           parts: [ ['英語',650], ['数学',750], ['物理',400], ['化学',450], ['共通テスト専用',300] ] },
-  sho:   { label: '文系：商・経済', min: 2000, max: 3500, parts: null },
-  ho:    { label: '文系：法・文', min: 2000, max: 3000, parts: null },
-  gen:   { label: '文系：現代システム', min: 2000, max: 3500, parts: null }
+  igaku:     { label: '医学部医学科', min: 5000, max: 7000 },
+  juui:      { label: '獣医学科', min: 4000, max: 6000 },
+  kogaku:    { label: '工学部', min: 2500, max: 4000 },
+  rigaku:    { label: '理学部', min: 2500, max: 3500 },
+  nogaku:    { label: '農学部', min: 2000, max: 3500 },
+  gensysri:  { label: '現代システム（理系型）', min: 2000, max: 3500 },
+  kango:     { label: '看護学部', min: 1800, max: 3000 },
+  sho:       { label: '商・経済', min: 2000, max: 3500 },
+  ho:        { label: '法・文学部', min: 2000, max: 3000 },
+  gensysbun: { label: '現代システム（文系型）', min: 2000, max: 3500 }
 };
 var OFFSETS = [0, 3, 6, 12];
 var OFFSET_LABELS = ['今すぐ', '3か月後', '半年後', '1年後'];
 var SCHOOL_COEF = { shinko: 0.7, koritsu: 0.4 };
 var SCHOOL_LABEL = { none: '含めない', shinko: '進学校', koritsu: '公立' };
 
-var state = { grade: null, track: null, offsetIdx: 0, schoolType: 'none', schoolHours: 15, started: false, resulted: false };
+var state = { grade: null, track: 'kogaku', offsetIdx: 0, schoolType: 'none', schoolHours: 15, started: false, resulted: false };
 
 function schoolYear(today){
   return (today.getMonth() >= 3) ? today.getFullYear() : today.getFullYear() - 1;
@@ -590,7 +603,7 @@ function render(){
     return;
   }
   if (!state.grade || !state.track) {
-    box.innerHTML = '<div class="sd-card"><p class="text-gray-600 font-medium leading-loose">上の「1. 今の学年」と「2. 目指す系統」を選ぶと、結果がここに出ます。始める時期のスライダーを動かすと、1日あたりの勉強量がどう変わるかが見えます。</p></div>';
+    box.innerHTML = '<div class="sd-card"><p class="text-gray-600 font-medium leading-loose">上の「1. 今の学年」を選ぶと、結果がここに出ます（系統は工学部が選ばれています。変えると結果も変わります）。始める時期のスライダーを動かすと、1日あたりの勉強量がどう変わるかが見えます。</p></div>';
     return;
   }
 
@@ -609,35 +622,13 @@ function render(){
   html += '<p class="font-medium" style="margin-top:6px;">始める時期：' + OFFSET_LABELS[state.offsetIdx] + '（' + ym(start) + 'スタート）／残り ' + base.remaining + '日・勉強日数 約' + Math.round(base.studyDays) + '日</p>';
 
   var caution = false;
-  if (state.track === 'rikei') {
-    html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約2,550時間</b> です。</p>';
-    html += schoolLines(base, null);
-    html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
-    html += '<p class="gy-big">1日 約' + fmt(base.daily) + '時間</p>';
-    html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
-
-    html += '<table class="gy-table"><tr><th>科目</th><th>総時間の目安</th><th>1日あたり</th></tr>';
-    t.parts.forEach(function(p){
-      html += '<tr><td>' + p[0] + '</td><td>約' + p[1] + '時間</td><td>約' + fmt(p[1] / base.studyDays) + '時間</td></tr>';
-    });
-    html += '</table>';
-    var sy = schoolYear(today);
-    var k2sy = sy + (2 - state.grade);
-    var safe = computeFor(2550, new Date(k2sy, 3, 1), exam);
-    var dead = computeFor(2550, new Date(k2sy, 7, 1), exam);
-    if (safe) html += '<p class="text-sm text-gray-600 font-medium" style="margin-top:12px;">安全線の高2の4月から始めると、1日約' + fmt(safe.daily) + '時間の計算です。</p>';
-    if (dead) html += '<p class="text-sm text-gray-600 font-medium">締切の高2の8月から始めると、1日約' + fmt(dead.daily) + '時間の計算です。</p>';
-    if (base.daily > 8) caution = true;
-  } else {
-    var hi = computeFor(t.max, start, exam);
-    html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間</b> です（学部によって幅があります）。</p>';
-    html += schoolLines(base, hi);
-    html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
-    html += '<p class="gy-big">1日 約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間</p>';
-    html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
-
-    if (base.daily > 8) caution = true;
-  }
+  var hi = computeFor(t.max, start, exam);
+  html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間</b> です。</p>';
+  html += schoolLines(base, hi);
+  html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
+  html += '<p class="gy-big">1日 約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間</p>';
+  html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
+  if (base.daily > 8) caution = true;
 
   if (caution) {
     html += '<div class="gy-caution"><p class="font-medium">量が多くなっています。計画の立て方を無料相談で一緒に考えるのがおすすめです。</p></div>';
@@ -670,7 +661,22 @@ function bindChoices(id, attr, key){
   });
 }
 bindChoices('gy-grades', 'data-grade', 'grade');
-bindChoices('gy-tracks', 'data-track', 'track');
+function bindTracks(){
+  var all = [];
+  ['gy-tracks-ri', 'gy-tracks-bun'].forEach(function(id){
+    document.getElementById(id).querySelectorAll('button').forEach(function(b){ all.push(b); });
+  });
+  all.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      all.forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      state.track = btn.getAttribute('data-track');
+      markStart();
+      render();
+    });
+  });
+}
+bindTracks();
 
 var slider = document.getElementById('gy-start');
 var labels = document.getElementById('gy-start-labels');
