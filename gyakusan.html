@@ -612,7 +612,10 @@ function render(){
   if (state.track === 'rikei') {
     html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約2,550時間</b> です。</p>';
     html += schoolLines(base, null);
+    html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
     html += '<p class="gy-big">1日 約' + fmt(base.daily) + '時間</p>';
+    html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
+
     html += '<table class="gy-table"><tr><th>科目</th><th>総時間の目安</th><th>1日あたり</th></tr>';
     t.parts.forEach(function(p){
       html += '<tr><td>' + p[0] + '</td><td>約' + p[1] + '時間</td><td>約' + fmt(p[1] / base.studyDays) + '時間</td></tr>';
@@ -629,7 +632,10 @@ function render(){
     var hi = computeFor(t.max, start, exam);
     html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間</b> です（学部によって幅があります）。</p>';
     html += schoolLines(base, hi);
+    html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
     html += '<p class="gy-big">1日 約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間</p>';
+    html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
+
     if (base.daily > 8) caution = true;
   }
 
