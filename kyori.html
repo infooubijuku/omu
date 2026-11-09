@@ -663,6 +663,26 @@ document.getElementById('ky-reselect').addEventListener('click', function(){
 document.getElementById('ky-faculty-link').addEventListener('click', function(){
   if(current){ track('kyori_faculty_click', {faculty: current.label}); }
 });
+
+// 学部別ページなどから ?f=<slug> で来た場合は、その学部を選択済みにする（チップをクリックしたのと同じ経路）
+(function(){
+  var f = null;
+  try {
+    f = new URLSearchParams(window.location.search).get('f');
+  } catch(e) {
+    var m = /[?&]f=([^&]*)/.exec(window.location.search || '');
+    if(m){ try { f = decodeURIComponent(m[1]); } catch(e2) { f = m[1]; } }
+  }
+  if(!f) return;
+  var target = '/' + f;
+  for(var i = 0; i < DATA.length; i++){
+    if(DATA[i].url === target){
+      var btn = picker.querySelector('[data-ky-fac="' + i + '"]');
+      if(btn) btn.click();
+      break;
+    }
+  }
+})();
 })();
 </script>
 
