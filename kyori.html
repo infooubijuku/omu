@@ -277,6 +277,19 @@
             </div>
 
             <div class="ky-rcard" id="ky-res-main" style="border:2px solid #E5007F;font-size:16px;line-height:1.9;"></div>
+            <div id="ky-next" style="background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(229,0,127,.06);padding:20px 18px;margin-bottom:14px;">
+              <h4 id="ky-next-head" style="font-size:16px;font-weight:bold;margin-bottom:8px;"></h4>
+              <p id="ky-next-pace" style="font-size:14px;line-height:1.9;margin-bottom:10px;"></p>
+              <p id="ky-next-act" style="font-size:14px;line-height:1.9;background:#FDF3F7;border:1px solid #F3D9E3;border-radius:12px;padding:12px 14px;"></p>
+              <p id="ky-next-cmp" style="font-size:13px;line-height:1.9;margin-top:10px;color:#8a6a75;"></p>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:6px;">
+              <button id="ky-save" type="button" style="background:#fff;border:2px solid #E5007F;color:#E5007F;font-size:14px;font-weight:bold;padding:10px 18px;border-radius:999px;cursor:pointer;">この結果を記録する</button>
+              <span id="ky-save-done" style="display:none;font-size:13px;color:#2E7D32;font-weight:bold;">記録しました（この端末にだけ残ります）</span>
+            </div>
+            <p id="ky-prev" style="font-size:13px;color:#8a6a75;line-height:1.85;margin-bottom:14px;"></p>
+
 
             <div style="background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(229,0,127,.06);padding:20px 18px;margin-bottom:14px;">
               <h4 style="font-size:15px;font-weight:bold;margin-bottom:6px;">逆向きの目安</h4>
@@ -637,6 +650,112 @@ function update(){
   var fl = document.getElementById('ky-faculty-link');
   fl.setAttribute('href', d.url);
   fl.textContent = d.label + 'の配点・日程を詳しく見る';
+
+  renderNext(d, r, rate);
+}
+
+var KYOTEI_DATE = new Date(2027, 0, 16);
+var NIJI_DATE = new Date(2027, 1, 25);
+var prevRec = null;
+try { prevRec = JSON.parse(window.localStorage.getItem('omu-kyori-v1') || 'null'); } catch(e) { prevRec = null; }
+var userMoved = false;
+
+function daysUntil(date){
+  var t = new Date();
+  t.setHours(0, 0, 0, 0);
+  return Math.round((date - t) / 86400000);
+}
+
+function renderNext(d, r, rate){
+  document.getElementById('ky-save-done').style.display = 'none';
+  var head = '', pace = '', act = '', cmp = '';
+  var dKy = daysUntil(KYOTEI_DATE);
+  var dNi = daysUntil(NIJI_DATE);
+
+  if(r.state === 'over'){
+    head = '昨年度の最低点は超える計算です。次は、本番で崩れない形です';
+    if(dNi > 0){ pace = '二次試験（2月25日）まで、あと' + dNi + '日。この水準を本番で再現することが目標になります。'; }
+    act = '<strong>今週の1手：</strong>自己採点の手順と、科目ごとの時間配分を先に決めて、模試でその通りに回してみる';
+  } else if(r.state === 'unreachable'){
+    head = '共通テストの底上げが先です';
+    if(dKy > 0){
+      pace = '共通テスト（2027年1月16日・17日）まで、あと' + dKy + '日。二次で満点を取っても届くのは、共通テスト約' + fmtPct(r.rateForFull) + '%からです。二次試験（2月25日）までは、あと' + dNi + '日あります。';
+    } else if(dNi > 0){
+      pace = '二次試験（2月25日）まで、あと' + dNi + '日。この得点率では届かない計算なので、受け方の見直しが要ります。';
+    }
+    if(r.rev[70] <= 100){
+      act = '<strong>今週の1手：</strong>下の「逆向きの目安」で、共通テスト約' + fmtPct(r.rev[70]) + '%＋二次70%の組み合わせを、目標として決める';
+    } else if(r.rev[80] <= 100){
+      act = '<strong>今週の1手：</strong>下の「逆向きの目安」で、共通テスト約' + fmtPct(r.rev[80]) + '%＋二次80%の組み合わせを、目標として決める';
+    } else {
+      act = '<strong>今週の1手：</strong>この区分だけに絞らず、届く組み合わせがあるかを、下の比較と一覧で確かめる';
+    }
+    var overAlt = null, reachAlt = null, reachPct = null;
+    DATA.forEach(function(o){
+      if(o === d) return;
+      var rr = calcKyori(o, rate);
+      if(rr.need <= 0){ if(!overAlt) overAlt = o; }
+      else if(rr.need <= o.niji){ if(reachPct === null || rr.needPct < reachPct){ reachPct = rr.needPct; reachAlt = o; } }
+    });
+    if(overAlt){
+      cmp = '同じ共通テスト' + rate + '%で計算すると、' + overAlt.label + 'は、換算点だけで昨年度の最低点を超える計算です。 <a href="' + overAlt.url + '" style="color:#E5007F;font-weight:bold;">配点・日程を見る</a>';
+    } else if(reachAlt){
+      cmp = '同じ共通テスト' + rate + '%で計算すると、' + reachAlt.label + 'は二次で約' + fmtPct(reachPct) + '%が目安で、届く計算です。 <a href="' + reachAlt.url + '" style="color:#E5007F;font-weight:bold;">配点・日程を見る</a>';
+    }
+  } else {
+    head = 'あと約' + fmtInt(r.needPts) + '点を取りに行く';
+    if(dNi > 0){
+      if(dKy > 0){
+        pace = '共通テスト（2027年1月16日・17日）まで、あと' + dKy + '日。二次試験（2月25日）まで、あと' + dNi + '日。共通テストの得点率が1%上がるごとに、二次で必要な点は約' + fmtInt(d.kyotei / 100) + '点下がります。';
+      } else {
+        pace = '二次試験（2月25日）まで、あと' + dNi + '日。残りは、二次で約' + fmtInt(r.needPts) + '点を取ることに集中できます。';
+      }
+    }
+    act = '<strong>今週の1手：</strong>' + d.label + 'の過去問を1年分、時間を計って解く。二次で必要な約' + fmtPct(r.needPct) + '%と、自分が取れた割合の差を見る';
+    var bestAlt = null, bestPct = null;
+    DATA.forEach(function(o){
+      if(o === d) return;
+      var rr = calcKyori(o, rate);
+      if(rr.need > 0 && rr.need <= o.niji){
+        if(bestPct === null || rr.needPct < bestPct){ bestPct = rr.needPct; bestAlt = o; }
+      }
+    });
+    if(bestAlt && bestPct <= r.needPct - 15){
+      cmp = '同じ共通テスト' + rate + '%で計算すると、' + bestAlt.label + 'は二次で約' + fmtPct(bestPct) + '%が目安です。 <a href="' + bestAlt.url + '" style="color:#E5007F;font-weight:bold;">配点・日程を見る</a>';
+    }
+  }
+
+  document.getElementById('ky-next-head').textContent = head;
+  var paceEl = document.getElementById('ky-next-pace');
+  paceEl.textContent = pace;
+  paceEl.style.display = pace ? '' : 'none';
+  document.getElementById('ky-next-act').innerHTML = act;
+  var cmpEl = document.getElementById('ky-next-cmp');
+  cmpEl.innerHTML = cmp;
+  cmpEl.style.display = cmp ? '' : 'none';
+
+  var prevEl = document.getElementById('ky-prev');
+  if(prevRec && prevRec.label === d.label){
+    var nowD = new Date();
+    var todayStr = nowD.getFullYear() + '-' + (nowD.getMonth() + 1) + '-' + nowD.getDate();
+    var prevName = (prevRec.date === todayStr) ? '先ほど' : '前回（' + prevRec.dateLabel + '）';
+    if(!userMoved){
+      prevEl.textContent = (prevRec.needPts > 0)
+        ? prevName + 'の記録では、二次で約' + fmtInt(prevRec.needPts) + '点（約' + fmtPct(prevRec.needPct) + '%）が目安でした。得点率を変えると、前回との差がここに出ます。'
+        : prevName + 'の記録では、最低点を超える計算でした。';
+    } else if(prevRec.needPts > 0 && r.need > 0){
+      var diff = prevRec.needPts - r.needPts;
+      prevEl.textContent = '前回の目安は約' + fmtInt(prevRec.needPts) + '点。今回で' + (diff > 0 ? '約' + fmtInt(diff) + '点縮まりました。' : (diff < 0 ? '約' + fmtInt(-diff) + '点広がりました。' : '変わりません。'));
+    } else if(prevRec.needPts > 0 && r.need <= 0){
+      prevEl.textContent = '前回は、あと約' + fmtInt(prevRec.needPts) + '点でした。今回は最低点を超える計算です。';
+    } else {
+      prevEl.textContent = '';
+    }
+  } else if(!prevRec){
+    prevEl.textContent = 'まだ記録がありません。結果が固まったら「この結果を記録する」を押してください。次に開いたとき、前回の記録と比べられます。';
+  } else {
+    prevEl.textContent = '';
+  }
 }
 
 picker.addEventListener('click', function(e){
@@ -646,6 +765,12 @@ picker.addEventListener('click', function(e){
   current = d;
   picker.querySelectorAll('.ky-fac').forEach(function(b){ b.classList.remove('on'); });
   btn.classList.add('on');
+  userMoved = false;
+  if(prevRec && prevRec.label === d.label){
+    var pv = Math.max(50, Math.min(100, prevRec.rate));
+    rateEl.value = pv;
+    rateNumEl.value = pv;
+  }
   step2.style.display = 'block';
   step2.classList.add('ky-fade');
   track('kyori_start', {faculty: d.label});
@@ -655,6 +780,7 @@ picker.addEventListener('click', function(e){
 });
 rateEl.addEventListener('input', function(){
   rateNumEl.value = rateEl.value;
+  userMoved = true;
   update();
 });
 rateNumEl.addEventListener('change', function(){
@@ -663,6 +789,7 @@ rateNumEl.addEventListener('change', function(){
   v = Math.max(50, Math.min(100, v));
   rateNumEl.value = v;
   rateEl.value = v;
+  userMoved = true;
   update();
 });
 document.getElementById('ky-reselect').addEventListener('click', function(){
@@ -670,6 +797,29 @@ document.getElementById('ky-reselect').addEventListener('click', function(){
 });
 document.getElementById('ky-faculty-link').addEventListener('click', function(){
   if(current){ track('kyori_faculty_click', {faculty: current.label}); }
+});
+
+document.getElementById('ky-save').addEventListener('click', function(){
+  if(!current) return;
+  var rate = parseInt(rateEl.value, 10);
+  if(isNaN(rate)) rate = 70;
+  rate = Math.max(50, Math.min(100, rate));
+  var r = calcKyori(current, rate);
+  var nowD = new Date();
+  var rec = {
+    label: current.label,
+    rate: rate,
+    needPts: r.needPts,
+    needPct: Math.round(r.needPct * 10) / 10,
+    date: nowD.getFullYear() + '-' + (nowD.getMonth() + 1) + '-' + nowD.getDate(),
+    dateLabel: (nowD.getMonth() + 1) + '月' + nowD.getDate() + '日'
+  };
+  try { window.localStorage.setItem('omu-kyori-v1', JSON.stringify(rec)); } catch(e) {}
+  prevRec = rec;
+  userMoved = false;
+  track('kyori_save', {faculty: current.label});
+  update();
+  document.getElementById('ky-save-done').style.display = 'inline';
 });
 
 // 学部別ページなどから ?f=<slug> で来た場合は、その学部を選択済みにする（チップをクリックしたのと同じ経路）
