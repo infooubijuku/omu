@@ -283,11 +283,14 @@
                 </a>
                 <a href="/gyakusan" class="bg-white text-omu-pink border-2 border-omu-pink px-8 py-5 rounded-sm text-base font-bold tracking-widest cta-button w-full sm:w-auto">
                     <span class="block">勉強時間は1日何時間必要？</span>
-                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高1・工学部なら、今から1日約3.7〜5.9時間</span>
+                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高2・工学部なら、今から1日約6.8時間〜</span>
                 </a>
             </div>
             <p class="mt-6">
                 <a href="/shindan" class="inline-block border border-white/80 text-white text-sm md:text-base font-bold tracking-widest px-5 py-2 rounded-full" style="background-color:rgba(229,0,127,0.35)">学部選びに迷ったら：2分でできる学部・学科診断 →</a>
+            </p>
+            <p class="mt-4">
+                <a href="/ryokin" class="text-sm text-white/85 underline underline-offset-4">保護者の方へ：料金・指導体制を見る</a>
             </p>
         </div>
     </section>
@@ -858,12 +861,12 @@
   if(!el) return;
   var today = new Date();
   var sy = (today.getMonth() >= 3) ? today.getFullYear() : today.getFullYear() - 1;
-  var exam = new Date(sy + 3, 0, 16);
+  var exam = new Date(sy + 2, 0, 16);
   var days = Math.round((exam - new Date(today.getFullYear(), today.getMonth(), today.getDate())) / 86400000);
   if(days <= 0) return;
   var study = days * 6 / 7;
   function f(x){ return (Math.round(x * 10) / 10).toFixed(1); }
-  el.textContent = '例：高1・工学部なら、今から1日約' + f(2500 / study) + '〜' + f(4000 / study) + '時間';
+  el.textContent = '例：高2・工学部なら、今から1日約' + f(2500 / study) + '時間〜';
 })();
 </script>
 </body>
