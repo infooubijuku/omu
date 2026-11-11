@@ -605,9 +605,76 @@ function render(){
         '<div style="display:flex;gap:8px;align-items:center;margin-bottom:18px;"><span style="font-size:12px;color:#A87C8C;">結果をシェアする</span>' +
         '<a href="https://social-plugins.line.me/lineit/share?url=' + shareUrl + '&text=' + shareText + '" style="border:1px solid #06C755;color:#06C755;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">LINE</a>' +
         '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" style="border:1px solid #E3C6D2;color:#8a6a75;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">X</a></div>' +
+        '<div style="margin-bottom:18px;"><button id="shindan-card" type="button" style="background:#E5007F;color:#fff;border:none;font-size:13px;font-weight:bold;padding:11px 20px;border-radius:999px;cursor:pointer;">結果カードを保存する</button><span style="font-size:12px;color:#A87C8C;margin-left:10px;">画像で保存して、記録や共有に使えます</span></div>' +
         ctas +
         '<p style="font-size:11px;color:#C4A3B0;margin-top:14px;line-height:1.7;">' + BASIS + '</p>' +
         '<p style="font-size:11px;color:#C4A3B0;margin-top:10px;">学部・学科診断｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/shindan</p></div>';
+      var cardBtn = document.getElementById('shindan-card');
+      if(cardBtn){
+        cardBtn.addEventListener('click', function(){
+          track('shindan_card', {result_top: g1.name});
+          var cv = document.createElement('canvas');
+          cv.width = 1080; cv.height = 1080;
+          var ctx = cv.getContext('2d');
+          var SERIF = "'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP',serif";
+          var SANS = "'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Noto Sans JP',sans-serif";
+          function fit(text, basePx, weight, family, maxW){
+            var px = basePx;
+            while (px > 20) {
+              ctx.font = weight + ' ' + px + 'px ' + family;
+              if (ctx.measureText(text).width <= maxW) break;
+              px -= 4;
+            }
+          }
+          ctx.fillStyle = '#FFFBF7'; ctx.fillRect(0, 0, 1080, 1080);
+          ctx.strokeStyle = '#F3D9E3'; ctx.lineWidth = 6; ctx.strokeRect(24, 24, 1032, 1032);
+          ctx.fillStyle = '#E5007F'; ctx.fillRect(24, 24, 1032, 118);
+          ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+          ctx.font = 'bold 42px ' + SANS;
+          ctx.fillText('大阪公立大学専門 桜灯塾', 64, 84);
+          ctx.textAlign = 'right';
+          ctx.font = 'bold 32px ' + SANS;
+          ctx.fillText('学部・学科診断', 1016, 84);
+          ctx.textAlign = 'center'; ctx.fillStyle = '#8a6a75';
+          ctx.font = '38px ' + SANS;
+          ctx.fillText('あなたに合いそうなのは', 540, 262);
+          ctx.fillStyle = '#E5007F';
+          fit(g1.name, 92, 'bold', SERIF, 920);
+          ctx.fillText(g1.name, 540, 372);
+          ctx.fillStyle = '#2D2D2D';
+          fit('興味の傾向：' + g1.kw, 34, '', SANS, 920);
+          ctx.fillText('興味の傾向：' + g1.kw, 540, 478);
+          ctx.fillStyle = '#8a6a75';
+          ctx.font = '32px ' + SANS;
+          ctx.fillText('第2候補は ' + g2.name, 540, 586);
+          var now = new Date();
+          ctx.fillStyle = '#2D2D2D';
+          ctx.font = '32px ' + SANS;
+          ctx.fillText(now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日', 540, 906);
+          ctx.fillStyle = '#B98A9A';
+          ctx.font = '28px ' + SANS;
+          ctx.fillText('学部・学科診断｜oubijuku-omu.com/shindan', 540, 1000);
+          function save(blob){
+            if (!blob) return;
+            var a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'shindan-card.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+          }
+          if (cv.toBlob) { cv.toBlob(save, 'image/png'); }
+          else {
+            var a2 = document.createElement('a');
+            a2.href = cv.toDataURL('image/png');
+            a2.download = 'shindan-card.png';
+            document.body.appendChild(a2);
+            a2.click();
+            document.body.removeChild(a2);
+          }
+        });
+      }
     }
     var r = document.getElementById('shindan-restart');
     if(r){ r.addEventListener('click', function(){ st = {started:true, step:0, scores:{}, hist:[], done:false}; render(); }); }
