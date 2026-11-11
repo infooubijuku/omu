@@ -835,7 +835,7 @@ function shareText(d, r, rate){
   return '大阪公立大学 ' + d.label + ' の「合格までの距離」を計算しました。\n'
     + body + '\n'
     + '▼ 合格までの距離メーター（無料・登録なし）\n'
-    + 'https://oubijuku-omu.com/kyori\n'
+    + 'https://oubijuku-omu.com/kyori?via=share\n'
     + '※昨年度（2026年度・前期日程）の実績をもとにした目安です';
 }
 
@@ -876,8 +876,8 @@ document.getElementById('ky-share-x').addEventListener('click', function(){
   var rate = currentRate();
   var r = calcKyori(current, rate);
   track('kyori_share_x', {faculty: current.label});
-  var head = shareText(current, r, rate).split('\n').slice(0, 2).join('\n');
-  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(head) + '&url=' + encodeURIComponent('https://oubijuku-omu.com/kyori'), '_blank');
+  var xText = '大阪公立大学 ' + current.label + ' の「合格までの距離」を計算しました。共通テストの得点率から、二次試験で必要な点数の目安が分かります。';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(xText) + '&url=' + encodeURIComponent('https://oubijuku-omu.com/kyori?via=share'), '_blank');
 });
 
 document.getElementById('ky-save').addEventListener('click', function(){

@@ -579,7 +579,7 @@ function render(){
       var g1 = GROUPS[t1.k], g2 = GROUPS[t2.k];
       track('shindan_complete', {result_top: g1.name, result_second: g2.name});
       var shareText = encodeURIComponent('大阪公立大学の学部・学科診断、私の第1候補は「' + g1.name + '」でした');
-      var shareUrl = encodeURIComponent('https://oubijuku-omu.com/shindan');
+      var shareUrl = encodeURIComponent('https://oubijuku-omu.com/shindan?via=share');
       function card(t, rank){
         var g = GROUPS[t.k];
         var h = '<div class="sd-rcard" style="' + (rank === 1 ? 'border:2px solid #E5007F;' : 'border:1px solid #F3D9E3;') + '">' +
