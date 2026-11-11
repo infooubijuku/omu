@@ -290,6 +290,16 @@
               <span id="ky-save-done" style="display:none;font-size:13px;color:#2E7D32;font-weight:bold;">記録しました（この端末にだけ残ります）</span>
             </div>
             <p id="ky-prev" style="font-size:13px;color:#8a6a75;line-height:1.85;margin-bottom:14px;"></p>
+            <div style="background:#fff;border:1px solid #F3D9E3;border-radius:16px;padding:18px;margin-bottom:14px;">
+              <h4 style="font-size:15px;font-weight:bold;margin-bottom:6px;">結果を保護者に送る</h4>
+              <p style="font-size:13px;color:#8a6a75;line-height:1.85;margin-bottom:12px;">出願や塾の相談は、保護者と一緒に決めることが多いものです。この結果を、そのまま相談の材料として送れます。</p>
+              <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+                <button id="ky-share-line" type="button" style="background:#06C755;color:#fff;font-size:14px;font-weight:bold;padding:11px 18px;border:none;border-radius:999px;cursor:pointer;">LINEで送る</button>
+                <button id="ky-share-copy" type="button" style="background:#fff;color:#E5007F;font-size:14px;font-weight:bold;padding:11px 18px;border:2px solid #E5007F;border-radius:999px;cursor:pointer;">文章をコピーする</button>
+                <span id="ky-share-done" style="display:none;font-size:13px;color:#2E7D32;font-weight:bold;">コピーしました</span>
+              </div>
+            </div>
+
 
 
             <div style="background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(229,0,127,.06);padding:20px 18px;margin-bottom:14px;">
@@ -675,6 +685,7 @@ function comboAct(r){
 
 function renderNext(d, r, rate){
   document.getElementById('ky-save-done').style.display = 'none';
+  document.getElementById('ky-share-done').style.display = 'none';
   var head = '', pace = '', act = '', cmp = '';
   var dKy = daysUntil(KYOTEI_DATE);
   var dNi = daysUntil(NIJI_DATE);
@@ -802,6 +813,60 @@ document.getElementById('ky-reselect').addEventListener('click', function(){
 });
 document.getElementById('ky-faculty-link').addEventListener('click', function(){
   if(current){ track('kyori_faculty_click', {faculty: current.label}); }
+});
+
+function currentRate(){
+  var v = parseInt(rateEl.value, 10);
+  if(isNaN(v)) v = 70;
+  return Math.max(50, Math.min(100, v));
+}
+
+function shareText(d, r, rate){
+  var body;
+  if(r.state === 'over'){
+    body = '共通テスト' + rate + '%の換算点（約' + fmtInt(r.conv) + '点）だけで、昨年度の合格最低点を超える計算でした。';
+  } else if(r.state === 'unreachable'){
+    body = '共通テスト' + rate + '%だと、二次試験で満点を取っても、昨年度の合格最低点には届かない計算でした。二次で届くのは、共通テスト約' + fmtPct(r.rateForFull) + '%からです。';
+  } else {
+    body = '共通テスト' + rate + '%だと、二次試験で約' + fmtInt(r.needPts) + '点（配点' + fmtInt(d.niji) + '点の約' + fmtPct(r.needPct) + '%）が目安です。';
+  }
+  return '大阪公立大学 ' + d.label + ' の「合格までの距離」を計算しました。\n'
+    + body + '\n'
+    + '▼ 合格までの距離メーター（無料・登録なし）\n'
+    + 'https://oubijuku-omu.com/kyori\n'
+    + '※昨年度（2026年度・前期日程）の実績をもとにした目安です';
+}
+
+document.getElementById('ky-share-line').addEventListener('click', function(){
+  if(!current) return;
+  var rate = currentRate();
+  var r = calcKyori(current, rate);
+  track('kyori_share_line', {faculty: current.label});
+  window.open('https://line.me/R/msg/text/?' + encodeURIComponent(shareText(current, r, rate)), '_blank');
+});
+
+document.getElementById('ky-share-copy').addEventListener('click', function(){
+  if(!current) return;
+  var rate = currentRate();
+  var r = calcKyori(current, rate);
+  var text = shareText(current, r, rate);
+  track('kyori_share_copy', {faculty: current.label});
+  function done(){ document.getElementById('ky-share-done').style.display = 'inline'; }
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done, fallback);
+  } else {
+    fallback();
+  }
 });
 
 document.getElementById('ky-save').addEventListener('click', function(){
