@@ -607,8 +607,8 @@ function gyStepText(dailyMin, caution){
 }
 function gyShareText(t, base, hi){
   var txt = '大阪公立大学 ' + t.label + ' を目指す場合の勉強時間を逆算しました。\n'
-    + (hi.daily > 24
-      ? '高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタートで、勉強する日1日あたり約' + fmt(base.daily) + '時間〜です（合格に必要な勉強時間の目安は約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間で、上限側は1日24時間を超える計算になります）。\n'
+    + (hi.daily > 12
+      ? '高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタートで、勉強する日1日あたり約' + fmt(base.daily) + '時間〜です（合格に必要な勉強時間の目安は約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間で、上限側は続けられる量を超える計算になります）。\n'
       : '高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタートで、勉強する日1日あたり約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間です（合格に必要な勉強時間の目安は約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間）。\n');
   if(state.schoolType !== 'none'){
     txt += '学校の授業でまかなえる分は、差し引いて計算しています。\n';
@@ -617,6 +617,24 @@ function gyShareText(t, base, hi){
     + 'https://oubijuku-omu.com/gyakusan?via=share\n'
     + '※時間はあくまで目安です。今の学力や、学校で既に学んだ分によって変わります';
   return txt;
+}
+
+function gyAdvisoryHtml(intro){
+  var levers = [];
+  if (state.offsetIdx > 0) levers.push('始める時期を「今すぐ」に戻す。スライダーを戻すと、1日あたりがどこまで下がるか、その場で確かめられます');
+  if (state.schoolType === 'none') levers.push('学校の授業を計算に入れる。学校の種類と授業時間を設定すると、自分でやる分が減って、数字が変わります');
+  levers.push('系統を広げて見直す。同じ大阪公立大学でも、系統によって必要な総時間は大きく違います。上の系統ボタンで選び直すと、1日あたりがどう変わるか見えます');
+  if (levers.length < 3) levers.push('志望の地図を描き直す。併願先や他の候補も含めて並べると、収まる組み立てが見えてくることがあります');
+  var h = '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
+    + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:6px;">ここからは、組み立て直しです</p>'
+    + '<p class="font-medium">' + intro + '</p>'
+    + '<ul class="font-medium" style="margin-top:8px;padding-left:18px;list-style:disc;">';
+  for (var i = 0; i < levers.length && i < 3; i++) {
+    h += '<li style="margin-top:4px;">' + levers[i] + '</li>';
+  }
+  h += '</ul>'
+    + '<p class="font-medium" style="margin-top:10px;">総時間をどの科目にどう配分するかまでは、このメーターでは出せません。そこを残りの期間に合わせて組み立てるのが、塾の仕事です。無料相談では、志望と今の状況から、収まる組み立てを一緒に作ります。</p></div>';
+  return h;
 }
 
 function exitsHtml(){
@@ -663,22 +681,9 @@ function render(){
   var caution = false;
   var hi = computeFor(t.max, start, exam);
   html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間</b> です。</p>';
-  if (base.daily > 24) {
-    html += '<div class="gy-caution"><p class="font-medium">この開始時期と系統の組み合わせでは、残りの日数に対して必要な勉強時間が多く、1日あたりに直すと24時間を超える計算になります。数字としては成り立たないので、1日あたりの量は出していません。</p></div>';
-    var levers = [];
-    if (state.offsetIdx > 0) levers.push('始める時期を「今すぐ」に戻す。スライダーを戻すと、1日あたりがどこまで下がるか、その場で確かめられます');
-    if (state.schoolType === 'none') levers.push('学校の授業を計算に入れる。学校の種類と授業時間を設定すると、自分でやる分が減って、数字が変わります');
-    levers.push('系統を広げて見直す。同じ大阪公立大学でも、系統によって必要な総時間は大きく違います。上の系統ボタンで選び直すと、1日あたりがどう変わるか見えます');
-    if (levers.length < 3) levers.push('志望の地図を描き直す。併願先や他の候補も含めて並べると、収まる組み立てが見えてくることがあります');
-    html += '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
-      + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:6px;">ここからは、組み立て直しです</p>'
-      + '<p class="font-medium">この結果は「無理」という結論ではありません。今の組み立てが、残りの日数に収まっていないという計算です。組み立てを変える手はあります。</p>'
-      + '<ul class="font-medium" style="margin-top:8px;padding-left:18px;list-style:disc;">';
-    for (var li = 0; li < levers.length && li < 3; li++) {
-      html += '<li style="margin-top:4px;">' + levers[li] + '</li>';
-    }
-    html += '</ul>'
-      + '<p class="font-medium" style="margin-top:10px;">総時間をどの科目にどう配分するかまでは、このメーターでは出せません。そこを残りの期間に合わせて組み立てるのが、塾の仕事です。無料相談では、志望と今の状況から、収まる組み立てを一緒に作ります。</p></div>';
+  if (base.daily > 12) {
+    html += '<div class="gy-caution"><p class="font-medium">この開始時期と系統の組み合わせでは、残りの日数に対して必要な勉強時間が多く、1日あたりに直すと、学校や睡眠の時間を考えても続けられない量になる計算です。数字としては続けられないので、1日あたりの量は出していません。</p></div>';
+    html += gyAdvisoryHtml('この結果は「無理」という結論ではありません。今の組み立てが、残りの日数に収まっていないという計算です。組み立てを変える手はあります。');
     html += exitsHtml();
     html += '</div>';
     box.innerHTML = html;
@@ -690,29 +695,34 @@ function render(){
   }
   html += schoolLines(base, hi);
   html += '<p class="font-bold" style="margin-top:18px;">目安時間に到達するまで、毎日勉強する時間</p>';
-  if (hi.daily > 24) {
+  if (hi.daily > 12) {
     html += '<p class="gy-big">1日 約' + fmt(base.daily) + '時間〜</p>';
-    html += '<p class="font-medium" style="margin-top:2px;">目安の上限側（約' + t.max.toLocaleString() + '時間）では、1日24時間を超える計算になるため、数字を出していません。</p>';
+    html += '<p class="font-medium" style="margin-top:2px;">目安の上限側（約' + t.max.toLocaleString() + '時間）では、続けられる量を超える計算になるため、数字を出していません。</p>';
     caution = true;
   } else {
     html += '<p class="gy-big">1日 約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間</p>';
   }
   html += '<p class="font-medium" style="margin-top:2px;">' + ym(start) + 'から' + exam.getFullYear() + '年1月の共通テストまで、このペースで続ける計算です（週に1日は休む前提で、勉強する日の1日あたりです）。</p>';
   if (base.daily > 8) caution = true;
+  var heavy = base.daily > 8;
 
-  if (caution) {
-    html += '<div class="gy-caution"><p class="font-medium">量が多くなっています。計画の立て方を無料相談で一緒に考えるのがおすすめです。</p></div>';
+  if (heavy) {
+    html += '<div class="gy-caution"><p class="font-medium">学校のある日には収まりにくい量です。休日に寄せるなど、1週間の中での配分を工夫すれば、続けられる量でもあります。</p></div>';
   }
   html += '<p class="text-sm text-gray-500 font-medium" style="margin-top:14px;">この時間は合格に必要な勉強時間の目安です。人によって前後し、学校の授業で既に学んだ分や、今の学力によっても変わります。</p>';
-  html += '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
-    + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:4px;">今週の1手</p>'
-    + '<p class="font-medium">' + gyStepText(base.daily, caution) + '</p></div>';
+  if (heavy) {
+    html += gyAdvisoryHtml('この量は、組み立て次第で、続けられるかどうかが分かれます。変えられる手はあります。');
+  } else {
+    html += '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
+      + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:4px;">今週の1手</p>'
+      + '<p class="font-medium">' + gyStepText(base.daily, caution) + '</p></div>';
+  }
   var prev = gyPrev();
   if(prev){
     var dd = round1(base.daily - prev.dailyMin);
     var diffTxt = (Math.abs(dd) < 0.05) ? '前回とほぼ同じです' : (dd < 0 ? '前回より1日あたり約' + fmt(Math.abs(dd)) + '時間 軽くなりました' : '前回より1日あたり約' + fmt(dd) + '時間 増えました');
     var prevRange = prev.dailyMax ? '約' + fmt(prev.dailyMin) + '〜' + fmt(prev.dailyMax) + '時間' : '約' + fmt(prev.dailyMin) + '時間〜';
-    var nowRange = (hi.daily > 24) ? '約' + fmt(base.daily) + '時間〜' : '約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間';
+    var nowRange = (hi.daily > 12) ? '約' + fmt(base.daily) + '時間〜' : '約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間';
     html += '<p class="font-medium" style="margin-top:14px;">前回（' + prev.date + '）は1日 ' + prevRange + 'でした。今回は' + nowRange + 'で、' + diffTxt + '。</p>';
   }
   html += '<div style="margin-top:16px;">'
@@ -737,7 +747,7 @@ function render(){
       var now = new Date();
       window.localStorage.setItem('omu-gyakusan-v1', JSON.stringify({
         grade: state.grade, track: state.track,
-        dailyMin: round1(base.daily), dailyMax: (hi.daily > 24 ? null : round1(hi.daily)),
+        dailyMin: round1(base.daily), dailyMax: (hi.daily > 12 ? null : round1(hi.daily)),
         date: now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日'
       }));
       track('gyakusan_save', { grade: '高' + state.grade, track: t.label });
