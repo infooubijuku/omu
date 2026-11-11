@@ -269,7 +269,7 @@
             <span data-idx="2">半年後</span>
             <span data-idx="3">1年後</span>
           </div>
-          <p class="text-sm text-gray-500 font-medium mt-4">共通テスト本番（1月15日）までの日数から計算しています。週1日は休む前提で、勉強日数＝残り日数×6/7 としています。</p>
+          <p class="text-sm text-gray-500 font-medium mt-4">共通テスト初日（1月16日）までの日数から計算しています。週1日は休む前提で、勉強日数＝残り日数×6/7 としています。</p>
           <p class="font-bold mb-3"><span class="sd-badge">4</span>　学校の授業</p>
           <div class="gy-choices" id="gy-school-types">
             <button type="button" class="gy-choice on" data-school="none">含めない</button>
@@ -540,7 +540,7 @@ function schoolYear(today){
 function examDate(grade, today){
   var sy = schoolYear(today);
   var k3sy = sy + (3 - grade);
-  return new Date(k3sy + 1, 0, 15);
+  return new Date(k3sy + 1, 0, 16);
 }
 function addMonths(d, m){
   return new Date(d.getFullYear(), d.getMonth() + m, d.getDate());
@@ -587,6 +587,35 @@ function schoolLines(cMin, cMax){
   return h;
 }
 function ym(d){ return d.getFullYear() + '年' + (d.getMonth() + 1) + '月'; }
+
+function gyPrev(){
+  try {
+    var raw = window.localStorage.getItem('omu-gyakusan-v1');
+    if(!raw) return null;
+    var p = JSON.parse(raw);
+    if(p && p.grade === state.grade && p.track === state.track) return p;
+  } catch(e) {}
+  return null;
+}
+function gyStepText(dailyMin, caution){
+  if(caution && state.offsetIdx > 0) return '始める時期を「今すぐ」に戻すと、1日あたりがどこまで下がるか確かめてください。早く始めるほど、1日あたりは軽くなります。';
+  if(caution) return '学校の授業でまかなえる分の数え方（学校の種類と授業時間）も入れて、もう一度見てみてください。計画の組み立ては、無料相談でも一緒に考えられます。';
+  if(dailyMin <= 2) return '量は無理のない範囲です。まず平日の勉強の置き場所を1つ決めてください（たとえば夕食の前後30分）。量より先に、毎日座る時間を固定します。';
+  if(dailyMin <= 4) return '平日と休日で分けて組み立ててください。学校のある平日は短めにして、休日に寄せる形が続きます。今週は、平日分の置き場所だけでも決めます。';
+  if(state.offsetIdx > 0) return '始める時期を「今すぐ」に戻すと、1日あたりがどこまで下がるか確かめてください。早く始めるほど、1日あたりは軽くなります。';
+  return '学校の授業でまかなえる分の数え方（学校の種類と授業時間）も入れて、もう一度見てみてください。';
+}
+function gyShareText(t, base, hi){
+  var txt = '大阪公立大学 ' + t.label + ' を目指す場合の勉強時間を逆算しました。\n'
+    + '高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタートで、勉強する日1日あたり約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間です（合格に必要な勉強時間の目安は約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間）。\n';
+  if(state.schoolType !== 'none'){
+    txt += '学校の授業でまかなえる分は、差し引いて計算しています。\n';
+  }
+  txt += '▼ 逆算メーター（無料・登録なし）\n'
+    + 'https://oubijuku-omu.com/gyakusan\n'
+    + '※時間はあくまで目安です。今の学力や、学校で既に学んだ分によって変わります';
+  return txt;
+}
 
 function exitsHtml(){
   return '<div style="margin-top:18px;">'
@@ -642,9 +671,64 @@ function render(){
     html += '<div class="gy-caution"><p class="font-medium">量が多くなっています。計画の立て方を無料相談で一緒に考えるのがおすすめです。</p></div>';
   }
   html += '<p class="text-sm text-gray-500 font-medium" style="margin-top:14px;">この時間は合格に必要な勉強時間の目安です。人によって前後し、学校の授業で既に学んだ分や、今の学力によっても変わります。</p>';
+  html += '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
+    + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:4px;">今週の1手</p>'
+    + '<p class="font-medium">' + gyStepText(base.daily, caution) + '</p></div>';
+  var prev = gyPrev();
+  if(prev){
+    var dd = round1(base.daily - prev.dailyMin);
+    var diffTxt = (Math.abs(dd) < 0.05) ? '前回とほぼ同じです' : (dd < 0 ? '前回より1日あたり約' + fmt(Math.abs(dd)) + '時間 軽くなりました' : '前回より1日あたり約' + fmt(dd) + '時間 増えました');
+    html += '<p class="font-medium" style="margin-top:14px;">前回（' + prev.date + '）は1日 約' + fmt(prev.dailyMin) + '〜' + fmt(prev.dailyMax) + '時間でした。今回は約' + fmt(base.daily) + '〜' + fmt(hi.daily) + '時間で、' + diffTxt + '。</p>';
+  }
+  html += '<div style="margin-top:16px;">'
+    + '<button id="gy-save" style="border:1px solid #E5007F;color:#E5007F;background:#fff;font-size:13px;font-weight:bold;padding:10px 18px;border-radius:999px;cursor:pointer;">この結果を記録する</button>'
+    + '<span id="gy-save-done" style="display:none;color:#E5007F;font-size:13px;font-weight:bold;margin-left:10px;">記録しました</span>'
+    + '<p class="text-sm text-gray-500 font-medium" style="margin-top:6px;">記録すると、次に開いたときに前回と比べられます（記録はこの端末の中だけに残ります）。</p></div>';
+  html += '<div style="margin-top:18px;border-top:1px solid #F3D9E3;padding-top:16px;">'
+    + '<p class="font-bold" style="margin-bottom:8px;">結果を保護者に送る</p>'
+    + '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">'
+    + '<button id="gy-share-line" style="background:#06C755;color:#fff;font-size:13px;font-weight:bold;padding:11px 20px;border:none;border-radius:999px;cursor:pointer;">LINEで送る</button>'
+    + '<button id="gy-share-copy" style="background:#fff;color:#2D2D2D;font-size:13px;font-weight:bold;padding:11px 20px;border:1px solid #ccc;border-radius:999px;cursor:pointer;">文章をコピーする</button>'
+    + '<span id="gy-share-done" style="display:none;color:#E5007F;font-size:13px;font-weight:bold;">コピーしました</span>'
+    + '</div></div>';
   html += exitsHtml();
   html += '</div>';
   box.innerHTML = html;
+
+  document.getElementById('gy-save').addEventListener('click', function(){
+    try {
+      var now = new Date();
+      window.localStorage.setItem('omu-gyakusan-v1', JSON.stringify({
+        grade: state.grade, track: state.track,
+        dailyMin: round1(base.daily), dailyMax: round1(hi.daily),
+        date: now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日'
+      }));
+      track('gyakusan_save', { grade: '高' + state.grade, track: t.label });
+      document.getElementById('gy-save-done').style.display = 'inline';
+    } catch(e) {}
+  });
+  document.getElementById('gy-share-line').addEventListener('click', function(){
+    track('gyakusan_share_line', { grade: '高' + state.grade, track: t.label });
+    window.open('https://line.me/R/msg/text/?' + encodeURIComponent(gyShareText(t, base, hi)), '_blank');
+  });
+  document.getElementById('gy-share-copy').addEventListener('click', function(){
+    var text = gyShareText(t, base, hi);
+    track('gyakusan_share_copy', { grade: '高' + state.grade, track: t.label });
+    function done(){ document.getElementById('gy-share-done').style.display = 'inline'; }
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else { fallback(); }
+  });
 
   if (!state.resulted) {
     state.resulted = true;
