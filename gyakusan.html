@@ -664,8 +664,21 @@ function render(){
   var hi = computeFor(t.max, start, exam);
   html += '<p style="margin-top:10px;">合格に必要な勉強時間の目安は <b>約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間</b> です。</p>';
   if (base.daily > 24) {
-    html += '<div class="gy-caution"><p class="font-medium">この開始時期では、残りの日数に対して必要な勉強時間が多く、1日あたりに直すと24時間を超える計算になります。そのため、1日あたりの数字は出していません。</p>'
-      + '<p class="font-medium" style="margin-top:8px;">始める時期を早めると、1日あたりの数字が現実的になります。上のスライダーを「今すぐ」側に戻して確かめてください。進め方に迷う場合は、無料相談で一緒に考えられます。</p></div>';
+    html += '<div class="gy-caution"><p class="font-medium">この開始時期と系統の組み合わせでは、残りの日数に対して必要な勉強時間が多く、1日あたりに直すと24時間を超える計算になります。数字としては成り立たないので、1日あたりの量は出していません。</p></div>';
+    var levers = [];
+    if (state.offsetIdx > 0) levers.push('始める時期を「今すぐ」に戻す。スライダーを戻すと、1日あたりがどこまで下がるか、その場で確かめられます');
+    if (state.schoolType === 'none') levers.push('学校の授業を計算に入れる。学校の種類と授業時間を設定すると、自分でやる分が減って、数字が変わります');
+    levers.push('系統を広げて見直す。同じ大阪公立大学でも、系統によって必要な総時間は大きく違います。上の系統ボタンで選び直すと、1日あたりがどう変わるか見えます');
+    if (levers.length < 3) levers.push('志望の地図を描き直す。併願先や他の候補も含めて並べると、収まる組み立てが見えてくることがあります');
+    html += '<div style="background:#FFF5F9;border:1px solid #F3D9E3;border-radius:12px;padding:14px 16px;margin-top:16px;">'
+      + '<p class="font-bold" style="color:#E5007F;font-size:13px;margin-bottom:6px;">ここからは、組み立て直しです</p>'
+      + '<p class="font-medium">この結果は「無理」という結論ではありません。今の組み立てが、残りの日数に収まっていないという計算です。組み立てを変える手はあります。</p>'
+      + '<ul class="font-medium" style="margin-top:8px;padding-left:18px;list-style:disc;">';
+    for (var li = 0; li < levers.length && li < 3; li++) {
+      html += '<li style="margin-top:4px;">' + levers[li] + '</li>';
+    }
+    html += '</ul>'
+      + '<p class="font-medium" style="margin-top:10px;">総時間をどの科目にどう配分するかまでは、このメーターでは出せません。そこを残りの期間に合わせて組み立てるのが、塾の仕事です。無料相談では、志望と今の状況から、収まる組み立てを一緒に作ります。</p></div>';
     html += exitsHtml();
     html += '</div>';
     box.innerHTML = html;
