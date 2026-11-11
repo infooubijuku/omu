@@ -619,6 +619,57 @@ function gyShareText(t, base, hi){
   return txt;
 }
 
+function gyFitFont(ctx, text, basePx, weight, family, maxW){
+  var px = basePx;
+  while (px > 20) {
+    ctx.font = weight + ' ' + px + 'px ' + family;
+    if (ctx.measureText(text).width <= maxW) break;
+    px -= 4;
+  }
+  return px;
+}
+function gyDrawCard(t, base, hi){
+  var cv = document.createElement('canvas');
+  cv.width = 1080; cv.height = 1080;
+  var ctx = cv.getContext('2d');
+  var SERIF = "'Hiragino Mincho ProN','Hiragino Mincho Pro','Yu Mincho','YuMincho','Noto Serif JP',serif";
+  var SANS = "'Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic','Noto Sans JP',sans-serif";
+  ctx.fillStyle = '#FFFBF7'; ctx.fillRect(0, 0, 1080, 1080);
+  ctx.strokeStyle = '#F3D9E3'; ctx.lineWidth = 6; ctx.strokeRect(24, 24, 1032, 1032);
+  ctx.fillStyle = '#E5007F'; ctx.fillRect(24, 24, 1032, 118);
+  ctx.fillStyle = '#fff'; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.font = 'bold 42px ' + SANS;
+  ctx.fillText('大阪公立大学専門 桜灯塾', 64, 84);
+  ctx.textAlign = 'right';
+  ctx.font = 'bold 32px ' + SANS;
+  ctx.fillText('逆算メーター', 1016, 84);
+  ctx.textAlign = 'center'; ctx.fillStyle = '#2D2D2D';
+  ctx.font = '52px ' + SERIF;
+  ctx.fillText('大阪公立大学', 540, 268);
+  gyFitFont(ctx, t.label + ' を目指す', 68, 'bold', SERIF, 920);
+  ctx.fillText(t.label + ' を目指す', 540, 356);
+  ctx.fillStyle = '#8a6a75';
+  ctx.font = '38px ' + SANS;
+  ctx.fillText('今日から、勉強する日は', 540, 500);
+  ctx.fillStyle = '#E5007F';
+  gyFitFont(ctx, '1日約' + fmt(base.daily) + '時間', 118, 'bold', SERIF, 920);
+  ctx.fillText('1日約' + fmt(base.daily) + '時間', 540, 616);
+  ctx.fillStyle = '#2D2D2D';
+  ctx.font = '36px ' + SANS;
+  ctx.fillText('高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタート', 540, 748);
+  ctx.fillStyle = '#8a6a75';
+  gyFitFont(ctx, '合格に必要な勉強時間の目安（約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間）から逆算', 29, '', SANS, 920);
+  ctx.fillText('合格に必要な勉強時間の目安（約' + t.min.toLocaleString() + '〜' + t.max.toLocaleString() + '時間）から逆算', 540, 806);
+  var now = new Date();
+  ctx.fillStyle = '#2D2D2D';
+  ctx.font = '32px ' + SANS;
+  ctx.fillText(now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日', 540, 906);
+  ctx.fillStyle = '#B98A9A';
+  ctx.font = '28px ' + SANS;
+  ctx.fillText('逆算メーター｜oubijuku-omu.com/gyakusan', 540, 1000);
+  return cv;
+}
+
 function gyAdvisoryHtml(intro){
   var levers = [];
   if (state.offsetIdx > 0) levers.push('始める時期を「今すぐ」に戻す。スライダーを戻すと、1日あたりがどこまで下がるか、その場で確かめられます');
@@ -735,6 +786,7 @@ function render(){
     + '<button id="gy-share-line" style="background:#06C755;color:#fff;font-size:13px;font-weight:bold;padding:11px 20px;border:none;border-radius:999px;cursor:pointer;">LINEで送る</button>'
     + '<button id="gy-share-copy" style="background:#fff;color:#2D2D2D;font-size:13px;font-weight:bold;padding:11px 20px;border:1px solid #ccc;border-radius:999px;cursor:pointer;">文章をコピーする</button>'
     + '<button id="gy-share-x" style="background:#fff;color:#8a6a75;font-size:13px;font-weight:bold;padding:11px 18px;border:2px solid #E3C6D2;border-radius:999px;cursor:pointer;">X</button>'
+    + '<button id="gy-card" style="background:#E5007F;color:#fff;font-size:13px;font-weight:bold;padding:11px 18px;border:none;border-radius:999px;cursor:pointer;">宣言カードを保存する</button>'
     + '<span id="gy-share-done" style="display:none;color:#E5007F;font-size:13px;font-weight:bold;">コピーしました</span>'
     + '</div></div>';
   html += '<p style="font-size:11px;color:#C4A3B0;text-align:center;margin-top:14px;">逆算メーター｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/gyakusan</p>';
@@ -780,6 +832,29 @@ function render(){
     track('gyakusan_share_x', { grade: '高' + state.grade, track: t.label });
     var xText = '大阪公立大学 ' + t.label + ' を目指して、勉強時間を逆算しました。高' + state.grade + '・' + OFFSET_LABELS[state.offsetIdx] + 'スタートで、勉強する日は1日約' + fmt(base.daily) + '時間。';
     window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(xText) + '&url=' + encodeURIComponent('https://oubijuku-omu.com/gyakusan?via=share'), '_blank');
+  });
+  document.getElementById('gy-card').addEventListener('click', function(){
+    track('gyakusan_card', { grade: '高' + state.grade, track: t.label });
+    var cv = gyDrawCard(t, base, hi);
+    function save(blob){
+      if (!blob) return;
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'gyakusan-card.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+    }
+    if (cv.toBlob) { cv.toBlob(save, 'image/png'); }
+    else {
+      var a2 = document.createElement('a');
+      a2.href = cv.toDataURL('image/png');
+      a2.download = 'gyakusan-card.png';
+      document.body.appendChild(a2);
+      a2.click();
+      document.body.removeChild(a2);
+    }
   });
 
   if (!state.resulted) {
