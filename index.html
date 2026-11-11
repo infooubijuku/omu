@@ -279,11 +279,11 @@
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/kyori" class="bg-omu-pink text-white px-8 md:px-12 py-5 rounded-sm text-base md:text-lg font-bold tracking-widest cta-button w-full sm:w-auto">
                     <span class="block">二次試験では何点必要？</span>
-                    <span class="block text-xs md:text-sm font-medium tracking-normal mt-1 opacity-90">例：経済学部・共通テスト70%なら、二次で約271点</span>
+                    <span class="block text-xs md:text-sm font-medium tracking-normal mt-1 opacity-90">例：経済学部・共通テスト70%なら、<br class="sm:hidden">二次で約271点</span>
                 </a>
                 <a href="/gyakusan" class="bg-white text-omu-pink border-2 border-omu-pink px-8 py-5 rounded-sm text-base font-bold tracking-widest cta-button w-full sm:w-auto">
                     <span class="block">勉強時間は1日何時間必要？</span>
-                    <span class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高1・工学部なら、今から1日約3.7〜5.9時間</span>
+                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高1・工学部なら、今から1日約3.7〜5.9時間</span>
                 </a>
             </div>
             <p class="mt-6">
@@ -852,5 +852,19 @@
       })();
     </script>
 
+<script>
+(function(){
+  var el = document.getElementById('gy-hero-ex');
+  if(!el) return;
+  var today = new Date();
+  var sy = (today.getMonth() >= 3) ? today.getFullYear() : today.getFullYear() - 1;
+  var exam = new Date(sy + 3, 0, 16);
+  var days = Math.round((exam - new Date(today.getFullYear(), today.getMonth(), today.getDate())) / 86400000);
+  if(days <= 0) return;
+  var study = days * 6 / 7;
+  function f(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+  el.textContent = '例：高1・工学部なら、今から1日約' + f(2500 / study) + '〜' + f(4000 / study) + '時間';
+})();
+</script>
 </body>
 </html>
