@@ -36,7 +36,7 @@
     <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
     <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:height" content="640">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
     <meta property="og:locale" content="ja_JP">
@@ -278,6 +278,7 @@
             </div>
 
             <div class="ky-rcard" id="ky-res-main" style="border:2px solid #E5007F;font-size:16px;line-height:1.9;"></div>
+             <p style="font-size:11px;color:#C4A3B0;text-align:center;margin:2px 0 14px;">合格までの距離メーター｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/kyori</p>
             <div id="ky-next" style="background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(229,0,127,.06);padding:20px 18px;margin-bottom:14px;">
               <h4 id="ky-next-head" style="font-size:16px;font-weight:bold;margin-bottom:8px;"></h4>
               <p id="ky-next-pace" style="font-size:14px;line-height:1.9;margin-bottom:10px;"></p>
@@ -296,6 +297,7 @@
               <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
                 <button id="ky-share-line" type="button" style="background:#06C755;color:#fff;font-size:14px;font-weight:bold;padding:11px 18px;border:none;border-radius:999px;cursor:pointer;">LINEで送る</button>
                 <button id="ky-share-copy" type="button" style="background:#fff;color:#E5007F;font-size:14px;font-weight:bold;padding:11px 18px;border:2px solid #E5007F;border-radius:999px;cursor:pointer;">文章をコピーする</button>
+                <button id="ky-share-x" type="button" style="background:#fff;color:#8a6a75;font-size:14px;font-weight:bold;padding:11px 18px;border:2px solid #E3C6D2;border-radius:999px;cursor:pointer;">X</button>
                 <span id="ky-share-done" style="display:none;font-size:13px;color:#2E7D32;font-weight:bold;">コピーしました</span>
               </div>
             </div>
@@ -867,6 +869,15 @@ document.getElementById('ky-share-copy').addEventListener('click', function(){
   } else {
     fallback();
   }
+});
+
+document.getElementById('ky-share-x').addEventListener('click', function(){
+  if(!current) return;
+  var rate = currentRate();
+  var r = calcKyori(current, rate);
+  track('kyori_share_x', {faculty: current.label});
+  var head = shareText(current, r, rate).split('\n').slice(0, 2).join('\n');
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(head) + '&url=' + encodeURIComponent('https://oubijuku-omu.com/kyori'), '_blank');
 });
 
 document.getElementById('ky-save').addEventListener('click', function(){

@@ -36,7 +36,7 @@
     <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
     <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:height" content="640">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
     <meta property="og:locale" content="ja_JP">
@@ -606,7 +606,8 @@ function render(){
         '<a href="https://social-plugins.line.me/lineit/share?url=' + shareUrl + '&text=' + shareText + '" style="border:1px solid #06C755;color:#06C755;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">LINE</a>' +
         '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" style="border:1px solid #E3C6D2;color:#8a6a75;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">X</a></div>' +
         ctas +
-        '<p style="font-size:11px;color:#C4A3B0;margin-top:14px;line-height:1.7;">' + BASIS + '</p></div>';
+        '<p style="font-size:11px;color:#C4A3B0;margin-top:14px;line-height:1.7;">' + BASIS + '</p>' +
+        '<p style="font-size:11px;color:#C4A3B0;margin-top:10px;">学部・学科診断｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/shindan</p></div>';
     }
     var r = document.getElementById('shindan-restart');
     if(r){ r.addEventListener('click', function(){ st = {started:true, step:0, scores:{}, hist:[], done:false}; render(); }); }
