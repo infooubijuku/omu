@@ -283,7 +283,7 @@
                 </a>
                 <a href="/gyakusan" class="bg-white text-omu-pink border-2 border-omu-pink px-8 py-5 rounded-sm text-base font-bold tracking-widest cta-button w-full sm:w-auto">
                     <span class="block">勉強時間は1日何時間必要？</span>
-                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高2・工学部なら、今から1日約6.8時間〜</span>
+                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高2・工学部・偏差値50なら、今は1日約1.4〜2.3時間</span>
                 </a>
             </div>
             <p class="mt-6">
@@ -319,6 +319,7 @@
                 <a href="/news" class="text-sm font-bold text-omu-pink">一覧 →</a>
             </div>
             <ul class="divide-y divide-gray-100">
+      <li><a href="/gyakusan" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.12</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#0EA5A4">新機能</span><span class="text-sm font-bold text-omu-dark">「逆算メーター」が新しくなりました（今の偏差値から、1日あたりの勉強量を逆算します）</span></a></li>
       <li><a href="/#kyori-movie" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.11</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#0EA5A4">新機能</span><span class="text-sm font-bold text-omu-dark">「合格までの距離メーター」の紹介動画（24秒）を公開しました</span></a></li>
       <li><a href="/kyori" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.09</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#0EA5A4">新機能</span><span class="text-sm font-bold text-omu-dark">「合格までの距離メーター」と「逆算メーター」を公開しました</span></a></li>
       <li><a href="/articles/saiteiten-bairitsu" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.09</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「全学部の合格最低点・倍率」を公開しました</span></a></li>
@@ -860,13 +861,19 @@
   var el = document.getElementById('gy-hero-ex');
   if(!el) return;
   var today = new Date();
+  function db(a, b){ return Math.round((new Date(b.getFullYear(), b.getMonth(), b.getDate()) - new Date(a.getFullYear(), a.getMonth(), a.getDate())) / 86400000); }
   var sy = (today.getMonth() >= 3) ? today.getFullYear() : today.getFullYear() - 1;
   var exam = new Date(sy + 2, 0, 16);
-  var days = Math.round((exam - new Date(today.getFullYear(), today.getMonth(), today.getDate())) / 86400000);
-  if(days <= 0) return;
-  var study = days * 6 / 7;
+  var apr = new Date(sy + 1, 3, 1);
+  var d1 = db(today, apr), d2 = db(apr, exam);
+  if(d1 <= 0 || d2 <= 0) return;
+  var w1 = 35 * d1 / 365, share = w1 / (w1 + 45);
+  var wk = Math.floor(d1 / 7);
+  var sd = d1 - wk - Math.round((d1 - wk) * 0.05);
+  if(sd <= 0) return;
+  var gap = 57.5 - 50;
   function f(x){ return (Math.round(x * 10) / 10).toFixed(1); }
-  el.textContent = '例：高2・工学部なら、今から1日約' + f(2500 / study) + '時間〜';
+  el.textContent = '例：高2・工学部・偏差値50なら、今は1日約' + f(gap * 90 * share / sd) + '〜' + f(gap * 150 * share / sd) + '時間';
 })();
 </script>
 </body>
