@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学を目指す高1・高2のための「逆算メーター」。今の偏差値と志望先を選ぶと、ボーダーとの差を埋めるのに必要な勉強時間から、1日あたりの勉強量を逆算します。始める時期をずらすと、1日の量がどう変わるかも分かります。">
+    <meta name="keywords" content="逆算メーター,勉強時間,勉強計画,大阪公立大学,高1,高2,天王寺,桜灯塾,大学受験">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/gyakusan">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="逆算メーター｜大阪公立大学専門 桜灯塾">
+    <meta property="og:description" content="今の偏差値と志望先を選ぶだけ。ボーダーとの差から、1日あたりの勉強量を逆算します。">
+    <meta property="og:url" content="https://oubijuku-omu.com/gyakusan">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/img/og-gyakusan.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="逆算メーター｜大阪公立大学専門 桜灯塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="逆算メーター｜大阪公立大学専門 桜灯塾">
+    <meta name="twitter:description" content="今の偏差値と志望先を選ぶだけ。ボーダーとの差から、1日あたりの勉強量を逆算します。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/img/og-gyakusan.png">
+    <meta name="twitter:image:alt" content="逆算メーター｜大阪公立大学専門 桜灯塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "逆算メーター｜大阪公立大学専門 桜灯塾",
+      "description": "大阪公立大学を目指す高1・高2のための「逆算メーター」。今の偏差値と志望先を選ぶと、ボーダーとの差を埋めるのに必要な勉強時間から、1日あたりの勉強量を逆算します。始める時期をずらすと、1日の量がどう変わるかも分かります。",
+      "url": "https://oubijuku-omu.com/gyakusan",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>【プレビュー】逆算メーター｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    
+        /* スマホでは表を詰めて横スクロールを最小化 */
+        @media (max-width: 767px) {
+            table { min-width: 350px !important; font-size: 13px !important; }
+            th, td { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+        }
+        /* 広い画面では表を広げすぎない（列間の間延び防止） */
+        @media (min-width: 768px) {
+            table { max-width: 640px; margin-left: auto; margin-right: auto; }
+        }
+        /* 最終列（割合など）の手前に区切り線を入れ、スマホでは少し間を空ける */
+        th:last-child, td:last-child { border-left: 1px solid #e5e7eb; }
+        thead th:last-child { border-left-color: rgba(255,255,255,0.4); }
+        @media (max-width: 767px) {
+            th:last-child, td:last-child { padding-left: 0.85rem !important; }
+        }
+            .pct30 { color: #E5007F; font-weight: 700; }
+        .pct20 { color: #B7791F; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none"><ruby>桜灯<rt style="font-size:0.38em;color:#a8a29e;font-weight:500;letter-spacing:0.05em;">おうび</rt></ruby>塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden xl:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex flex-nowrap space-x-5 xl:space-x-8 items-center text-[0.85rem] xl:text-[0.9rem] font-bold tracking-wider whitespace-nowrap">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/articles" class="hover:text-omu-pink transition">大阪公立大学受験の教科書</a>
+                    <a href="/online" class="hover:text-omu-pink transition">桜灯塾ONLINE</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-5 xl:px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/articles" class="text-lg font-bold py-4 border-b border-gray-100">大阪公立大学受験の教科書</a>
+            <a href="/online" class="text-lg font-bold py-4 border-b border-gray-100">桜灯塾ONLINE</a>
+            <a href="/faq" class="text-lg font-bold py-4 border-b border-gray-100">よくある質問</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-4 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">逆算メーター</h1>
+        <p class="text-gray-600 text-sm text-center">今の偏差値と志望先を選ぶだけ。<br>合格までに必要な勉強時間を、1日あたりに逆算します</p>
+    </header>
+<main>
+<section class="pt-2 pb-5 md:pt-4 md:pb-8 bg-white text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="max-w-3xl mx-auto">
+      
+<div class="sd-world">
+<div class="g2-wrap">
+<p class="lead">大阪公立大学を目指す場合の勉強時間を、<b>今の偏差値</b>から逆算します。必要な時間は、スタート地点（今の偏差値）と志望先との差で決まります。今日から始めると、1日あたりどれくらいになるかが見えます。</p>
+<div class="today" id="g2-todayBox"></div>
+
+<div class="card">
+<h2>学年</h2>
+<div class="btns" id="g2-gradeBtns">
+<button type="button" class="btn" data-g="1">高1</button>
+<button type="button" class="btn on" data-g="2">高2</button>
+<button type="button" class="btn" data-g="3">高3・既卒</button>
+</div>
+<h2 style="margin-top:16px;">志望先</h2>
+<select id="g2-trackSel"></select>
+<p class="note" id="g2-borderNote"></p>
+<h2 style="margin-top:16px;">今の偏差値</h2>
+<input type="number" id="g2-devInput" value="50" min="35" max="70" step="0.5">
+<p class="note">二次試験で使う科目の平均偏差値（河合塾・全統記述模試）を入れてください。模試によって偏差値は変わります。</p>
+<h2 style="margin-top:16px;">週の休み</h2>
+<div class="btns" id="g2-restBtns">
+<button type="button" class="btn" data-r="0">休みなし</button>
+<button type="button" class="btn on" data-r="1">週1日</button>
+<button type="button" class="btn" data-r="2">週2日</button>
+</div>
+<h2 style="margin-top:16px;">行事・体調不良などの予備</h2>
+<div class="btns" id="g2-resBtns">
+<button type="button" class="btn" data-p="0">なし</button>
+<button type="button" class="btn on" data-p="5">5%</button>
+<button type="button" class="btn" data-p="10">10%</button>
+</div>
+<h2 style="margin-top:16px;">学校の授業でまかなえる分</h2>
+<select id="g2-schoolSel">
+<option value="none">含めない</option>
+<option value="shinko">進学校（授業の7割を換算）</option>
+<option value="koritsu">公立の学校（授業の4割を換算）</option>
+</select>
+<div id="g2-schoolHoursBox" class="hidden" style="margin-top:10px;">
+<input type="number" id="g2-schoolHours" value="15" min="0" max="40" step="1">
+<p class="note">週あたりの主要科目の授業時間（時間）</p>
+</div>
+<button type="button" class="go" id="g2-goBtn">逆算する</button>
+</div>
+
+<div class="card hidden" id="g2-resultCard"></div>
+
+<div class="card">
+<h2>計算の根拠と注意</h2>
+<p class="src">
+ボーダー偏差値は河合塾 Kei-Net の2027年度向け・前期日程の値（合格可能性50%のライン）を使っています：
+<a href="https://search.keinet.ne.jp/1615/general/border_rate" target="_blank" rel="noopener">河合塾 Kei-Net｜大阪公立大学 偏差値（ボーダーライン）</a><br>
+偏差値1ポイントを上げる勉強量は、京都医塾の経験則「1科目あたり30〜50時間」を二次試験の科目数分だけ掛けています：
+<a href="https://www.kyotoijuku.com/column/increase-your-score-by-10/" target="_blank" rel="noopener">京都医塾｜偏差値を10上げる方法</a><br>
+学年の配分は高1=20・高2=35・高3=45を目安に、今の学年の残り期間で調整しています。学校の授業の換算率（進学校7割・公立4割）は当塾の目安です。<br>
+※ この数字は経験則にもとづく「下限の目安」です。合格を約束するものではありません。実際の必要量は、科目ごとの得意・不得意や、これまでに学んだ分で変わります。
+</p>
+</div>
+</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-3xl mx-auto">
+    <div class="mt-4 border border-gray-200 rounded-sm px-4 py-3 text-center">
+      <p class="text-sm text-gray-600 font-medium leading-loose">合格までの距離も、1日の勉強量も、模試のたびに変わります。このサイトのメーターは、そのたびに開いて測り直すための道具です。<span class="font-bold text-omu-dark">ブックマークか、ホーム画面への追加</span>がおすすめです。（iPhone：共有ボタン→「ホーム画面に追加」／Android：メニュー→「ホーム画面に追加」）</p>
+    </div>
+  </div>
+</div>
+
+<section class="py-5 md:py-8 bg-omu-light text-omu-dark">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-xl md:text-2xl font-bold mb-8 section-title">このメーターについて</h2>
+    <div class="max-w-3xl space-y-4 text-gray-600 font-medium leading-loose">
+      <p>このメーターは、大阪公立大学専門 桜灯塾が作りました。考え方は、必要な時間は「今の偏差値」と「志望先のボーダー」との差で決まる、というものです。差が大きいほど時間は増え、早く始めるほど1日あたりは軽くなります。</p>
+      <p>時間はあくまで目安です。人によって前後しますし、学校の授業で既に学んだ分や、今の学力によっても変わります。大切なのは、残りの日数から逆算して「今日から何をするか」を決めることです。</p>
+      <p>受験生（高3）向けには、共通テストの得点率から二次試験の目安を出す「合格までの距離メーター」もあります。</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="/articles/kou1-kou2" class="inline-block bg-omu-pink text-white font-bold py-3 px-8 rounded-sm shadow cta-button text-sm tracking-widest">高1・高2のうちにやっておくことを読む</a>
+      <a href="/kyori" class="inline-block border border-omu-pink text-omu-pink font-bold py-3 px-8 rounded-sm text-sm tracking-widest">合格までの距離メーター（高3向け）</a>
+    </div>
+  </div>
+</section>
+</main>
+<section class="py-5 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-8 md:pt-14 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                        <li><a href="/articles" class="footer-link">大阪公立大学受験の教科書</a></li>
+                        <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                        <li><a href="/gyakusan" class="footer-link">逆算メーター</a></li>
+                        <li><a href="/fee-list" class="footer-link">料金表</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/online" class="footer-link">桜灯塾ONLINE</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-[10px] font-bold tracking-[0.35em] text-white/70 uppercase mb-1">Oubijuku</div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    
+
+
+
+<style>
+.g2-wrap,.g2-wrap * { box-sizing: border-box;}
+.g2-wrap { font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",sans-serif; color: #2D2D2D;}
+.g2-wrap .lead { font-size: 14px; line-height: 1.8; color: #444; margin: 0 0 4px;}
+.g2-wrap .today { background: #FDF3E3; border: 1px solid #F0D9A8; border-radius: 10px; padding: 10px 14px; font-size: 14px; margin: 14px 0;}
+.g2-wrap .card { background: #fff; border: 1px solid #F3D9E3; border-radius: 12px; padding: 16px; margin: 14px 0;}
+.g2-wrap .card h2 { font-size: 15px; margin: 0 0 10px; color: #B0005E;}
+.g2-wrap .btns { display: flex; flex-wrap: wrap; gap: 8px;}
+.g2-wrap .btn { border: 1.5px solid #E8B7CC; background: #fff; color: #2D2D2D; border-radius: 999px; padding: 8px 14px; font-size: 14px; cursor: pointer; font-family: inherit;}
+.g2-wrap .btn.on { background: #E5007F; border-color: #E5007F; color: #fff; font-weight: 700;}
+.g2-wrap select,.g2-wrap input[type="number"] { width: 100%; font-size: 16px; padding: 10px; border: 1.5px solid #E8B7CC; border-radius: 8px; background: #fff; font-family: inherit;}
+.g2-wrap .note { font-size: 12px; color: #777; line-height: 1.7; margin-top: 6px;}
+.g2-wrap .go { width: 100%; background: #E5007F; color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 17px; font-weight: 700; cursor: pointer; margin-top: 6px; font-family: inherit;}
+.g2-wrap .result-head { font-size: 15px; line-height: 1.8;}
+.g2-wrap .total { font-size: 21px; font-weight: 700; margin: 6px 0;}
+.g2-wrap .total b { color: #E5007F;}
+.g2-wrap .seg { border-top: 1px dashed #E8B7CC; padding: 12px 0;}
+.g2-wrap .seg:first-of-type { border-top: none;}
+.g2-wrap .seg .g { font-weight: 700; font-size: 15px;}
+.g2-wrap .seg .d { font-size: 20px; font-weight: 700; margin: 4px 0; display: block;}
+.g2-wrap .seg .d b { color: #E5007F;}
+.g2-wrap .seg .meta { font-size: 12px; color: #777;}
+.g2-wrap .caution { background: #FFF4E5; border: 1px solid #F0C48C; border-radius: 8px; padding: 8px 12px; font-size: 13px; line-height: 1.7; margin-top: 8px;}
+.g2-wrap .advice { background: #FDF3E3; border: 1px solid #F0D9A8; border-radius: 10px; padding: 12px 14px; font-size: 14px; line-height: 1.8; margin-top: 12px;}
+.g2-wrap table.delay { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 6px;}
+.g2-wrap table.delay th,.g2-wrap table.delay td { border-bottom: 1px solid #F3D9E3; padding: 8px 4px; text-align: left;}
+.g2-wrap table.delay td.v { text-align: right; font-weight: 700;}
+.g2-wrap .share { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px;}
+.g2-wrap .share a,.g2-wrap .share button { flex: 1; text-align: center; text-decoration: none; border-radius: 10px; padding: 12px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; white-space: nowrap;}
+.g2-wrap .share .line { background: #06C755; color: #fff; border: none;}
+.g2-wrap .share .copy { background: #fff; color: #2D2D2D; border: 1.5px solid #ccc;}
+.g2-wrap .share .xbtn { background: #fff; color: #2D2D2D; border: 1.5px solid #2D2D2D;}
+.g2-wrap .recbtn { background: #fff; color: #B0005E; border: 1.5px solid #E5007F; border-radius: 999px; padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit;}
+.g2-wrap .savedone { color: #E5007F; font-size: 13px; font-weight: 700; margin-left: 10px;}
+.g2-wrap .srcline { font-size: 11px; color: #C4A3B0; text-align: center; margin-top: 14px;}
+.g2-wrap .src { font-size: 12px; color: #666; line-height: 1.9;}
+.g2-wrap .src a { color: #B0005E;}
+.g2-wrap .hidden { display: none;}
+</style>
+
+<script>
+'use strict';
+/* 大阪公立大学 逆算メーター2.0 計算コア（試作）
+   方式：必要時間 =（ボーダー偏差値 − 現在の偏差値）×（1科目30〜50時間 × 二次科目数）
+   学年傾斜：高1=20・高2=35・高3=45。今の学年は残り期間の割合で実効化し、正規化して配分。
+   休む日：勉強できる日 = 区間の日数 − 週休分 − 予備分。
+   学校クレジット：学校の授業でまかなえる分を総量から差し引いてから配分（1.0の方式を継承）。
+   試験日：共通テスト初日（1月16日）基準。 */
+var TRACKS = {
+  bun:       { label: '文学部', border: 60.0, subjects: 2, refMin: 2000, refMax: 3000 },
+  ho:        { label: '法学部', border: 57.5, subjects: 2, refMin: 2000, refMax: 3000 },
+  sho:       { label: '商・経済学部', border: 60.0, subjects: 2, refMin: 2000, refMax: 3500 },
+  gensysbun: { label: '現代システム科学域（文系型）', border: 60.0, subjects: 2, refMin: 2000, refMax: 3500 },
+  gensysri:  { label: '現代システム科学域（理系型）', border: 57.5, subjects: 3, refMin: 2000, refMax: 3500 },
+  'ri-suugaku':        { label: '理学部 数学科', border: 57.5, subjects: 3, refMin: 2500, refMax: 3500 },
+  'ri-butsuri':        { label: '理学部 物理学科', border: 57.5, subjects: 3, refMin: 2500, refMax: 3500 },
+  'ri-kagaku':         { label: '理学部 化学科', border: 52.5, subjects: 3, refMin: 2500, refMax: 3500 },
+  'ri-seibutsu':       { label: '理学部 生物学科', border: 52.5, subjects: 3, refMin: 2500, refMax: 3500 },
+  'ri-chikyu':         { label: '理学部 地球学科', border: 55.0, subjects: 3, refMin: 2500, refMax: 3500 },
+  'ri-seibutsukagaku': { label: '理学部 生物化学科', border: 57.5, subjects: 3, refMin: 2500, refMax: 3500 },
+  kogaku:    { label: '工学部', border: 57.5, subjects: 3, refMin: 2500, refMax: 4000 },
+  nogaku:    { label: '農学部', border: 57.5, subjects: 3, refMin: 2000, refMax: 3500 },
+  kango:     { label: '看護学部', border: 55.0, subjects: 2, refMin: 1800, refMax: 3000 },
+  juui:      { label: '獣医学科', border: 62.5, subjects: 3, refMin: 4000, refMax: 6000 },
+  igaku:     { label: '医学部医学科', border: 67.5, subjects: 4, refMin: 5000, refMax: 7000 }
+};
+var BASE_WEIGHT = { 1: 20, 2: 35, 3: 45 };
+var SCHOOL_COEF = { shinko: 0.7, koritsu: 0.4 };
+
+function schoolYearOf(d) { return (d.getMonth() >= 3) ? d.getFullYear() : d.getFullYear() - 1; }
+function daysBetween(a, b) {
+  var aa = new Date(a.getFullYear(), a.getMonth(), a.getDate());
+  var bb = new Date(b.getFullYear(), b.getMonth(), b.getDate());
+  return Math.round((bb - aa) / 86400000);
+}
+function addMonths(d, m) {
+  var day = d.getDate();
+  var t = new Date(d.getFullYear(), d.getMonth() + m, 1);
+  var last = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate();
+  t.setDate(Math.min(day, last));
+  return t;
+}
+function examDateFor(grade, today) {
+  var sy = schoolYearOf(today);
+  var k3sy = sy + (3 - grade);
+  return new Date(k3sy + 1, 0, 16); /* 共通テスト初日 1月16日 */
+}
+function studyDaysFor(days, rest, reserve) {
+  var weekly = Math.floor(days * rest / 7);
+  var rest2 = Math.round((days - weekly) * reserve / 100);
+  var sd = days - weekly - rest2;
+  return sd < 1 ? 1 : sd;
+}
+function policyFor(low, high) {
+  if (low > 12) return 'hard';
+  if (high > 12) return 'lowonly';
+  if (high > 8) return 'warn';
+  return 'normal';
+}
+function round1(x) { return Math.round(x * 10) / 10; }
+
+/* start から exam までを4月1日で区切り、各区間の学年・実効ウェイト・配分率を返す */
+function buildSegments(start, exam, grade, today) {
+  var syToday = schoolYearOf(today);
+  var bounds = [new Date(start.getFullYear(), start.getMonth(), start.getDate())];
+  var y = start.getFullYear();
+  while (true) {
+    var apr = new Date(y, 3, 1);
+    if (apr > start && apr < exam) bounds.push(apr);
+    if (apr >= exam) break;
+    y++;
+  }
+  bounds.push(new Date(exam.getFullYear(), exam.getMonth(), exam.getDate()));
+  var segs = [];
+  for (var i = 0; i < bounds.length - 1; i++) {
+    var s = bounds[i], e = bounds[i + 1];
+    var days = daysBetween(s, e);
+    if (days <= 0) continue;
+    var g = grade + (schoolYearOf(s) - syToday);
+    if (g < 1) g = 1; if (g > 3) g = 3;
+    var w = BASE_WEIGHT[g];
+    if (i === 0) {
+      var syStart = new Date(schoolYearOf(s), 3, 1);
+      var syEnd = new Date(schoolYearOf(s) + 1, 3, 1);
+      var yearDays = daysBetween(syStart, syEnd);
+      w = w * days / yearDays;
+    }
+    segs.push({ from: s, to: e, days: days, grade: g, weight: w });
+  }
+  var sum = 0, j;
+  for (j = 0; j < segs.length; j++) sum += segs[j].weight;
+  for (j = 0; j < segs.length; j++) segs[j].share = sum > 0 ? segs[j].weight / sum : 0;
+  return segs;
+}
+
+function computeCore(input, today) {
+  var track = TRACKS[input.track];
+  var exam = examDateFor(input.grade, today);
+  var gap = track.border - input.dev;
+  if (gap <= 0) {
+    return { above: true, track: track, exam: exam, gap: gap,
+             daysTotal: daysBetween(today, exam) };
+  }
+  var coefLo = 30 * track.subjects, coefHi = 50 * track.subjects;
+  var totalLo = gap * coefLo, totalHi = gap * coefHi;
+
+  function runFrom(start) {
+    var segs = buildSegments(start, exam, input.grade, today);
+    var remaining = daysBetween(start, exam);
+    var weeks = round1(remaining * 35 / 365);
+    function creditFor(total) {
+      if (!input.schoolType || input.schoolType === 'none') return 0;
+      var c = input.schoolHours * weeks * SCHOOL_COEF[input.schoolType];
+      if (c > total * 0.7) c = total * 0.7;
+      return Math.round(c);
+    }
+    var creditLo = creditFor(totalLo), creditHi = creditFor(totalHi);
+    var selfLo = totalLo - creditLo, selfHi = totalHi - creditHi;
+    var out = segs.map(function (sg) {
+      var sd = studyDaysFor(sg.days, input.rest, input.reserve);
+      var aLo = selfLo * sg.share, aHi = selfHi * sg.share;
+      var dLo = aLo / sd, dHi = aHi / sd;
+      return { from: sg.from, to: sg.to, days: sg.days, grade: sg.grade,
+               studyDays: sd, allocLo: aLo, allocHi: aHi,
+               dailyLo: dLo, dailyHi: dHi, policy: policyFor(dLo, dHi) };
+    });
+    return { segments: out, creditLo: creditLo, creditHi: creditHi,
+             selfLo: selfLo, selfHi: selfHi, weeks: weeks, remaining: remaining };
+  }
+
+  var main = runFrom(today);
+  var delays = [1, 3].map(function (m) {
+    var start = addMonths(today, m);
+    if (daysBetween(start, exam) <= 0) return null;
+    var r = runFrom(start);
+    var last = r.segments[r.segments.length - 1];
+    return { months: m, start: start, finalDailyLo: last.dailyLo,
+             finalDailyHi: last.dailyHi, policy: last.policy };
+  }).filter(Boolean);
+
+  return { above: false, track: track, exam: exam, gap: gap,
+           daysTotal: daysBetween(today, exam),
+           totalLo: totalLo, totalHi: totalHi,
+           creditLo: main.creditLo, creditHi: main.creditHi,
+           selfLo: main.selfLo, selfHi: main.selfHi,
+           segments: main.segments, delays: delays };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { TRACKS: TRACKS, computeCore: computeCore,
+                     examDateFor: examDateFor, daysBetween: daysBetween };
+}
+
+</script>
+
+<script>
+(function () {
+  var LS_KEY = 'omu-gyakusan-v2';
+  var state = { grade: 2, track: 'kogaku', rest: 1, reserve: 5 };
+  var today = new Date();
+  function $(id) { return document.getElementById(id); }
+  function fmtD(d) { return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+  function fmt(x) { return (Math.round(x * 10) / 10).toFixed(1); }
+  function num(x) { return Math.round(x).toLocaleString('ja-JP'); }
+
+  $('g2-todayBox').textContent = '今日は ' + fmtD(today) + ' です。このメーターは、今日から始める前提で計算します。';
+
+  var sel = $('g2-trackSel');
+  Object.keys(TRACKS).forEach(function (k) {
+    var o = document.createElement('option');
+    o.value = k;
+    o.textContent = TRACKS[k].label + '（ボーダー偏差値 ' + TRACKS[k].border.toFixed(1) + '）';
+    if (k === state.track) o.selected = true;
+    sel.appendChild(o);
+  });
+  function borderNote() {
+    var t = TRACKS[state.track];
+    $('g2-borderNote').textContent = 'ゴールは ' + t.label + ' のボーダー偏差値 ' + t.border.toFixed(1) + '（河合塾・前期）。二次試験 ' + t.subjects + '科目相当で計算します。';
+  }
+  borderNote();
+  sel.addEventListener('change', function () { state.track = sel.value; borderNote(); });
+
+  function bindBtns(id, attr, key, cast) {
+    $(id).addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      var bs = $(id).querySelectorAll('button');
+      for (var i = 0; i < bs.length; i++) bs[i].classList.remove('on');
+      b.classList.add('on');
+      state[key] = cast(b.getAttribute(attr));
+    });
+  }
+  bindBtns('g2-gradeBtns', 'data-g', 'grade', Number);
+  bindBtns('g2-restBtns', 'data-r', 'rest', Number);
+  bindBtns('g2-resBtns', 'data-p', 'reserve', Number);
+  $('g2-schoolSel').addEventListener('change', function () {
+    $('g2-schoolHoursBox').classList.toggle('hidden', $('g2-schoolSel').value === 'none');
+  });
+
+  function dailyText(seg) {
+    if (seg.policy === 'hard') return '<span class="d">数字では出せない量です</span>';
+    if (seg.policy === 'lowonly') return '<span class="d"><b>' + fmt(seg.dailyLo) + '時間〜</b></span>';
+    return '<span class="d"><b>' + fmt(seg.dailyLo) + '〜' + fmt(seg.dailyHi) + '時間</b></span>';
+  }
+  function cautionHtml(seg) {
+    if (seg.policy === 'warn') return '<div class="caution">学校のある日には収まりにくい量です。平日と休日に分けて組み立てる必要があります。</div>';
+    if (seg.policy === 'lowonly') return '<div class="caution">上限側は、続けられる量を超える計算になります。下限でも学校のある日には収まりにくい量です。</div>';
+    if (seg.policy === 'hard') return '<div class="caution">今の条件のままでは、続けられる計画になりません。下の「組み立て直し」を先に読んでください。</div>';
+    return '';
+  }
+  function segLabel(seg, idx) {
+    var partial = !(seg.from.getMonth() === 3 && seg.from.getDate() === 1);
+    return '高' + seg.grade + (idx === 0 && partial ? 'の残り' : '');
+  }
+  function stepText(r) {
+    var anyCaution = r.segments.some(function (s) { return s.policy !== 'normal'; });
+    if (anyCaution) return 'まずは計画の組み立て直しです。今週は、学校の授業でまかなえる分の数え方を入れて、もう一度計算してみてください。';
+    var d = r.segments[0].dailyHi;
+    if (d <= 2) return '量は無理のない範囲です。今週は、平日の勉強の置き場所を1つ決めてください（夕食の前後30分など）。量より先に、毎日座る時間を固定します。';
+    if (d <= 4) return '今週は、平日分の置き場所だけ決めてください。休日に寄せる形が続きます。';
+    return '量が多めです。今週は志望先の配点と科目を確認して、力の入れどころを決めてください。';
+  }
+  function dailyRangeText(dLo, dHi) {
+    if (dLo === null || dLo === undefined) return '数字では出せない量';
+    if (dHi === null || dHi === undefined) return '約' + fmt(dLo) + '時間〜';
+    return '約' + fmt(dLo) + '〜' + fmt(dHi) + '時間';
+  }
+  function g2Prev() {
+    try {
+      var raw = window.localStorage.getItem(LS_KEY);
+      if (!raw) return null;
+      var p = JSON.parse(raw);
+      if (p && p.grade === state.grade && p.track === state.track) return p;
+    } catch (e) {}
+    return null;
+  }
+
+  $('g2-goBtn').addEventListener('click', function () {
+    var dev = parseFloat($('g2-devInput').value);
+    if (isNaN(dev) || dev < 35 || dev > 70) { alert('偏差値は35〜70で入れてください'); return; }
+    var input = { track: state.track, grade: state.grade, dev: dev, rest: state.rest,
+                  reserve: state.reserve, schoolType: $('g2-schoolSel').value,
+                  schoolHours: parseFloat($('g2-schoolHours').value) || 0 };
+    var r = computeCore(input, new Date());
+    var t = r.track;
+    var card = $('g2-resultCard');
+    var h = '';
+    if (r.above) {
+      h += '<p class="result-head">偏差値の上では、' + t.label + ' のボーダー（' + t.border.toFixed(1) + '）以上にいます。あとは共通テストと二次試験で、点数を取り切る段階です。</p>';
+      h += '<p class="result-head">今の得点力を点数で確かめるには、<a href="https://oubijuku-omu.com/kyori" target="_blank" rel="noopener">合格までの距離メーター</a>が使えます。</p>';
+      card.innerHTML = h; card.classList.remove('hidden');
+      card.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+    h += '<p class="result-head">今日（' + fmtD(today) + '）から始めると、共通テスト（' + fmtD(r.exam) + '）まで、あと <b>' + r.daysTotal + '日</b> です。</p>';
+    h += '<p class="total">必要な勉強時間は <b>約' + num(r.totalLo) + '〜' + num(r.totalHi) + '時間</b></p>';
+    h += '<p class="note">偏差値の差 ' + fmt(r.gap) + 'ポイント × 1ポイントあたり ' + (30 * t.subjects) + '〜' + (50 * t.subjects) + '時間（' + t.subjects + '科目分）で計算しています。</p>';
+    if (r.creditLo > 0) {
+      h += '<p class="result-head">学校の授業でまかなえる分（約' + num(r.creditLo) + '時間）を差し引くと、自分でやる分は <b>約' + num(r.selfLo) + '〜' + num(r.selfHi) + '時間</b> です。</p>';
+    }
+    r.segments.forEach(function (seg, i) {
+      h += '<div class="seg"><span class="g">' + segLabel(seg, i) + '</span> '
+         + '<span class="meta">' + fmtD(seg.from) + '〜' + fmtD(seg.to) + '・勉強できる日 ' + seg.studyDays + '日</span>'
+         + dailyText(seg) + cautionHtml(seg) + '</div>';
+    });
+    if (r.delays.length) {
+      h += '<h2 style="font-size:15px;color:#B0005E;margin:16px 0 4px;">始める時期を遅らせると</h2>';
+      h += '<table class="delay"><tr><th>始める時期</th><td class="v">高3の1日あたり</td></tr>';
+      var last = r.segments[r.segments.length - 1];
+      h += '<tr><th>今日から</th><td class="v">' + (last.policy === 'hard' ? '数字では出せない量' : fmt(last.dailyLo) + '〜' + fmt(last.dailyHi) + '時間') + '</td></tr>';
+      r.delays.forEach(function (d) {
+        h += '<tr><th>' + d.months + 'か月遅らせると</th><td class="v">' + (d.policy === 'hard' ? '数字では出せない量' : fmt(d.finalDailyLo) + '〜' + fmt(d.finalDailyHi) + '時間') + '</td></tr>';
+      });
+      h += '</table><p class="note">遅らせた分は消えずに、後の学年へ寄って重くなります。</p>';
+    }
+    var anyCaution = r.segments.some(function (s) { return s.policy !== 'normal'; });
+    if (anyCaution) {
+      h += '<div class="advice"><b>組み立て直しの手</b><br>'
+         + '・始める時期を今日に戻す（上の表の差が、そのまま負担の差です）<br>'
+         + '・学校の授業でまかなえる分を入れて、もう一度計算する<br>'
+         + '・志望先の中で、ボーダーが近い学科・型がないか見直す<br>'
+         + '計画を組み立て直すのが塾の仕事です。一人で抱えず、無料相談で一緒に組み立てられます。</div>';
+    }
+    h += '<div class="advice"><b>今週の1手</b><br>' + stepText(r) + '</div>';
+    h += '<p class="note" style="margin-top:14px;">参考：' + t.label + ' の「合格までの総勉強量」の目安は約' + num(t.refMin) + '〜' + num(t.refMax) + '時間とされています。上の数字は総量ではなく、「今の偏差値から差を埋めるために追加で必要な量」です。</p>';
+
+    /* 前回の記録との比較（キー omu-gyakusan-v2） */
+    var seg0 = r.segments[0];
+    var curDailyLo = seg0.policy === 'hard' ? null : round1(seg0.dailyLo);
+    var curDailyHi = (seg0.policy === 'hard' || seg0.policy === 'lowonly') ? null : round1(seg0.dailyHi);
+    var prev = g2Prev();
+    if (prev) {
+      var diffTxt;
+      if (prev.dailyLo !== null && prev.dailyLo !== undefined && curDailyLo !== null) {
+        var dd = round1(curDailyLo - prev.dailyLo);
+        diffTxt = (Math.abs(dd) < 0.05) ? '前回とほぼ同じです'
+          : (dd < 0 ? '前回より1日あたり約' + fmt(Math.abs(dd)) + '時間 軽くなりました'
+                    : '前回より1日あたり約' + fmt(dd) + '時間 増えました');
+      } else {
+        var dt = Math.round(r.totalLo) - prev.totalLo;
+        diffTxt = (dt === 0) ? '必要総時間は前回とほぼ同じです'
+          : (dt < 0 ? '必要総時間の下限は、前回より約' + num(Math.abs(dt)) + '時間 減りました'
+                    : '必要総時間の下限は、前回より約' + num(dt) + '時間 増えました');
+      }
+      h += '<p class="note" style="margin-top:14px;font-size:13px;color:#444;">前回（' + prev.date + '）は、必要総時間 約' + num(prev.totalLo) + '〜' + num(prev.totalHi) + '時間、今の学年の1日あたり ' + dailyRangeText(prev.dailyLo, prev.dailyHi) + ' でした。今回は ' + dailyRangeText(curDailyLo, curDailyHi) + ' で、' + diffTxt + '。</p>';
+    }
+    h += '<div style="margin-top:16px;">'
+       + '<button type="button" class="recbtn" id="g2-save">この結果を記録する</button>'
+       + '<span class="savedone" id="g2-save-done" style="display:none;">記録しました</span>'
+       + '<p class="note" style="margin-top:6px;">記録すると、次に開いたときに前回と比べられます（記録はこの端末の中だけに残ります）。</p></div>';
+
+    var share = '大阪公立大学 ' + t.label + ' を目指す場合の逆算結果です。\n'
+      + '今日から始めると、必要な勉強時間は約' + num(r.totalLo) + '〜' + num(r.totalHi) + '時間です。\n'
+      + (curDailyLo !== null ? '今の学年（高' + state.grade + '）では、1日あたり ' + dailyRangeText(curDailyLo, curDailyHi) + ' の計算です。\n' : '')
+      + '▼ 逆算メーター（無料・登録なし）\nhttps://oubijuku-omu.com/gyakusan?via=share\n'
+      + '※時間はあくまで目安です。今の学力によって変わります';
+    h += '<div class="share"><a class="line" href="https://line.me/R/msg/text/?' + encodeURIComponent(share) + '" target="_blank" rel="noopener">結果を保護者に送る</a>'
+       + '<button type="button" class="copy" id="g2-copyBtn">文章をコピー</button>'
+       + '<button type="button" class="xbtn" id="g2-xBtn">Xでシェア</button></div>';
+    h += '<p class="srcline">逆算メーター｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/gyakusan</p>';
+    card.innerHTML = h;
+    card.classList.remove('hidden');
+
+    $('g2-save').addEventListener('click', function () {
+      try {
+        window.localStorage.setItem(LS_KEY, JSON.stringify({
+          track: state.track, label: t.label, grade: state.grade, dev: dev,
+          totalLo: Math.round(r.totalLo), totalHi: Math.round(r.totalHi),
+          dailyLo: curDailyLo, dailyHi: curDailyHi,
+          date: fmtD(new Date())
+        }));
+        $('g2-save-done').style.display = 'inline';
+      } catch (e) {}
+    });
+    $('g2-copyBtn').addEventListener('click', function () {
+      function done() { $('g2-copyBtn').textContent = 'コピーしました'; }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = share;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(share).then(done).catch(fallback);
+      } else { fallback(); }
+    });
+    $('g2-xBtn').addEventListener('click', function () {
+      var xText = '大阪公立大学を目指す勉強時間を、今の偏差値から逆算しました。';
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(xText) + '&url=' + encodeURIComponent('https://oubijuku-omu.com/gyakusan?via=share'), '_blank');
+    });
+    card.scrollIntoView({ behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
