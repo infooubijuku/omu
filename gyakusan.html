@@ -288,6 +288,7 @@
 <a href="https://search.keinet.ne.jp/1615/general/border_rate" target="_blank" rel="noopener">河合塾 Kei-Net｜大阪公立大学 偏差値（ボーダーライン）</a><br>
 偏差値1ポイントを上げる勉強量は、京都医塾の経験則「1科目あたり30〜50時間」を二次試験の科目数分だけ掛けています：
 <a href="https://www.kyotoijuku.com/column/increase-your-score-by-10/" target="_blank" rel="noopener">京都医塾｜偏差値を10上げる方法</a><br>
+ただし医学部医学科（二次4科目）は、現場の感覚に合わせて1ポイントあたり150〜250時間に置いています。また、1ポイントの重みは偏差値の帯で変えています。50までは等倍、50〜55は1.2倍、55〜60は1.5倍、60〜62.5は1.8倍、62.5〜65は2.1倍、65〜67.5は2.5倍、67.5以上は3倍です。<br>
 学年の配分は高1=20・高2=35・高3=45を目安に、今の学年の残り期間で調整しています。学校の授業の換算率（進学校7割・公立4割）は当塾の目安です。<br>
 ※ この数字は経験則にもとづく「下限の目安」です。合格を約束するものではありません。実際の必要量は、科目ごとの得意・不得意や、これまでに学んだ分で変わります。
 </p>
@@ -484,7 +485,7 @@
 <script>
 'use strict';
 /* 大阪公立大学 逆算メーター2.0 計算コア（試作）
-   方式：必要時間 =（ボーダー偏差値 − 現在の偏差値）×（1科目30〜50時間 × 二次科目数）
+   方式：必要時間 =（重み付きの偏差値差）×（1科目30〜50時間 × 二次科目数）。医学科（4科目）は1ポイント150〜250時間。偏差値差は帯ごとの重み（50まで等倍〜67.5以上3倍）で重み付けする。
    学年傾斜：高1=20・高2=35・高3=45。今の学年は残り期間の割合で実効化し、正規化して配分。
    休む日：勉強できる日 = 区間の日数 − 週休分 − 予備分。
    学校クレジット：学校の授業でまかなえる分を総量から差し引いてから配分（1.0の方式を継承）。
@@ -533,6 +534,18 @@ function studyDaysFor(days, rest, reserve) {
   var rest2 = Math.round((days - weekly) * reserve / 100);
   var sd = days - weekly - rest2;
   return sd < 1 ? 1 : sd;
+}
+/* 偏差値の帯ごとに1ポイントの重みを変える（上位ほど1ポイントが重い）。
+   [その帯の上限, 重み]：50まで等倍、50〜55は1.2倍、55〜60は1.5倍、
+   60〜62.5は1.8倍、62.5〜65は2.1倍、65〜67.5は2.5倍、67.5以上は3倍。 */
+var GAP_BANDS = [ [50, 1.0], [55, 1.2], [60, 1.5], [62.5, 1.8], [65, 2.1], [67.5, 2.5], [Infinity, 3.0] ];
+function weightedGap(dev, border) {
+  var eff = 0, lo = dev;
+  for (var i = 0; i < GAP_BANDS.length && lo < border; i++) {
+    var hi = Math.min(border, GAP_BANDS[i][0]);
+    if (hi > lo) { eff += (hi - lo) * GAP_BANDS[i][1]; lo = hi; }
+  }
+  return eff;
 }
 function policyFor(low, high) {
   if (low > 12) return 'hard';
@@ -585,7 +598,9 @@ function computeCore(input, today) {
              daysTotal: daysBetween(today, exam) };
   }
   var coefLo = 30 * track.subjects, coefHi = 50 * track.subjects;
-  var totalLo = gap * coefLo, totalHi = gap * coefHi;
+  if (track.subjects === 4) { coefLo = 150; coefHi = 250; }
+  var effGap = weightedGap(input.dev, track.border);
+  var totalLo = effGap * coefLo, totalHi = effGap * coefHi;
 
   function runFrom(start) {
     var segs = buildSegments(start, exam, input.grade, today);
@@ -622,6 +637,7 @@ function computeCore(input, today) {
   }).filter(Boolean);
 
   return { above: false, track: track, exam: exam, gap: gap,
+           coefLo: coefLo, coefHi: coefHi, effGap: effGap,
            daysTotal: daysBetween(today, exam),
            totalLo: totalLo, totalHi: totalHi,
            creditLo: main.creditLo, creditHi: main.creditHi,
@@ -742,7 +758,10 @@ if (typeof module !== 'undefined' && module.exports) {
     }
     h += '<p class="result-head">今日（' + fmtD(today) + '）から始めると、共通テスト（' + fmtD(r.exam) + '）まで、あと <b>' + r.daysTotal + '日</b> です。</p>';
     h += '<p class="total">必要な勉強時間は <b>約' + num(r.totalLo) + '〜' + num(r.totalHi) + '時間</b></p>';
-    h += '<p class="note">偏差値の差 ' + fmt(r.gap) + 'ポイント × 1ポイントあたり ' + (30 * t.subjects) + '〜' + (50 * t.subjects) + '時間（' + t.subjects + '科目分）で計算しています。</p>';
+    h += '<p class="note">偏差値の差 ' + fmt(r.gap) + 'ポイント × 1ポイントあたり ' + r.coefLo + '〜' + r.coefHi + '時間（' + t.subjects + '科目分）で計算しています。</p>';
+    if (r.effGap > r.gap) {
+      h += '<p class="note">偏差値が上に行くほど1ポイントは重くなるので、差は帯ごとに重みを変えて計算しています（55〜60の差は、50までの差の1.5倍の重みです）。</p>';
+    }
     if (r.creditLo > 0) {
       h += '<p class="result-head">学校の授業でまかなえる分（約' + num(r.creditLo) + '時間）を差し引くと、自分でやる分は <b>約' + num(r.selfLo) + '〜' + num(r.selfHi) + '時間</b> です。</p>';
     }
