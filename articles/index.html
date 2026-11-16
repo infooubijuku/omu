@@ -248,6 +248,7 @@
         <button data-cat="heigan" class="chip bg-omu-light text-omu-dark text-sm font-bold px-4 py-2 rounded-full">併願校の選び方</button>
     </div>
 
+    <div id="cat-count" class="text-base font-bold mb-4">すべての記事 35本</div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left" id="article-grid">
       <a href="/articles/january-calendar" class="article-card block bg-white border border-gray-200 rounded-sm p-6 shadow-sm" data-cat="hogosha">
         <div class="flex items-center gap-3 mb-3">
@@ -564,7 +565,7 @@
       </a>
           <div class="mb-12">
       <h2 class="text-lg md:text-xl font-bold mb-2">目次｜いま必要な情報から探す</h2>
-      <p class="text-sm text-gray-600 font-medium leading-relaxed mb-6">「大阪公立大学受験の教科書」の記事は27本になりました。時期と状況、立場、知りたいことの、3つの入口から探せます。</p>
+      <p class="text-sm text-gray-600 font-medium leading-relaxed mb-6">「大阪公立大学受験の教科書」の記事は35本になりました。時期と状況、立場、知りたいことの、3つの入口から探せます。</p>
       <h3 class="text-base md:text-lg font-bold mb-4">時期と状況から探す</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left mb-10">
         <a href="/articles/suisen-zentaizo" class="block bg-white border border-gray-200 rounded-sm p-5 shadow-sm">
@@ -654,6 +655,10 @@ document.querySelectorAll('#cat-chips .chip').forEach(function(btn){
     document.querySelectorAll('.article-card').forEach(function(card){
       card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? '' : 'none';
     });
+    var n = 0;
+    document.querySelectorAll('.article-card').forEach(function(card){ if (card.style.display !== 'none') n++; });
+    var label = (cat === 'all') ? 'すべての記事' : btn.textContent.trim() + 'の記事';
+    document.getElementById('cat-count').textContent = label + ' ' + n + '本';
   });
 });
 </script>
