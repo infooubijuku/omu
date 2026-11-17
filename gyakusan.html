@@ -706,6 +706,14 @@ if (typeof module !== 'undefined' && module.exports) {
 (function () {
   var LS_KEY = 'omu-gyakusan-v2';
   function track(name, params){ if(window.gtag){ gtag('event', name, params || {}); } }
+  function soudanShow(card, data){
+    var s = document.getElementById('soudan');
+    if (!s || !window.soudanSetResult) return;
+    var a = card.querySelector('.advice') || card.querySelector('.share');
+    if (a) card.insertBefore(s, a); else card.appendChild(s);
+    s.style.display = '';
+    window.soudanSetResult(data);
+  }
   var started = false;
   function markStart(){ if(!started){ started = true; track('gyakusan_start'); } }
   var state = { grade: 2, track: 'kogaku', rest: 1, reserve: 5 };
@@ -788,6 +796,7 @@ if (typeof module !== 'undefined' && module.exports) {
   }
 
   $('g2-goBtn').addEventListener('click', function () {
+    var sx = document.getElementById('soudan'); if (sx) { sx.style.display = 'none'; document.getElementById('soudan-park').appendChild(sx); }
     var dev = parseFloat($('g2-devInput').value);
     if (isNaN(dev) || dev < 35 || dev > 70) { alert('偏差値は35〜70で入れてください'); return; }
     var input = { track: state.track, grade: state.grade, dev: dev, rest: state.rest,
@@ -803,6 +812,7 @@ if (typeof module !== 'undefined' && module.exports) {
       h += '<p class="result-head">偏差値の上では、' + t.label + ' のボーダー（' + t.border.toFixed(1) + '）以上にいます。あとは共通テストと二次試験で、点数を取り切る段階です。</p>';
       h += '<p class="result-head">今の得点力を点数で確かめるには、<a href="https://oubijuku-omu.com/kyori" target="_blank" rel="noopener">合格までの距離メーター</a>が使えます。</p>';
       card.innerHTML = h; card.classList.remove('hidden');
+      soudanShow(card, { grade: state.grade === 3 ? '高3・既卒' : '高' + state.grade, faculty: t.label, hensachi: fmt(dev), lo: null, hi: null, tier: 'above' });
       card.scrollIntoView({ behavior: 'smooth' });
       return;
     }
@@ -877,6 +887,10 @@ if (typeof module !== 'undefined' && module.exports) {
     h += '<p class="srcline">逆算メーター3.0｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/gyakusan</p>';
     card.innerHTML = h;
     card.classList.remove('hidden');
+    var seg0p = r.segments[0].policy;
+    var sTier = seg0p === 'hard' ? 'none' : (seg0p === 'normal' ? 'ok' : 'heavy');
+    soudanShow(card, { grade: state.grade === 3 ? '高3・既卒' : '高' + state.grade, faculty: t.label, hensachi: fmt(dev),
+      lo: sTier === 'none' ? null : curDailyLo, hi: sTier === 'none' ? null : curDailyHi, tier: sTier });
     var lineA = card.querySelector('.share .line');
     if (lineA) lineA.addEventListener('click', function () { track('gyakusan_share_line', { grade: '高' + state.grade, track: t.label }); });
 
@@ -917,5 +931,181 @@ if (typeof module !== 'undefined' && module.exports) {
 })();
 </script>
 
+<div id="soudan-park" style="display:none"><!--
+  逆算メーター結果画面用「勉強計画の無料相談（30分）」申込の枠（2026-11-17、Claude作成）
+  仕様の正本：勉強計画の無料相談_確定仕様_2026-11-17.md（同じフォルダ）
+
+  使い方
+    1. この <section> と <script> を、逆算メーターの結果カードの中、結果の見出し文の直後に置く。
+    2. 結果が出るたびに、ページ側から次を呼ぶ。
+         window.soudanSetResult({
+           grade: "高2",            // 学年の表示名
+           faculty: "商学部",       // 志望の表示名
+           hensachi: "52.5",        // 今の偏差値
+           lo: 3.1, hi: 5.2,        // 1日あたりの下限・上限（時間）。数字を出さない結果では null
+           tier: "ok"               // "ok"=8時間まで / "heavy"=8〜12時間 / "none"=数字を出さない / "above"=ボーダー以上
+         });
+    3. LINE_ID は公式LINEのID。送信文つきリンク（oaMessage）が使えるかは未確認。
+       使えない場合は USE_OA_MESSAGE を false にする。そのときは「申込内容をコピー」→「LINEを開く」の2段になる。
+
+  計測（gtag がある前提。なければサイトの書き方に合わせる）
+    gyakusan_soudan_input_start … 入力欄を最初に触ったとき
+    gyakusan_soudan_input_done  … 必須の入力がそろったとき
+    gyakusan_soudan_click       … 申込ボタンを押したとき
+
+  見た目はインラインstyle。サイトのクラスに差し替えてよい。
+-->
+<section id="soudan" style="display:none; margin:28px 0; padding:26px 18px; background:#FDF2F6; border:2px solid #D75D82; border-radius:16px; box-sizing:border-box; color:#2A2522; line-height:1.8;">
+  <h3 style="margin:0 0 10px; font-size:21px; line-height:1.55;">1日に何時間、何を勉強するか。<br>塾長と30分で決めませんか。</h3>
+  <p style="margin:0 0 14px; font-size:15px;"><span id="soudan-head"></span>1日あたりの時間は出ました。その時間で何をするかは、今の力で変わります。</p>
+
+  <div style="margin:0 0 16px; padding:16px 14px; background:#FFFFFF; border-radius:12px;">
+    <p style="margin:0 0 6px; font-size:17px; font-weight:bold; color:#D75D82;">勉強計画の無料相談（30分）</p>
+    <ul style="margin:0; padding-left:1.2em; font-size:14.5px;">
+      <li>塾長の内田が、数字を一緒に見ます</li>
+      <li>今週やることを1つ決めて終わります</li>
+      <li>オンライン（Zoom）か、天王寺の教室で</li>
+      <li>保護者の方だけでも、お子さんと一緒でも</li>
+      <li>桜灯塾に通っていない方も、そのままどうぞ</li>
+    </ul>
+  </div>
+
+  <p style="margin:0 0 8px; font-size:14.5px; font-weight:bold;">曜日ごとの時間をもとに、勉強計画を一緒に作ります。入力のうえ、お申し込みください。</p>
+
+  <label style="display:block; margin:0 0 10px; font-size:14px;">
+    <input type="checkbox" id="soudan-noschool"> 学校に通っていない（既卒など）
+  </label>
+
+  <div id="soudan-week">
+    <table style="width:100%; border-collapse:collapse; font-size:14px; background:#FFFFFF; border-radius:10px; overflow:hidden;">
+      <thead>
+        <tr style="background:#F7DCE5;">
+          <th style="padding:8px 6px; text-align:left;">曜日</th>
+          <th style="padding:8px 6px; text-align:left;">学校が終わる時間</th>
+          <th style="padding:8px 6px; text-align:left;">家に着く時間</th>
+        </tr>
+      </thead>
+      <tbody id="soudan-rows"></tbody>
+    </table>
+    <label style="display:block; margin:10px 0 0; font-size:14px;">土日に学校や部活がある場合（任意）
+      <input type="text" id="soudan-weekend" maxlength="60" placeholder="例：土曜は部活で13時まで"
+        style="display:block; width:100%; margin-top:4px; padding:9px 10px; font-size:15px; border:1px solid #D9B8C4; border-radius:8px; box-sizing:border-box;">
+    </label>
+  </div>
+
+  <label id="soudan-free-wrap" style="display:none; font-size:14px;">1日のうち、勉強に使える時間帯
+    <input type="text" id="soudan-free" maxlength="60" placeholder="例：9時〜12時、14時〜21時"
+      style="display:block; width:100%; margin-top:4px; padding:9px 10px; font-size:15px; border:1px solid #D9B8C4; border-radius:8px; box-sizing:border-box;">
+  </label>
+
+  <p id="soudan-msg" style="margin:12px 0 8px; font-size:13.5px; color:#8A5A68;">月〜金の時間をすべて選ぶと、申し込めます。</p>
+
+  <a id="soudan-btn" href="#" aria-disabled="true"
+    style="display:block; padding:15px 12px; background:#BDBDBD; color:#FFFFFF; font-size:16.5px; font-weight:bold; text-align:center; border-radius:30px; text-decoration:none; pointer-events:none;">
+    LINEで申し込む（入力した内容をそのまま送れます）
+  </a>
+  <button id="soudan-copy" type="button" style="display:none; width:100%; margin-top:8px; padding:12px; font-size:15px; border:2px solid #D75D82; background:#FFFFFF; color:#D75D82; border-radius:30px;">申込内容をコピーする</button>
+
+  <p style="margin:12px 0 0; font-size:13.5px; text-align:center;">入塾のご案内は、聞かれたときだけお話しします。</p>
+</section>
+
+<script>
+(function () {
+  var LINE_ID = "@oubijuku-omu";       // 公式LINEのID
+  var USE_OA_MESSAGE = !(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);           // 送信文つきリンクが使えない場合は false
+  var LINE_ADD_URL = "https://lin.ee/oKkXtFw";
+  var DAYS = ["月", "火", "水", "木", "金"];
+  var HEAD = {
+    ok: "この時間なら、今の生活の中で組み立てられます。",
+    heavy: "学校のある日には収まりにくい時間です。何を残して何を削るかを、一緒に決めます。",
+    none: "数字が出なかったのは、無理という意味ではありません。組み立て直す順番を、一緒に考えます。",
+    above: ""
+  };
+  var res = null, started = false, doneSent = false;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function times(from, to) {
+    var o = '<option value="">選ぶ</option>';
+    for (var m = from * 60; m <= to * 60; m += 30) {
+      var t = Math.floor(m / 60) + ":" + (m % 60 === 0 ? "00" : "30");
+      o += '<option value="' + t + '">' + t + "</option>";
+    }
+    return o;
+  }
+  var selStyle = 'style="width:100%; padding:8px 4px; font-size:15px; border:1px solid #D9B8C4; border-radius:8px; background:#FFFFFF;"';
+  $("soudan-rows").innerHTML = DAYS.map(function (d, i) {
+    return '<tr><td style="padding:6px; font-weight:bold;">' + d + "</td>" +
+      '<td style="padding:6px;"><select id="soudan-e' + i + '" aria-label="' + d + '曜 学校が終わる時間" ' + selStyle + ">" + times(12, 19) + "</select></td>" +
+      '<td style="padding:6px;"><select id="soudan-h' + i + '" aria-label="' + d + '曜 家に着く時間" ' + selStyle + ">" + times(13, 23) + "</select></td></tr>";
+  }).join("");
+
+  function ev(name) { if (typeof gtag === "function") gtag("event", name, res ? { tier: res.tier } : {}); }
+
+  function body() {
+    var L = ["勉強計画の無料相談を希望します。"];
+    if (res) {
+      L.push("学年：" + res.grade + "／志望：" + res.faculty + "／今の偏差値：" + res.hensachi);
+      L.push("結果：" + (res.tier === "above" ? "ボーダー以上でした" : (res.lo == null ? "数字が出ない形でした" : (res.hi == null ? "1日 約" + res.lo + "時間以上" : "1日 約" + res.lo + "〜" + res.hi + "時間"))));
+    }
+    if ($("soudan-noschool").checked) {
+      L.push("学校：通っていない");
+      L.push("勉強に使える時間帯：" + $("soudan-free").value.trim());
+    } else {
+      DAYS.forEach(function (d, i) { L.push(d + " " + $("soudan-e" + i).value + "→" + $("soudan-h" + i).value); });
+      var w = $("soudan-weekend").value.trim();
+      if (w) L.push("土日：" + w);
+    }
+    return L.join("\n");
+  }
+
+  function valid() {
+    if ($("soudan-noschool").checked) return $("soudan-free").value.trim().length > 0;
+    for (var i = 0; i < DAYS.length; i++) {
+      if (!$("soudan-e" + i).value || !$("soudan-h" + i).value) return false;
+    }
+    return true;
+  }
+
+  function refresh() {
+    var no = $("soudan-noschool").checked;
+    $("soudan-week").style.display = no ? "none" : "";
+    $("soudan-free-wrap").style.display = no ? "block" : "none";
+    var ok = valid(), b = $("soudan-btn");
+    b.setAttribute("aria-disabled", ok ? "false" : "true");
+    b.style.background = ok ? "#06C755" : "#BDBDBD";
+    b.style.pointerEvents = ok ? "auto" : "none";
+    $("soudan-msg").textContent = ok ? "入力した内容が、LINEの文に入ります。送信を押すだけで申し込めます。"
+      : (no ? "勉強に使える時間帯を書くと、申し込めます。" : "月〜金の時間をすべて選ぶと、申し込めます。");
+    if (ok) {
+      b.href = USE_OA_MESSAGE ? "https://line.me/R/oaMessage/" + encodeURIComponent(LINE_ID) + "/?" + encodeURIComponent(body()) : LINE_ADD_URL;
+      $("soudan-copy").style.display = USE_OA_MESSAGE ? "none" : "block";
+      if (!doneSent) { doneSent = true; ev("gyakusan_soudan_input_done"); }
+    } else {
+      $("soudan-copy").style.display = "none";
+    }
+  }
+
+  $("soudan").addEventListener("input", function () {
+    if (!started) { started = true; ev("gyakusan_soudan_input_start"); }
+    refresh();
+  });
+  $("soudan").addEventListener("change", refresh);
+  $("soudan-btn").addEventListener("click", function () { ev("gyakusan_soudan_click"); });
+  $("soudan-copy").addEventListener("click", function () {
+    var t = body(), self = this;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).then(function () { self.textContent = "コピーしました。LINEに貼り付けて送ってください"; });
+    }
+  });
+
+  window.soudanSetResult = function (r) {
+    res = r;
+    $("soudan-head").textContent = HEAD[r.tier] || "";
+    refresh();
+  };
+  refresh();
+})();
+</script>
+</div>
 </body>
 </html>
