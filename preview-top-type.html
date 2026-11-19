@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- プレビュー用：GA4は外してある -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学専門「桜灯塾」。塾長が一人ひとりの計画を設計し、講師陣が管理と演習まで伴走する「大阪公立大学合格オリジナルマネジメント」で、推薦・一般入試の両方に対応。天王寺駅北口徒歩5分、全国オンライン対応。無料学習相談受付中。">
+    <meta name="keywords" content="大阪公立大学,専門塾,個別指導,天王寺,桜灯塾,おうびじゅく,医学部,受験,推薦入試">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:description" content="大阪公立大学専門「桜灯塾」。塾長が一人ひとりの計画を設計し、講師陣が管理と演習まで伴走する「大阪公立大学合格オリジナルマネジメント」で、推薦・一般入試の両方に対応。天王寺駅北口徒歩5分、全国オンライン対応。無料学習相談受付中。">
+    <meta property="og:url" content="https://oubijuku-omu.com/">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta name="twitter:description" content="大阪公立大学専門「桜灯塾」。塾長が一人ひとりの計画を設計し、講師陣が管理と演習まで伴走する「大阪公立大学合格オリジナルマネジメント」で、推薦・一般入試の両方に対応。天王寺駅北口徒歩5分、全国オンライン対応。無料学習相談受付中。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "桜灯塾",
+      "alternateName": "おうびじゅく",
+      "description": "大阪公立大学合格に特化した個別指導塾「桜灯塾」。塾長が一人ひとりの計画を設計し、講師陣が管理と演習まで伴走する「大阪公立大学合格オリジナルマネジメント」で、推薦・一般入試の両方に対応。天王寺駅北口徒歩5分、全国オンライン対応。無料学習相談受付中。",
+      "url": "https://oubijuku-omu.com",
+      "logo": "https://oubijuku-omu.com/logo.png",
+      "image": "https://oubijuku-omu.com/og-image.jpg",
+      "telephone": "06-6779-9507",
+      "email": "uchida@oubijuku.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "南河堀町9-43 ターミナル天王寺北口ビル2階",
+        "addressLocality": "天王寺区",
+        "addressRegion": "大阪府",
+        "postalCode": "543-0054",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.6481,
+        "longitude": 135.5145
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      },
+      "sameAs": []
+    }
+    </script>
+    <title>【文字組み調整版】大阪公立大学専門 桜灯塾（おうびじゅく）｜天王寺の個別指導塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            scroll-behavior: smooth;
+            line-height: 1.8;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        
+        .hero-gradient {
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('img/index-hero.jpg'),
+                linear-gradient(135deg, #1a1a2e 0%, #2d1b3d 40%, #1a0a1a 100%);
+            background-size: cover, cover, cover;
+            background-position: center, center, center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin: 1.5rem auto 0;
+        }
+
+        .cta-button {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 10px rgba(229, 0, 127, 0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(229, 0, 127, 0.3);
+            filter: brightness(1.05);
+        }
+
+        .curriculum-card {
+            border: 1px solid #E5E7EB;
+            transition: all 0.3s ease;
+        }
+        .curriculum-card:hover {
+            border-color: var(--omu-primary);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .list-item::before {
+            content: "◆";
+            color: var(--omu-primary);
+            margin-right: 0.75rem;
+            font-size: 0.8em;
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    </style>
+</head>
+<body class="bg-white text-left">
+
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none"><ruby>桜灯<rt style="font-size:0.38em;color:#a8a29e;font-weight:500;letter-spacing:0.05em;">おうび</rt></ruby>塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden xl:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex flex-nowrap space-x-5 xl:space-x-8 items-center text-[0.85rem] xl:text-[0.9rem] font-bold tracking-wider whitespace-nowrap">
+                    <a href="/" class="text-omu-pink">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item">講師紹介</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/articles" class="hover:text-omu-pink transition">大阪公立大学受験の教科書</a>
+                    <a href="/online" class="hover:text-omu-pink transition">桜灯塾ONLINE</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-5 xl:px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <div class="flex flex-col gap-1 lg:hidden ml-auto mr-2" id="header-mode-pills">
+                    <a href="/facility" class="text-[11px] font-bold tracking-wider text-omu-pink border border-omu-pink rounded-full px-3 py-1 text-center whitespace-nowrap bg-white">天王寺で通塾</a>
+                    <a href="/online" class="text-[11px] font-bold tracking-wider text-white bg-omu-pink rounded-full px-3 py-1 text-center whitespace-nowrap">桜灯塾ONLINE</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher">講師紹介</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/articles" class="text-lg font-bold py-4 border-b border-gray-100">大阪公立大学受験の教科書</a>
+            <a href="/online" class="text-lg font-bold py-4 border-b border-gray-100">桜灯塾ONLINE</a>
+            <a href="/faq" class="text-lg font-bold py-4 border-b border-gray-100">よくある質問</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+        <!-- ヒーローセクション（新トップ・プレビュー） -->
+    <section class="hero-gradient h-[78vh] min-h-[540px] max-h-[680px] flex items-center justify-center text-white relative text-center">
+        <div class="relative z-10 px-4 max-w-6xl">
+            <h1 class="text-2xl md:text-3xl sm:text-6xl md:text-8xl font-bold leading-tight mb-4 drop-shadow-lg tracking-[0.05em]">
+                大阪公立大学専門
+            </h1>
+            <div class="mb-10">
+                <p class="text-2xl sm:text-3xl md:text-5xl font-medium tracking-[0.15em] md:tracking-[0.3em] mb-2 text-white">桜灯塾</p>
+                <p class="text-white/60 tracking-[0.3em] text-sm uppercase mb-6">OUBIJUKU</p>
+                <p class="text-base md:text-xl font-bold tracking-[0.2em] text-white mb-4">合格の、その先へ。</p>
+                <p class="text-sm sm:text-base opacity-90 leading-relaxed tracking-normal md:tracking-widest mb-8">
+                    天王寺駅から徒歩5分｜ <br class="sm:hidden">塾長が設計し、講師陣が管理
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/kyori" class="bg-omu-pink text-white px-8 md:px-12 py-5 rounded-sm text-base md:text-lg font-bold tracking-widest cta-button w-full sm:w-auto">
+                    <span class="block">二次試験では何点必要？</span>
+                    <span class="block text-xs md:text-sm font-medium tracking-normal mt-1 opacity-90">例：経済学部・共通テスト70%なら、<br class="sm:hidden">二次で約271点</span>
+                </a>
+            </div>
+            <p class="mt-6 text-xs sm:text-sm text-white/90">勉強時間の目安と学部・学科診断は、この下にあります ↓</p>
+        </div>
+    </section>
+
+<!-- ヒーローから下ろした入口（勉強時間・診断・保護者） -->
+    <section class="py-8 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex flex-col gap-3">
+                <a href="/gyakusan" class="bg-white text-omu-pink border-2 border-omu-pink px-8 py-4 rounded-sm text-base font-bold tracking-widest cta-button text-center">
+                    <span class="block">勉強時間は1日何時間必要？</span>
+                    <span id="gy-hero-ex" class="block text-xs md:text-sm font-medium tracking-normal mt-1 text-gray-500">例：高2・工学部・偏差値50なら、今は1日約1.4〜2.3時間</span>
+                </a>
+                <a href="/shindan" class="block text-center border border-omu-pink text-omu-pink text-sm md:text-base font-bold tracking-widest px-5 py-3 rounded-full" style="background-color:#FFF5F9">学部選びに迷ったら：2分でできる学部・学科診断 →</a>
+                <p class="text-center mt-1">
+                    <a href="/fee" class="text-sm text-gray-600 underline underline-offset-4">保護者の方へ：料金とモデルケースを見る</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 指導理念 -->
+    <section class="py-10 md:py-16 bg-white text-omu-dark">
+        <div class="max-w-3xl mx-auto px-5 md:px-4 text-center">
+            <p class="text-xs font-bold tracking-[0.3em] text-omu-pink mb-4">理念</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">私たちが届けたいのは、<br class="sm:hidden">合格だけではありません。</h2>
+            <p class="text-base md:text-lg text-gray-700 leading-[1.8] mb-8">大阪公立大学への合格です。そして、その合格を厳しい状況から勝ち取る経験です。</p><p class="text-base md:text-lg text-gray-700 leading-[1.8] mb-8">挑戦し、つまずき、立て直して、それでも合格する。その成功体験でついた自信は、大学の先の人生で、困難な場面から逃げずに立ち向かう原動力になります。</p>
+            <a href="/philosophy" class="inline-block border-2 border-omu-pink text-omu-pink font-bold py-3 px-8 rounded-sm text-sm tracking-widest hover:bg-omu-pink hover:text-white transition">塾長の想いを読む</a>
+        </div>
+    </section>
+
+    <!-- 講師陣 -->
+    <section class="py-10 md:py-16 bg-gray-50 text-omu-dark">
+        <div class="max-w-3xl mx-auto px-5 md:px-4 text-center">
+            <p class="text-xs font-bold tracking-[0.3em] text-omu-pink mb-4">講師陣</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">医学部合格者の学力を、<br class="sm:hidden">すべての学部の合格力に。</h2>
+            <p class="text-base text-gray-700 leading-[1.8] mb-8 text-left md:text-center">講師の中心は、大阪公立大学の各学部に合格した学生たちです。強みは、学力の高さだけではありません。医学部合格者の中には、数学・物理・化学で満点を取得した講師もいます。</p><p class="text-base text-gray-700 leading-[1.8] mb-8 text-left md:text-center">大阪公立大学の入試問題を実際に経験し、医学部受験で求められる高い水準の問題に向き合ってきた講師たちです。医学部受験で培った学力と、限られた時間で知識を得点に変える経験を、他学部を目指す生徒にも還元します。</p>
+            <a href="/teacher" class="inline-block border-2 border-omu-pink text-omu-pink font-bold py-3 px-8 rounded-sm text-sm tracking-widest hover:bg-omu-pink hover:text-white transition">講師紹介を見る</a>
+        </div>
+    </section>
+
+    <!-- 指導方法 -->
+    <section class="py-10 md:py-16 bg-white text-omu-dark">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <p class="text-xs font-bold tracking-[0.3em] text-omu-pink mb-4 text-center">指導方法</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug text-center">桜灯塾が引き受けるのは、<br class="sm:hidden">挑戦の伴走です。</h2>
+            <p class="max-w-3xl mx-auto text-base text-gray-700 leading-[1.8]">正しい勉強法を知っていても、一人で計画を立て、毎日実行し、うまくいかないときに立て直すのは簡単ではありません。計画の設計は塾長、毎日の進捗確認は講師陣。つまずいたら原因を考え、計画を直して、また走り始めます。</p>
+
+            <div class="max-w-3xl mx-auto my-8">
+                <svg viewBox="0 0 760 260" class="w-full h-auto" role="img" aria-label="指導サイクル：学習計画の設計、日々の学習、進捗確認、つまずきの原因分析、計画の修正、再挑戦・実行を繰り返す">
+                    <defs>
+                        <marker id="cyc-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                            <path d="M0,0 L10,5 L0,10 z" fill="#E5007F"></path>
+                        </marker>
+                    </defs>
+                    <line x1="240" y1="52" x2="262" y2="52" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <line x1="495" y1="52" x2="517" y2="52" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <line x1="635" y1="92" x2="635" y2="158" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <line x1="517" y1="202" x2="495" y2="202" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <line x1="262" y1="202" x2="240" y2="202" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <line x1="125" y1="158" x2="125" y2="92" stroke="#E5007F" stroke-width="3" marker-end="url(#cyc-arrow)"/>
+                    <text x="136" y="130" font-size="13" font-weight="bold" fill="#E5007F">繰り返す</text>
+                    <g>
+                        <rect x="14" y="16" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="48" cy="52" r="16" fill="#E5007F"/>
+                        <text x="48" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">1</text>
+                        <text x="74" y="58" font-size="16" font-weight="bold" fill="#2D2D2D">学習計画の設計</text>
+                    </g>
+                    <g>
+                        <rect x="269" y="16" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="303" cy="52" r="16" fill="#E5007F"/>
+                        <text x="303" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">2</text>
+                        <text x="329" y="58" font-size="16" font-weight="bold" fill="#2D2D2D">日々の学習</text>
+                    </g>
+                    <g>
+                        <rect x="524" y="16" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="558" cy="52" r="16" fill="#E5007F"/>
+                        <text x="558" y="58" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">3</text>
+                        <text x="584" y="58" font-size="16" font-weight="bold" fill="#2D2D2D">進捗確認</text>
+                    </g>
+                    <g>
+                        <rect x="524" y="166" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="558" cy="202" r="16" fill="#E5007F"/>
+                        <text x="558" y="208" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">4</text>
+                        <text x="584" y="208" font-size="15" font-weight="bold" fill="#2D2D2D">つまずきの原因分析</text>
+                    </g>
+                    <g>
+                        <rect x="269" y="166" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="303" cy="202" r="16" fill="#E5007F"/>
+                        <text x="303" y="208" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">5</text>
+                        <text x="329" y="208" font-size="16" font-weight="bold" fill="#2D2D2D">計画の修正</text>
+                    </g>
+                    <g>
+                        <rect x="14" y="166" width="222" height="72" rx="12" fill="#FFF5F9" stroke="#E5007F" stroke-width="2"/>
+                        <circle cx="48" cy="202" r="16" fill="#E5007F"/>
+                        <text x="48" y="208" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">6</text>
+                        <text x="74" y="208" font-size="16" font-weight="bold" fill="#2D2D2D">再挑戦・実行</text>
+                    </g>
+                </svg>
+                <p class="text-sm text-gray-500 text-center mt-2">この循環を、合格まで繰り返します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 無料公開の情報 -->
+    <section class="py-10 md:py-16 bg-omu-light text-omu-dark">
+        <div class="max-w-4xl mx-auto px-5 md:px-4 text-center">
+            <p class="text-xs font-bold tracking-[0.3em] text-omu-pink mb-4">無料公開</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">挑戦の入口は、<br class="sm:hidden">誰にでも開いていたい。</h2>
+            <p class="max-w-3xl mx-auto text-base text-gray-700 leading-[1.8] mb-8">勉強法と受験情報は、出し惜しみしません。『大阪公立大学受験の教科書』『勉強の教科書』は、桜灯塾に通わなくても、独学で合格を目指せるように公開しています。お金や情報の差で、挑戦する機会さえ失う生徒をなくしたいからです。</p>
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+                <a href="/articles" class="block bg-white border border-[#F3C6DA] rounded-2xl p-6 shadow-sm text-left hover:bg-[#FDF2F6] transition">
+                    <span class="block text-xs font-bold text-omu-pink tracking-widest mb-2">受験情報</span>
+                    <span class="block text-lg font-bold text-omu-dark mb-2">大阪公立大学受験の教科書</span>
+                    <span class="block text-sm text-gray-500 font-medium leading-relaxed">学部別の入試情報、合格最低点、出願の実務まで。受験に必要な情報を、一次情報に基づいて整理しています。</span>
+                </a>
+                <a href="/articles" class="block bg-white border border-[#F3C6DA] rounded-2xl p-6 shadow-sm text-left hover:bg-[#FDF2F6] transition">
+                    <span class="block text-xs font-bold text-omu-pink tracking-widest mb-2">勉強法</span>
+                    <span class="block text-lg font-bold text-omu-dark mb-2">勉強の教科書</span>
+                    <span class="block text-sm text-gray-500 font-medium leading-relaxed">勉強の進め方を、手順・判定基準・チェックリストまで含めて公開します。塾に通わなくても、一人で実行できる形で書いています。</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- 合格実績 -->
+    <section id="results" class="py-5 bg-omu-pink text-white text-center scroll-mt-24">
+        <div class="max-w-4xl mx-auto px-5 md:px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-white">合格実績</h2>
+            <div class="bg-white/10 p-12 rounded-sm border border-white/20 text-center">
+                <p class="text-lg sm:text-2xl md:text-3xl font-bold mb-4 text-white">2025年度 医学部医学科 <br class="sm:hidden">学校推薦型選抜 2名合格</p>
+                <p class="text-base sm:text-xl md:text-2xl font-bold mb-4 text-white">2026年度 医学部リハビリテーション学科 <br class="sm:hidden">一般選抜（前期日程） 1名合格</p>
+                <a href="/igakuka" class="inline-block mt-4 bg-white text-omu-pink font-bold py-3 px-8 rounded-sm text-sm tracking-widest">医学部医学科の入試情報を見る</a>
+            </div>
+        </div>
+    </section>
+
+<!-- 学部別入試情報 -->
+    <section class="py-5 md:py-10 bg-gray-50 text-omu-dark">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 section-title text-center">学部別入試情報</h2>
+            <p class="max-w-3xl mx-auto mb-10 text-gray-600 font-medium leading-[1.8]">学部・学科ごとに、配点・日程・合格最低点を大学の要項で整理したページを用意しています。配点の割合が見えると、「何から手をつけるか」がはっきりします。</p>
+            <a href="/shindan" class="block relative overflow-hidden rounded-3xl p-8 text-center max-w-3xl mx-auto mb-10" style="background:linear-gradient(135deg,#FDF2F6 0%,#FCE4EF 100%);box-shadow:0 8px 24px rgba(229,0,127,0.12)">
+                <span class="absolute rounded-full" style="width:110px;height:110px;background:rgba(255,255,255,0.55);top:-46px;right:-30px"></span>
+                <span class="absolute rounded-full" style="width:64px;height:64px;background:rgba(255,255,255,0.45);bottom:-24px;left:-16px"></span>
+                <span class="relative inline-block bg-white text-omu-pink font-bold text-xs tracking-widest px-4 py-2 rounded-full shadow">学部がまだ決まっていない人へ</span>
+                <span class="relative block mt-4 text-2xl font-bold text-omu-dark">学部・学科診断</span>
+                <span class="relative block mt-2 text-sm text-gray-500 font-medium">14の質問にタップで答えるだけ。あなたに合いそうな学部が出てきます。</span>
+                <span class="relative inline-block mt-5 bg-omu-pink text-white font-bold px-8 py-3 rounded-full shadow-lg">診断をやってみる（約2分）→</span>
+            </a>
+            <h3 class="text-lg md:text-xl font-bold mb-4 text-omu-dark">数字で確かめる：2つの無料メーター</h3>
+            <div class="flex flex-col md:grid md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-10">
+                <a href="/kyori" class="block bg-white border border-[#F3C6DA] rounded-2xl p-6 shadow-sm text-left hover:bg-[#FDF2F6] transition">
+                    <span class="block text-xs font-bold text-omu-pink tracking-widest mb-2">受験生向け</span>
+                    <span class="block text-lg font-bold text-omu-dark mb-2">合格までの距離メーター</span>
+                    <span class="block text-sm text-gray-500 font-medium leading-relaxed">学部と共通テストの得点率を入れると、昨年度の合格最低点との差と、二次試験の目安が出ます。</span>
+                </a>
+                <a href="/gyakusan" class="block bg-white border border-[#F3C6DA] rounded-2xl p-6 shadow-sm text-left hover:bg-[#FDF2F6] transition order-3 md:order-2">
+                    <span class="block text-xs font-bold text-omu-pink tracking-widest mb-2">高1・高2向け</span>
+                    <span class="block text-lg font-bold text-omu-dark mb-2">逆算メーター3.0</span>
+                    <span class="block text-sm text-gray-500 font-medium leading-relaxed">今の偏差値と志望先から、1日あたりの勉強量を逆算します。始める時期を遅らせた場合の差も分かります。</span>
+                </a>
+            <div id="kyori-movie" class="order-2 md:order-3 md:col-span-2">
+                <video class="w-full rounded-2xl shadow" src="/img/kyori-movie.mp4" poster="/img/kyori-movie-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="合格までの距離メーター紹介動画（24秒・音声なし）"></video>
+                <p class="text-xs text-gray-500 mt-2 text-center">距離メーターの紹介動画（24秒・音声なし）</p>
+            </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <a href="/bungaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">文学部</a>
+                <a href="/hougaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">法学部</a>
+                <a href="/keizaigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">経済学部</a>
+                <a href="/shogaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">商学部</a>
+                <a href="/igakuka" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部医学科</a>
+                <a href="/kangogaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">看護学部</a>
+                <a href="/igaku-reha-rigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部 リハビリテーション学科 理学療法学専攻</a>
+                <a href="/igaku-reha-sagyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">医学部 リハビリテーション学科 作業療法学専攻</a>
+                <a href="/rigaku-suugaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 数学科</a>
+                <a href="/rigaku-butsuri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 物理学科</a>
+                <a href="/rigaku-kagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 化学科</a>
+                <a href="/rigaku-seibutsu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 生物学科</a>
+                <a href="/rigaku-seibutsukagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 生物化学科</a>
+                <a href="/rigaku-chikyu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">理学部 地球学科</a>
+                <a href="/kougaku-kikai" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 機械工学科</a>
+                <a href="/kougaku-koukuu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 航空宇宙工学科</a>
+                <a href="/kougaku-kaiyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 海洋システム工学科</a>
+                <a href="/kougaku-jouhou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 情報工学科</a>
+                <a href="/kougaku-denkidenshi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 電気電子システム工学科</a>
+                <a href="/kougaku-denshibutsuri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 電子物理工学科</a>
+                <a href="/kougaku-ouyoukagaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 応用化学科</a>
+                <a href="/kougaku-kagakukougaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 化学工学科</a>
+                <a href="/kougaku-kagakubio" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 化学バイオ工学科</a>
+                <a href="/kougaku-material" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 マテリアル工学科</a>
+                <a href="/kougaku-kenchiku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 建築学科</a>
+                <a href="/kougaku-toshi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">工学部 都市学科</a>
+                <a href="/nougaku-ouyouseibutsu" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 応用生物科学科</a>
+                <a href="/nougaku-seimeikinou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 生命機能化学科</a>
+                <a href="/nougaku-ryokuchi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">農学部 緑地環境科学科</a>
+                <a href="/juigaku" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">獣医学部</a>
+                <a href="/shokueiyou" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 食栄養学科</a>
+                <a href="/kyojukankyo" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 居住環境学科</a>
+                <a href="/ningenfukushi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">生活科学部 人間福祉学科</a>
+                <a href="/gendai-chishiki" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 知識情報システム学類</a>
+                <a href="/gendai-kankyo" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 環境社会システム学類</a>
+                <a href="/gendai-kyoikufukushi" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 教育福祉学類</a>
+                <a href="/gendai-shinri" class="bg-white border border-[#F3C6DA] px-6 py-3 font-bold text-sm rounded-full shadow-sm hover:bg-[#FDF2F6] transition">現代システム科学域 心理学類</a>
+            </div>
+            <a href="/gakubu" class="inline-block bg-omu-pink text-white font-bold py-4 px-10 rounded-full shadow-lg text-sm tracking-widest">学部別入試情報の一覧を見る</a>
+        </div>
+    </section>
+
+    <!-- 天王寺教室・オンライン -->
+    <section class="py-10 md:py-16 bg-white text-omu-dark">
+        <div class="max-w-4xl mx-auto px-5 md:px-4 text-center">
+            <p class="text-xs font-bold tracking-[0.3em] text-omu-pink mb-4">教室・オンライン</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">場所が違っても、<br class="sm:hidden">指導は変わりません。</h2>
+            <p class="max-w-3xl mx-auto text-base text-gray-700 leading-[1.8] mb-8">天王寺の教室でも、オンラインでも、計画を作り、毎日を見て、つまずいたら一緒に立て直します。教室とオンラインは別々のコースではなく、同じ指導を届ける2つの方法です。</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/facility" class="inline-block bg-omu-pink text-white font-bold py-4 px-10 rounded-sm shadow-lg cta-button text-sm tracking-widest">天王寺の教室を見る</a>
+                <a href="/online" class="inline-block border-2 border-omu-pink text-omu-pink font-bold py-4 px-10 rounded-sm text-sm tracking-widest hover:bg-omu-pink hover:text-white transition">桜灯塾ONLINEを見る</a>
+            </div>
+        </div>
+    </section>
+
+<section class="pt-2 pb-5 md:pt-5 md:pb-10 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-omu-light border border-gray-100 rounded-sm p-6 md:p-8 mb-8 text-left">
+                <h2 class="text-lg md:text-xl font-bold text-omu-dark mb-4">無料相談で話せること</h2>
+                <ul class="grid sm:grid-cols-2 gap-3 text-sm text-gray-700 leading-relaxed">
+                    <li>✓ 現在の成績と志望学部から、合格までの課題を整理します</li>
+                    <li>✓ 一般選抜・学校推薦型選抜・総合型選抜の、どの方式を使うかを相談できます</li>
+                    <li>✓ コースと料金を、通塾・桜灯塾ONLINEの両方で説明します</li>
+                    <li>✓ 体験授業（初回無料・1回120分）の日程を決められます</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+<section class="py-5 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+<!-- お知らせ -->
+    <section class="py-6 md:py-8 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="flex items-baseline justify-between mb-1">
+                <h2 class="text-lg md:text-xl font-bold text-omu-dark"><span class="text-omu-pink text-xs font-bold tracking-[0.3em] mr-2">NEWS</span>お知らせ</h2>
+                <a href="/news" class="text-sm font-bold text-omu-pink">一覧 →</a>
+            </div>
+            <ul class="divide-y divide-gray-100">
+      <li><a href="/articles/january-calendar" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.17</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「2027年1月の受験カレンダー」を公開しました</span></a></li>
+      <li><a href="/articles/ippan-shutsugan-junbi" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.17</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「一般選抜の出願準備」を公開しました</span></a></li>
+      <li><a href="/articles/enpou-taicho" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.17</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「受験前日の過ごし方と体調管理」を公開しました</span></a></li>
+      <li><a href="/articles/enpou-tsukisoi" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.17</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「遠方受験の保護者の付き添い」を公開しました</span></a></li>
+      <li><a href="/articles/enpou-mochimono" class="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-3"><time class="text-xs font-bold text-gray-500">2026.11.17</time><span class="text-[11px] font-bold text-white rounded px-2 py-0.5" style="background:#E5007F">新着記事</span><span class="text-sm font-bold text-omu-dark">記事「受験当日の持ち物チェックリスト」を公開しました</span></a></li>
+                                                      </ul>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-8 md:pt-14 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                        <li><a href="/articles" class="footer-link">大阪公立大学受験の教科書</a></li>
+                        <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                        <li><a href="/fee-list" class="footer-link">料金表</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/online" class="footer-link">桜灯塾ONLINE</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-[10px] font-bold tracking-[0.35em] text-white/70 uppercase mb-1">Oubijuku</div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="tel:0667799507"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.4 11.4 0 003.57.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.57 3.57 1 1 0 01-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">電話で相談</span>
+                <span class="text-xs font-bold text-white">平日10:00〜20:00</span>
+            </a>
+            <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+               class="flex flex-col items-center justify-center gap-1 bg-[#06C755] py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">LINEで相談</span>
+                <span class="text-xs font-bold text-white">友だち追加はこちら</span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- PC用フローティングLINEボタン -->
+    <a id="line-float-btn" href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+       class="hidden lg:flex items-center gap-2 fixed bottom-6 right-6 bg-[#06C755] text-white font-bold text-sm px-5 py-3 rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
+       style="z-index:9998; opacity:0; pointer-events:none; transition:opacity .3s;">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/>
+        </svg>
+        LINEで相談
+    </a>
+    <script>
+      (function() {
+        var btn = document.getElementById('line-float-btn');
+        if (!btn) return;
+        function onScroll() {
+          var y = window.scrollY || document.documentElement.scrollTop;
+          if (y > 400) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+          else { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+<script>
+(function(){
+  var el = document.getElementById('gy-hero-ex');
+  if(!el) return;
+  var today = new Date();
+  function db(a, b){ return Math.round((new Date(b.getFullYear(), b.getMonth(), b.getDate()) - new Date(a.getFullYear(), a.getMonth(), a.getDate())) / 86400000); }
+  var sy = (today.getMonth() >= 3) ? today.getFullYear() : today.getFullYear() - 1;
+  var exam = new Date(sy + 2, 0, 16);
+  var apr = new Date(sy + 1, 3, 1);
+  var d1 = db(today, apr), d2 = db(apr, exam);
+  if(d1 <= 0 || d2 <= 0) return;
+  var w1 = 35 * d1 / 365, share = w1 / (w1 + 45);
+  var wk = Math.floor(d1 / 7);
+  var sd = d1 - wk - Math.round((d1 - wk) * 0.05);
+  if(sd <= 0) return;
+  var gap = 57.5 - 50;
+  function f(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+  el.textContent = '例：高2・工学部・偏差値50なら、今は1日約' + f(gap * 90 * share / sd) + '〜' + f(gap * 150 * share / sd) + '時間';
+})();
+</script>
+</body>
+</html>
