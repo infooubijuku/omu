@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <!-- プレビュー用：GA4は外してある -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HTWQQSL9Y');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E5007F">
+        <!-- SEO基本設定 -->
+    <meta name="description" content="大阪公立大学専門「桜灯塾」の講師陣をご紹介。塾長が計画を設計し、現役医学部生講師28名を中心とする講師陣が、日々の管理と演習を担当します。">
+    <meta name="keywords" content="講師紹介,医学部,現役学生,大阪公立大学,家庭教師,個別指導,天王寺">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="桜灯塾｜大阪公立大学専門">
+    <link rel="canonical" href="https://oubijuku-omu.com/teacher">
+
+    <!-- OGP（Facebook・LINE等のシェア用） -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="講師紹介｜桜灯塾">
+    <meta property="og:description" content="大阪公立大学専門「桜灯塾」の講師陣をご紹介。塾長が計画を設計し、現役医学部生講師28名を中心とする講師陣が、日々の管理と演習を担当します。">
+    <meta property="og:url" content="https://oubijuku-omu.com/teacher">
+    <meta property="og:site_name" content="桜灯塾｜大阪公立大学専門">
+    <meta property="og:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+    <meta property="og:locale" content="ja_JP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oubijuku">
+    <meta name="twitter:title" content="講師紹介｜桜灯塾">
+    <meta name="twitter:description" content="大阪公立大学専門「桜灯塾」の講師陣をご紹介。塾長が計画を設計し、現役医学部生講師28名を中心とする講師陣が、日々の管理と演習を担当します。">
+    <meta name="twitter:image" content="https://oubijuku-omu.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="大阪公立大学専門 桜灯塾｜天王寺の個別指導塾">
+
+    <!-- Google検索向け構造化データ（JSON-LD） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "講師紹介｜桜灯塾",
+      "description": "大阪公立大学専門 桜灯塾の講師陣をご紹介。現役医学部生講師28名（うち大阪公立大学医学部24名）が在籍。大教大天王寺・清風・四天王寺高校出身者など実力派の先輩が直接指導します。",
+      "url": "https://oubijuku-omu.com/teacher",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "桜灯塾｜大阪公立大学専門",
+        "url": "https://oubijuku-omu.com"
+      }
+    }
+    </script>
+    <title>講師紹介｜大阪公立大学専門 桜灯塾</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --omu-primary: #E5007F;
+            --omu-accent: #B1945C;
+            --omu-dark: #2D2D2D;
+            --omu-light: #FFF5F9;
+        }
+        body {
+            font-family: 'Noto Serif JP', serif;
+            color: var(--omu-dark);
+            line-height: 1.8;
+            background-color: #fff;
+        }
+        .text-omu-pink { color: var(--omu-primary); }
+        .bg-omu-pink { background-color: var(--omu-primary); }
+        .border-omu-pink { border-color: var(--omu-primary); }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--omu-primary);
+            margin-top: 1rem;
+        }
+        .director-img {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: 2px;
+            box-shadow: 15px 15px 0 var(--omu-light);
+        }
+
+        /* ナビ ドロップダウン */
+        .nav-group { position: relative; padding: 1.2rem 0; }
+        .dropdown-menu {
+            visibility: hidden; opacity: 0;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white; min-width: 260px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease; z-index: 100;
+            border-top: 3px solid var(--omu-primary); padding: 0.5rem 0;
+        }
+        .nav-group:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(0); }
+        .dropdown-item {
+            display: block; padding: 1rem 1.5rem; font-size: 0.85rem;
+            color: var(--omu-dark); transition: all 0.3s;
+            border-bottom: 1px solid #f9f9f9; text-align: left;
+        }
+        .dropdown-item:last-child { border-bottom: none; }
+        .dropdown-item:hover { background: var(--omu-light); color: var(--omu-primary); padding-left: 2rem; }
+        /* フッターリンク */
+        .footer-link {
+            transition: all 0.3s; display: flex; align-items: center;
+            font-size: 0.85rem; color: rgba(255,255,255,0.9);
+        }
+        .footer-link::before { content: "－"; margin-right: 0.5rem; font-size: 0.8em; opacity: 0.5; }
+        .footer-link:hover { color: #fff; padding-left: 0.5rem; text-decoration: underline; }
+        /* モバイルメニュー */
+        #mobile-nav { transition: transform 0.4s cubic-bezier(0.77,0,0.175,1); transform: translateX(100%); }
+        #mobile-nav.open { transform: translateX(0); }
+        .mobile-accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .mobile-accordion-content.active { max-height: 500px; }
+    </style>
+</head>
+<body>
+    <!-- 共通ナビゲーション -->
+        <nav class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="/" class="flex items-center flex-shrink-0">
+                    <div>
+                        <div class="text-[10px] text-omu-dark font-bold tracking-[0.2em] mb-0.5 sm:hidden">大阪公立大学専門</div>
+                        <div class="text-omu-pink text-2xl font-bold tracking-widest leading-none"><ruby>桜灯<rt style="font-size:0.38em;color:#a8a29e;font-weight:500;letter-spacing:0.05em;">おうび</rt></ruby>塾</div>
+                    </div>
+                    <div class="ml-4 pl-4 border-l border-gray-300 text-sm hidden xl:block leading-tight">
+                        <span class="font-bold tracking-tight text-omu-dark">大阪公立大学専門</span><br>
+                        <span class="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase">Oubijuku Academic Institute</span>
+                    </div>
+                </a>
+                <div class="hidden lg:flex flex-nowrap space-x-5 xl:space-x-8 items-center text-[0.85rem] xl:text-[0.9rem] font-bold tracking-wider whitespace-nowrap">
+                    <a href="/" class="hover:text-omu-pink transition">トップ</a>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center text-omu-pink">大阪公立大学専門とは <svg class="ml-1.5 w-3 h-3 text-omu-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/policy" class="dropdown-item">指導方針・カリキュラム</a>
+                            <a href="/facility" class="dropdown-item">教室案内・指導風景</a>
+                            <a href="/teacher" class="dropdown-item text-omu-pink font-bold">講師紹介</a>
+                        </div>
+                    </div>
+                    <div class="nav-group cursor-default group">
+                        <span class="flex items-center group-hover:text-omu-pink transition">コース案内 <svg class="ml-1.5 w-3 h-3 text-gray-400 group-hover:text-omu-pink transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+                        <div class="dropdown-menu">
+                            <a href="/fee" class="dropdown-item">料金の考え方</a>
+                            <a href="/flow" class="dropdown-item">入会までの流れ</a>
+                            <a href="/faq" class="dropdown-item">よくある質問</a>
+                        </div>
+                    </div>
+                    <a href="/gakubu" class="hover:text-omu-pink transition">学部別入試情報</a>
+                    <a href="/articles" class="hover:text-omu-pink transition">大阪公立大学受験の教科書</a>
+                    <a href="/online" class="hover:text-omu-pink transition">桜灯塾ONLINE</a>
+                    <a href="/contact" class="hover:text-omu-pink transition">お問い合わせ</a>
+                    <a href="/contact" class="bg-omu-pink text-white px-5 xl:px-8 py-3 rounded-sm text-[11px] font-bold tracking-[0.2em] cta-button">無料相談予約</a>
+                </div>
+                <div class="flex flex-col gap-1 lg:hidden ml-auto mr-2" id="header-mode-pills">
+                    <a href="/facility" class="text-[11px] font-bold tracking-wider text-omu-pink border border-omu-pink rounded-full px-3 py-1 text-center whitespace-nowrap bg-white">天王寺で通塾</a>
+                    <a href="/online" class="text-[11px] font-bold tracking-wider text-white bg-omu-pink rounded-full px-3 py-1 text-center whitespace-nowrap">桜灯塾ONLINE</a>
+                </div>
+                <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center w-11 h-11 gap-1.5 focus:outline-none z-50">
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                    <span class="w-6 h-0.5 bg-omu-pink transition-all"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div id="mobile-nav" class="fixed inset-0 bg-white z-40 lg:hidden overflow-y-auto pt-16">
+        <div class="flex flex-col p-8 space-y-2">
+            <a href="/" class="text-lg font-bold py-4 border-b border-gray-100">トップ</a>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left text-omu-pink">大阪公立大学専門とは <span class="text-omu-pink">＋</span></button>
+                <div class="mobile-accordion-content active flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/policy">指導方針・カリキュラム</a>
+                    <a href="/facility">教室案内・指導風景</a>
+                    <a href="/teacher" class="text-omu-pink font-bold">講師紹介</a>
+                </div>
+            </div>
+            <div class="border-b border-gray-100 py-4">
+                <button class="mobile-group-btn w-full flex justify-between items-center text-lg font-bold text-left">コース案内 <span>＋</span></button>
+                <div class="mobile-accordion-content flex flex-col pl-4 space-y-4 pt-4 text-sm">
+                    <a href="/fee">料金の考え方</a>
+                    <a href="/flow">入会までの流れ</a>
+                    <a href="/faq">よくある質問</a>
+                </div>
+            </div>
+            <a href="/gakubu" class="text-lg font-bold py-4 border-b border-gray-100">学部別入試情報</a>
+            <a href="/articles" class="text-lg font-bold py-4 border-b border-gray-100">大阪公立大学受験の教科書</a>
+            <a href="/online" class="text-lg font-bold py-4 border-b border-gray-100">桜灯塾ONLINE</a>
+            <a href="/faq" class="text-lg font-bold py-4 border-b border-gray-100">よくある質問</a>
+            <a href="/contact" class="text-lg font-bold py-4 border-b border-gray-100">お問い合わせ</a>
+            <div class="pt-8 text-center">
+                <a href="/contact" class="bg-omu-pink text-white py-5 font-bold tracking-widest rounded-sm text-center block w-full">無料相談を申し込む</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-omu-light py-4 text-center">
+        <h1 class="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-center">講師紹介</h1>
+        <p class="text-gray-600 text-sm text-center">二次試験や共通テストで高得点を取る技をすべて伝授</p>
+    </header>
+
+
+    <!-- 新リード（再構成プレビュー） -->
+    <section class="py-10 md:py-14 bg-white text-omu-dark">
+        <div class="max-w-3xl mx-auto px-5 md:px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 leading-snug text-center">医学部合格者の学力を、<br class="sm:hidden">すべての学部の合格力に。</h2>
+            <p class="text-base text-gray-700 leading-loose mb-8">講師の中心は、大阪公立大学の各学部に合格した学生たちです。強みは、学力の高さだけではありません。医学部合格者の中には、数学・物理・化学で満点を取得した講師もいます。大阪公立大学の入試問題を実際に経験し、医学部受験で求められる高い水準の問題に向き合ってきた講師たちです。医学部受験で培った学力と、限られた時間で知識を得点に変える経験を、他学部を目指す生徒にも還元します。</p>
+            <div class="border-2 border-dashed border-omu-pink bg-[#FFF5F9] rounded-sm p-6 text-center">
+                <p class="font-bold text-omu-pink">【プレビュー用仮置き】満点実績は講師・科目・年度の確定後にここへ掲載</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教室長紹介セクション -->
+    <section class="pt-8 pb-10 max-w-6xl mx-auto px-4 text-left">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center md:items-start text-left">
+            <div class="md:w-1/3 text-center">
+                <img src="img/teacher-1.jpg" width="352" height="349" 
+                     alt="塾長 内田憲一" 
+                     class="director-img mx-auto"
+                     onerror="this.src='https://via.placeholder.com/300x400?text=Director+Image'">
+                <div class="mt-8 flex flex-col items-center text-center">
+                    <p class="text-xs text-gray-400 mb-1">大阪公立大学専門</p>
+                    <p class="text-sm font-bold text-gray-600 mb-3">塾長</p>
+                    <h2 class="text-2xl font-bold">内田 憲一</h2>
+                    <p class="text-sm text-gray-400 mt-1">Kenichi Uchida</p>
+                    <p class="text-sm text-gray-500 mt-3">もものはな株式会社 代表取締役</p>
+                    <p class="text-sm text-gray-500">関西大学大学院法務研究科 修了</p>
+                </div>
+            </div>
+            <div class="md:w-2/3 text-left">
+                <h3 class="text-2xl font-bold mb-8 section-title text-left">塾長からのメッセージ</h3>
+                <div class="space-y-6 text-omu-dark font-medium leading-loose text-left">
+                    <p>
+                        私は、司法試験に落ちた経験があります。私がダメだった理由は、才能が足りなかった(と信じたい)のではなく、「戦略」と「量の管理」が足りなかったと断言できます。点数を取る能力に長けている医学部生たちと働いて自分に足りないものがわかりました。大学受験に必要なことも、まったく同じです。勉強が苦手で苦労した塾長（とはいえ、大学院で法律の専門的な勉強をした）と勉強が得意な医学生たちが多様な経験則に基づいて受験生を鍛えます。</p>
+                    <p>最初から最後まで、最も生徒に関わってきたのは、医学部生講師ではなく、毎日教室にいる私です。いい時も、思い通りにいかない時も、ずっと生徒を見続けてきました。その経験の引き出しが、一人ひとりの設計に活きます。
+                    </p>
+                    
+                    <p>
+                        私が蓄積してきた入試データと、毎年更新される合格者のリアルな情報。この二つが掛け合わさることで、最新の入試傾向を掴みます。学習管理×量×質で全科目をマネジメントし、合格を目指します。
+                    </p>
+                    <p>
+                        「合格した先輩が、すぐ隣にいる」という環境が、どれほど心強いものか。ぜひ、私たちの教室で体験してください。共に、大阪公立大学の門を叩きましょう。
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+                        <a href="https://ameblo.jp/suisen-19/" target="_blank" rel="noopener"
+                           class="flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#4CAF50] text-[#4CAF50] font-bold rounded-sm text-sm tracking-widest hover:bg-[#4CAF50] hover:text-white transition">
+                            Ameba Blog を読む
+                        </a>
+                        <a href="https://note.com/oubijuku" target="_blank" rel="noopener"
+                           class="flex items-center justify-center gap-2 px-8 py-4 border-2 border-omu-pink text-omu-pink font-bold rounded-sm text-sm tracking-widest hover:bg-omu-pink hover:text-white transition">
+                            note を読む
+                        </a>
+                        <a href="https://www.instagram.com/oubijuku/" target="_blank" rel="noopener"
+                           class="flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-700 text-gray-700 font-bold rounded-sm text-sm tracking-widest hover:bg-gray-700 hover:text-white transition">
+                            Instagram を見る
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCcaiDR5x0nAxwno0la0MMiQ" target="_blank" rel="noopener"
+                           class="flex items-center justify-center gap-2 px-8 py-4 border-2 border-[#FF0000] text-[#FF0000] font-bold rounded-sm text-sm tracking-widest hover:bg-[#FF0000] hover:text-white transition">
+                            YouTube を見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 現役学生講師セクション -->
+    <section class="py-4 md:py-10 bg-gray-50 text-left">
+        <div class="max-w-5xl mx-auto px-4 text-left">
+            <h2 class="text-xl md:text-3xl font-bold mb-8 md:mb-10 border-l-4 border-omu-pink pl-6 text-left">現役医学部生講師<br class="sm:hidden">28名が在籍</h2>
+            <p class="text-gray-600 leading-loose mb-10">大阪公立大学専門 桜灯塾が大阪公立大学に強い理由は、情報の「質」と「量」にあります。在籍する現役医学部生講師は28名。そのうち24名が大阪公立大学医学部の現役学生です。2023年度の推薦入試合格者などからも直接ヒアリングを重ね、外部には出回らないリアルな情報を蓄積し続けています。</p>
+                <div class="overflow-x-auto bg-white rounded-sm shadow-sm border border-gray-100">
+                    <table class="w-full text-sm md:text-base" style="min-width:620px;">
+                        <thead><tr class="bg-omu-light text-left"><th class="px-4 py-3 whitespace-nowrap">講師</th><th class="px-4 py-3 whitespace-nowrap">出身高校</th><th class="px-4 py-3">在籍大学・学部</th><th class="px-4 py-3 whitespace-nowrap">入学区分</th></tr></thead>
+                        <tbody>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">A先生</td><td class="px-4 py-3">西大和学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 6回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">B先生</td><td class="px-4 py-3">東大寺学園</td><td class="px-4 py-3">京都大学大学院 工学研究科 修士2回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">C先生</td><td class="px-4 py-3">大阪星光学院</td><td class="px-4 py-3">大阪公立大学 医学部医学科 6回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">D先生</td><td class="px-4 py-3">昭和薬科大学附属</td><td class="px-4 py-3">大阪公立大学 医学部医学科 6回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">E先生</td><td class="px-4 py-3">清教学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 6回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">学校推薦型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">F先生</td><td class="px-4 py-3">洛南</td><td class="px-4 py-3">大阪公立大学 医学部医学科 6回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">G先生</td><td class="px-4 py-3">四天王寺</td><td class="px-4 py-3">兵庫医科大学 医学部医学科 5回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">H先生</td><td class="px-4 py-3">四天王寺</td><td class="px-4 py-3">奈良県立医科大学 医学部医学科 5回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">I先生</td><td class="px-4 py-3">北野高校</td><td class="px-4 py-3">大阪公立大学 医学部医学科 5回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">J先生</td><td class="px-4 py-3">清風</td><td class="px-4 py-3">大阪公立大学 医学部医学科 5回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">K先生</td><td class="px-4 py-3">東大寺学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">L先生</td><td class="px-4 py-3">高槻</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">総合型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">M先生</td><td class="px-4 py-3">東大寺学園</td><td class="px-4 py-3">京都大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">N先生</td><td class="px-4 py-3">南山女子部</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">O先生</td><td class="px-4 py-3">西大和学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">P先生</td><td class="px-4 py-3">ラ・サール</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">Q先生</td><td class="px-4 py-3">清風南海</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">R先生</td><td class="px-4 py-3">大阪星光</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">S先生</td><td class="px-4 py-3">西大和学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">T先生</td><td class="px-4 py-3">広島修道</td><td class="px-4 py-3">大阪公立大学 医学部医学科 3回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">U先生</td><td class="px-4 py-3">咲くやこの花</td><td class="px-4 py-3">大阪公立大学 医学部医学科 3回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">学校推薦型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">V先生</td><td class="px-4 py-3">灘</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">W先生</td><td class="px-4 py-3">天王寺</td><td class="px-4 py-3">大阪公立大学 医学部医学科 4回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">X先生</td><td class="px-4 py-3">神戸女学院</td><td class="px-4 py-3">大阪公立大学 医学部医学科 2回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">学校推薦型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">Y先生</td><td class="px-4 py-3">清風南海</td><td class="px-4 py-3">大阪公立大学 医学部医学科 2回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">学校推薦型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">Z先生</td><td class="px-4 py-3">四天王寺</td><td class="px-4 py-3">大阪公立大学 医学部医学科 2回生</td><td class="px-4 py-3 whitespace-nowrap font-bold text-omu-pink">学校推薦型選抜</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">AA先生</td><td class="px-4 py-3">東大寺学園</td><td class="px-4 py-3">京都府立医科大学 2回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">AB先生</td><td class="px-4 py-3">愛光学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 2回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">AC先生</td><td class="px-4 py-3">東大寺学園</td><td class="px-4 py-3">大阪公立大学 医学部医学科 1回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">AD先生</td><td class="px-4 py-3">四天王寺</td><td class="px-4 py-3">京都大学 経済学部 1回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        <tr class="border-b border-gray-100"><td class="px-4 py-3 font-bold whitespace-nowrap">AE先生</td><td class="px-4 py-3">天王寺</td><td class="px-4 py-3">大阪公立大学 理学部地球学科 1回生</td><td class="px-4 py-3 whitespace-nowrap text-gray-400">―</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-gray-500 font-medium mt-4">講師はイニシャルでご紹介しています（実名・顔写真は掲載していません）。入学区分は、大阪公立大学在籍者の大学への入学区分です。</p>
+        </div>
+    </section>
+        <!-- プロ講師 -->
+    <section class="py-10 md:py-14 bg-omu-light text-omu-dark">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-xl md:text-3xl font-bold mb-8 md:mb-10 border-l-4 border-omu-pink pl-6 text-left">プロ講師（マンツーマン）</h2>
+            <p class="text-gray-600 leading-loose mb-10">マンツーマン（プロ講師）は、英語と数学の専門講師が担当します。</p>
+            <div class="grid gap-6 md:grid-cols-2">
+                    <div>
+                        <p class="font-bold text-omu-pink mb-2">英語</p>
+                        <p class="text-sm text-gray-600 leading-loose">現在、最大手予備校で指導しながら、当塾の指導陣にも参画しています。当塾の学生講師への指導も行い、京都府立医科大学への合格に導いた実績があります。</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-omu-pink mb-2">数学</p>
+                        <p class="text-sm text-gray-600 leading-loose">大手医学部専門予備校で、長年にわたり個別指導を担当してきました。当塾では、最大手塾の模試で数学の偏差値が40を切っていた生徒を、高校3年の9月から担当し、金沢医科大学の一次試験合格に導きました。</p>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- 共通CTA -->
+    <section class="py-5 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-5 md:px-4">
+            <div class="p-6 md:p-12 bg-white border-2 border-omu-pink rounded-sm text-center">
+                <h2 class="text-lg md:text-2xl lg:text-3xl font-bold mb-6 text-omu-dark leading-snug">大阪公立大学合格への<br class="sm:hidden">第一歩を、<br>私たちと共に踏み出しませんか。</h2>
+                <p class="text-sm text-gray-600 mb-8">お問い合わせは<strong>電話・フォーム・LINE</strong>で受付中。<br class="sm:hidden">天王寺駅北口より徒歩5分。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/contact" class="flex items-center justify-center gap-2 bg-omu-pink text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    お問い合わせはこちら
+                </a>
+                <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+                   class="flex items-center justify-center gap-2 bg-[#06C755] text-white font-bold py-5 px-8 md:px-12 rounded-sm shadow-lg cta-button text-sm tracking-widest w-full sm:w-auto">
+                    <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/></svg>
+                    LINEで相談する
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-omu-pink text-white pt-8 md:pt-14 pb-8 md:pb-12">
+        <div class="max-w-7xl mx-auto px-5 md:px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">トップ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/" class="footer-link">ホームへ戻る</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">大阪公立大学専門とは</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/policy" class="footer-link">指導方針・カリキュラム</a></li>
+                        <li><a href="/facility" class="footer-link">教室案内・指導風景</a></li>
+                        <li><a href="/teacher" class="footer-link">講師紹介</a></li>
+                        <li><a href="/gakubu" class="footer-link">学部別入試情報</a></li>
+                        <li><a href="/articles" class="footer-link">大阪公立大学受験の教科書</a></li>
+                        <li><a href="/shindan" class="footer-link">学部・学科診断</a></li>
+                        <li><a href="/fee-list" class="footer-link">料金表</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">コース案内</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/fee" class="footer-link">料金の考え方</a></li>
+                        <li><a href="/online" class="footer-link">桜灯塾ONLINE</a></li>
+                        <li><a href="/flow" class="footer-link">入会までの流れ</a></li>
+                        <li><a href="/faq" class="footer-link">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-base font-bold mb-4 md:mb-8 text-white border-b border-white/30 pb-2">お問い合わせ</h3>
+                    <ul class="space-y-4">
+                        <li><a href="/contact" class="footer-link">お問い合わせフォーム</a></li>
+                        <li><a href="/access" class="footer-link">アクセス・所在地</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div>
+                    <div class="text-[10px] font-bold tracking-[0.35em] text-white/70 uppercase mb-1">Oubijuku</div>
+                    <div class="text-2xl font-bold tracking-widest italic mb-2">桜灯塾</div>
+                    <p class="text-[10px] text-white/70 tracking-widest uppercase">&copy; 2026 Oubijuku Academic Institute. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    <!-- モバイル固定バー分の余白 -->
+    <div class="block lg:hidden" style="height:70px;"></div>
+    </footer>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav  = document.getElementById('mobile-nav');
+        const spans = menuToggle.querySelectorAll('span');
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            spans[0].classList.toggle('rotate-45');
+            spans[0].classList.toggle('translate-y-2');
+            spans[1].classList.toggle('opacity-0');
+            spans[2].classList.toggle('-rotate-45');
+            spans[2].classList.toggle('-translate-y-2');
+        });
+        // モバイルCTAバーの表示制御
+        function updateCtaBar() {
+            const bar = document.getElementById('mobile-cta-bar');
+            if (!bar) return;
+            bar.style.display = window.innerWidth >= 1024 ? 'none' : 'grid';
+        }
+        updateCtaBar();
+        window.addEventListener('resize', updateCtaBar);
+
+        document.querySelectorAll('.mobile-group-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const c = btn.nextElementSibling;
+                c.classList.toggle('active');
+                btn.querySelector('span').textContent = c.classList.contains('active') ? '－' : '＋';
+            });
+        });
+    </script>
+
+
+    <!-- モバイル固定フッターバー（contact.html以外） -->
+    <div id="mobile-cta-bar" class="fixed bottom-0 left-0 right-0 border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.12)]" style="z-index:9999; display:none;">
+        <div class="grid grid-cols-2 shadow-2xl">
+            <a href="/contact"
+               class="flex flex-col items-center justify-center gap-1 bg-omu-pink py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">メールで相談</span>
+                <span class="text-xs font-bold text-white">フォームはこちら</span>
+            </a>
+            <a href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+               class="flex flex-col items-center justify-center gap-1 bg-[#06C755] py-3 text-center active:opacity-80">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/>
+                </svg>
+                <span class="text-xs font-bold tracking-wider text-white">LINEで相談</span>
+                <span class="text-xs font-bold text-white">友だち追加はこちら</span>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- PC用フローティングLINEボタン -->
+    <a id="line-float-btn" href="https://lin.ee/oKkXtFw" target="_blank" rel="noopener"
+       class="hidden lg:flex items-center gap-2 fixed bottom-6 right-6 bg-[#06C755] text-white font-bold text-sm px-5 py-3 rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
+       style="z-index:9998; opacity:0; pointer-events:none; transition:opacity .3s;">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.03 2 11c0 3.07 1.6 5.78 4.08 7.5L5 22l4.27-1.5C10.4 20.83 11.19 21 12 21c5.52 0 10-4.03 10-9S17.52 2 12 2zm4.5 12.5h-9v-1.5h9v1.5zm0-3h-9V10h9v1.5zm0-3h-9V7h9v1.5z"/>
+        </svg>
+        LINEで相談
+    </a>
+    <script>
+      (function() {
+        var btn = document.getElementById('line-float-btn');
+        if (!btn) return;
+        function onScroll() {
+          var y = window.scrollY || document.documentElement.scrollTop;
+          if (y > 400) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+          else { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+
+    <!-- GA4 イベントトラッキング -->
+    <script>
+      (function() {
+        // gtagが読み込まれていない場合は何もしない（安全装置）
+        if (typeof gtag !== 'function') return;
+
+        // ① 電話番号タップを追跡
+        document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'phone_call_click', {
+              event_category: 'engagement',
+              event_label: el.getAttribute('href').replace('tel:', ''),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ② LINEリンクのクリックを追跡
+        document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function(el) {
+          el.addEventListener('click', function() {
+            gtag('event', 'line_click', {
+              event_category: 'engagement',
+              event_label: 'LINE',
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // ③ お問い合わせフォーム送信完了を追跡
+        //   送信完了画面(#form-success)の表示変化を監視
+        var successEl = document.getElementById('form-success');
+        if (successEl) {
+          var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(m) {
+              if (m.attributeName === 'class' && !successEl.classList.contains('hidden')) {
+                gtag('event', 'form_submit_success', {
+                  event_category: 'conversion',
+                  event_label: 'contact_form'
+                });
+                observer.disconnect(); // 1回だけ計測
+              }
+            });
+          });
+          observer.observe(successEl, { attributes: true });
+        }
+      })();
+    </script>
+
+</body>
+</html>
