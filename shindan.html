@@ -558,6 +558,26 @@ var OCTEXT = '気になった学部があれば、大阪公立大学のオープ
 var OCTEXT2 = 'こういうときこそ、オープンキャンパスで実際のキャンパスや授業を体感すると、興味の芽が見つかることがあります。大阪公立大学でもオープンキャンパスが開かれています（日程は大学の公式サイトで確認できます）。';
 var BASIS = 'この診断は、大阪公立大学の全学部・学科の情報をもとに、大阪公立大学専門 桜灯塾が作りました。結果は興味からの目安です。';
 var st = {started:false, step:0, scores:{}, hist:[], done:false};
+var SD_LINE_ID = "@oubijuku-omu";
+var SD_USE_OA = !(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);
+var SD_ADD_URL = "https://lin.ee/oKkXtFw";
+var sdSoudanText = "";
+function sdSoudanBody(top, second){
+  var L = ["勉強計画の無料相談を希望します。"];
+  if (top) { L.push("学部・学科診断の結果：第1候補 " + top + "／第2候補 " + second); }
+  else { L.push("学部・学科診断の結果：はっきりした傾向は出ませんでした"); }
+  return L.join("\n");
+}
+function sdSoudanHTML(head, top, second){
+  sdSoudanText = sdSoudanBody(top, second);
+  var href = SD_USE_OA ? "https://line.me/R/oaMessage/" + encodeURIComponent(SD_LINE_ID) + "/?" + encodeURIComponent(sdSoudanText) : SD_ADD_URL;
+  return '<div style="background:#FDF2F6;border:2px solid #D75D82;border-radius:16px;padding:22px 18px;margin:20px 0;text-align:center;">' +
+    '<p style="font-size:16px;font-weight:bold;line-height:1.75;margin-bottom:10px;">' + head + '</p>' +
+    '<p style="font-size:13.5px;line-height:1.9;margin-bottom:16px;">診断の結果は、このままLINEに送れます。相談は無料で、オンライン（Zoom）でも教室でもできます。</p>' +
+    '<a data-shindan-soudan="' + (top || '（傾向なし）') + '" href="' + href + '" target="_blank" rel="noopener" style="display:block;padding:15px 12px;background:#06C755;color:#fff;font-size:16px;font-weight:bold;text-align:center;border-radius:30px;text-decoration:none;">LINEで無料相談を申し込む</a>' +
+    '<button id="shindan-soudan-copy" type="button" style="display:none;width:100%;margin-top:8px;padding:12px;font-size:15px;border:2px solid #D75D82;background:#FFFFFF;color:#D75D82;border-radius:30px;cursor:pointer;">申込内容をコピーする</button>' +
+    '<p style="margin:12px 0 0;font-size:13px;">入塾のご案内は、聞かれたときだけお話しします。</p></div>';
+}
 var app = document.getElementById('shindan-app');
 function track(name, params){ if(window.gtag){ gtag('event', name, params || {}); } }
 function encourage(step){
@@ -585,8 +605,7 @@ function render(){
     return;
   }
   var ctas =
-    '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">' +
-    '<a href="https://lin.ee/oKkXtFw" data-shindan-line style="background:#06C755;color:#fff;font-size:13px;font-weight:bold;padding:11px 20px;border-radius:999px;text-decoration:none;">公式LINEで相談する</a>' +
+    '<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:18px;">' +
     '<a href="/contact" style="border:1px solid #E5007F;color:#E5007F;font-size:13px;font-weight:bold;padding:11px 20px;border-radius:999px;text-decoration:none;">無料相談を申し込む</a>' +
     '<button id="shindan-restart" style="border:none;background:none;color:#B98A9A;font-size:13px;cursor:pointer;text-decoration:underline;">もう一度やる</button></div>';
   if(st.done){
@@ -600,6 +619,7 @@ function render(){
         '<h2 style="font-size:20px;font-weight:bold;line-height:1.6;margin-bottom:12px;">今回は、はっきりした傾向が出ませんでした</h2>' +
         '<p style="font-size:14px;line-height:1.9;margin-bottom:12px;">興味がまだ定まっていない時期は、それが普通です。学部の一覧を眺めて「なんか気になる」から始めるのも立派な探し方です。迷ったら、無料相談やLINEで一緒に整理しましょう。</p>' +
         '<p style="font-size:14px;line-height:1.9;margin-bottom:16px;">' + OCTEXT2 + '</p>' +
+        sdSoudanHTML('学部が決まらなくても大丈夫です。興味の整理と、これからの勉強の進め方を、塾長と30分で決めませんか。', null, null) +
         '<p style="margin-bottom:20px;"><a href="/gakubu" style="color:#E5007F;font-weight:bold;">学部・学科の一覧を見る →</a></p>' +
         '<p style="font-size:13px;margin-bottom:20px;">コースと料金が気になったら → <a href=\"/fee-list\" style=\"color:#E5007F;font-weight:bold;\">料金表を見る</a></p>' + ctas + '</div>';
     } else {
@@ -627,14 +647,15 @@ function render(){
         '<p style="font-size:12px;color:#E5007F;font-weight:bold;margin-bottom:6px;">診断結果が出ました</p>' +
         '<h2 style="font-size:21px;font-weight:bold;">あなたに合いそうなのは…</h2></div>' +
         card(t1, 1) + card(t2, 2) +
+        sdSoudanHTML('合う学部は出ました。その学部へ向けて何を勉強するか、塾長と30分で決めませんか。', g1.name, g2.name) +
         '<p style="font-size:12px;color:#A87C8C;line-height:1.85;margin-bottom:12px;">※配点や難しさは学部で大きく違うので、気になった学部のページで入試情報を確かめてみてください。迷ったら、無料相談やLINEで聞いてください。</p>' +
         '<p style="font-size:13px;margin-bottom:16px;">コースと料金が気になったら → <a href=\"/fee-list\" style=\"color:#E5007F;font-weight:bold;\">料金表を見る</a></p>' +
+        ctas +
         '<div class="sd-rcard" style="font-size:13px;line-height:1.9;">' + OCTEXT + '</div>' +
         '<div style="display:flex;gap:8px;align-items:center;margin-bottom:18px;"><span style="font-size:12px;color:#A87C8C;">結果をシェアする</span>' +
         '<a href="https://social-plugins.line.me/lineit/share?url=' + shareUrl + '&text=' + shareText + '" style="border:1px solid #06C755;color:#06C755;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">LINE</a>' +
         '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" style="border:1px solid #E3C6D2;color:#8a6a75;font-size:12px;font-weight:bold;padding:6px 14px;border-radius:999px;text-decoration:none;">X</a></div>' +
         '<div style="margin-bottom:18px;"><button id="shindan-card" type="button" style="background:#E5007F;color:#fff;border:none;font-size:13px;font-weight:bold;padding:11px 20px;border-radius:999px;cursor:pointer;">結果カードを保存する</button><span style="font-size:12px;color:#A87C8C;margin-left:10px;">画像で保存して、記録や共有に使えます</span></div>' +
-        ctas +
         '<p style="font-size:11px;color:#C4A3B0;margin-top:14px;line-height:1.7;">' + BASIS + '</p>' +
         '<p style="font-size:11px;color:#C4A3B0;margin-top:10px;">学部・学科診断｜大阪公立大学専門 桜灯塾 oubijuku-omu.com/shindan</p></div>';
       var cardBtn = document.getElementById('shindan-card');
@@ -704,6 +725,16 @@ function render(){
         });
       }
     }
+    var scp = document.getElementById('shindan-soudan-copy');
+    if(scp && !SD_USE_OA){
+      scp.style.display = 'block';
+      scp.addEventListener('click', function(){
+        var self = this;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(sdSoudanText).then(function(){ self.textContent = 'コピーしました。LINEに貼り付けて送ってください'; });
+        }
+      });
+    }
     var r = document.getElementById('shindan-restart');
     if(r){ r.addEventListener('click', function(){ st = {started:true, step:0, scores:{}, hist:[], done:false}; render(); }); }
     return;
@@ -761,6 +792,8 @@ app.addEventListener('click', function(e){
   if(a2){ track('shindan_article_click', {article: a2.getAttribute('data-shindan-article')}); }
   var l = e.target.closest('[data-shindan-line]');
   if(l){ track('shindan_line_click'); track('line_click', {source: 'shindan'}); }
+  var sd = e.target.closest('[data-shindan-soudan]');
+  if(sd){ track('shindan_soudan_click', {result_top: sd.getAttribute('data-shindan-soudan')}); }
 });
 render();
 })();
